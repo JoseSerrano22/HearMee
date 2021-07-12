@@ -85,8 +85,8 @@ A social networking app but the main element is by using voice. You can create m
 
 
 ## Wireframes
-[Add picture of your hand sketched wireframes in this section]
-<img src="wireframe-hand.jpg" width=600>
+
+<img src="wireframe-hand.jpeg" width=600>
 
 ### [BONUS] Digital Wireframes & Mockups
 
