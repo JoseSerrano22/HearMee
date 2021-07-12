@@ -3,10 +3,11 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3429800B0817096EE17F3E03 /* Pods_HearMee_HearMeeUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 432B648946E385AC0FDF7194 /* Pods_HearMee_HearMeeUITests.framework */; };
 		71D27482269CA2C90063780C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 71D27481269CA2C90063780C /* AppDelegate.m */; };
 		71D27485269CA2C90063780C /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 71D27484269CA2C90063780C /* SceneDelegate.m */; };
 		71D2748B269CA2C90063780C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 71D27489269CA2C90063780C /* Main.storyboard */; };
@@ -15,6 +16,10 @@
 		71D27493269CA2CA0063780C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 71D27492269CA2CA0063780C /* main.m */; };
 		71D2749D269CA2CA0063780C /* HearMeeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 71D2749C269CA2CA0063780C /* HearMeeTests.m */; };
 		71D274A8269CA2CA0063780C /* HearMeeUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 71D274A7269CA2CA0063780C /* HearMeeUITests.m */; };
+		71D274BA269CBE080063780C /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 71D274B9269CBE080063780C /* LoginViewController.m */; };
+		71F73762269CC13500C25ED3 /* Keys.plist in Resources */ = {isa = PBXBuildFile; fileRef = 71F73761269CC13500C25ED3 /* Keys.plist */; };
+		750E133AE38E65DD29EC4BD5 /* Pods_HearMeeTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E053D249A39C0FB713E5B0DC /* Pods_HearMeeTests.framework */; };
+		E836358D68FE143A53AB702D /* Pods_HearMee.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD2DA784993E191BA1B52E43 /* Pods_HearMee.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,6 +40,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		432B648946E385AC0FDF7194 /* Pods_HearMee_HearMeeUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HearMee_HearMeeUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		49C94BCF573F200948C86AE7 /* Pods-HearMee.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HearMee.release.xcconfig"; path = "Target Support Files/Pods-HearMee/Pods-HearMee.release.xcconfig"; sourceTree = "<group>"; };
+		5D3BAE91A79BD2BB8A873F25 /* Pods-HearMeeTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HearMeeTests.debug.xcconfig"; path = "Target Support Files/Pods-HearMeeTests/Pods-HearMeeTests.debug.xcconfig"; sourceTree = "<group>"; };
 		71D2747D269CA2C90063780C /* HearMee.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HearMee.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		71D27480269CA2C90063780C /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		71D27481269CA2C90063780C /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -51,6 +59,15 @@
 		71D274A3269CA2CA0063780C /* HearMeeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HearMeeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		71D274A7269CA2CA0063780C /* HearMeeUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HearMeeUITests.m; sourceTree = "<group>"; };
 		71D274A9269CA2CA0063780C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		71D274B8269CBE080063780C /* LoginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		71D274B9269CBE080063780C /* LoginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		71F73761269CC13500C25ED3 /* Keys.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Keys.plist; sourceTree = "<group>"; };
+		8B5148E081BC362770E1C200 /* Pods-HearMeeTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HearMeeTests.release.xcconfig"; path = "Target Support Files/Pods-HearMeeTests/Pods-HearMeeTests.release.xcconfig"; sourceTree = "<group>"; };
+		B34B5FB92E36B85CC874C5F8 /* Pods-HearMee-HearMeeUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HearMee-HearMeeUITests.debug.xcconfig"; path = "Target Support Files/Pods-HearMee-HearMeeUITests/Pods-HearMee-HearMeeUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		CD0B26360546ACFE699F2A5A /* Pods-HearMee.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HearMee.debug.xcconfig"; path = "Target Support Files/Pods-HearMee/Pods-HearMee.debug.xcconfig"; sourceTree = "<group>"; };
+		D8996E28F8B9C2B3CEE9C32B /* Pods-HearMee-HearMeeUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HearMee-HearMeeUITests.release.xcconfig"; path = "Target Support Files/Pods-HearMee-HearMeeUITests/Pods-HearMee-HearMeeUITests.release.xcconfig"; sourceTree = "<group>"; };
+		E053D249A39C0FB713E5B0DC /* Pods_HearMeeTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HearMeeTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FD2DA784993E191BA1B52E43 /* Pods_HearMee.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HearMee.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +75,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E836358D68FE143A53AB702D /* Pods_HearMee.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -65,6 +83,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				750E133AE38E65DD29EC4BD5 /* Pods_HearMeeTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -72,6 +91,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3429800B0817096EE17F3E03 /* Pods_HearMee_HearMeeUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -85,6 +105,8 @@
 				71D2749B269CA2CA0063780C /* HearMeeTests */,
 				71D274A6269CA2CA0063780C /* HearMeeUITests */,
 				71D2747E269CA2C90063780C /* Products */,
+				E093352197449BE9CFC965CC /* Pods */,
+				77EA28186A6149B2DAAD5082 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -101,6 +123,9 @@
 		71D2747F269CA2C90063780C /* HearMee */ = {
 			isa = PBXGroup;
 			children = (
+				71D274B7269CBD560063780C /* Models */,
+				71D274B6269CBD4D0063780C /* Views */,
+				71D274B5269CBD3F0063780C /* View Controllers */,
 				71D27480269CA2C90063780C /* AppDelegate.h */,
 				71D27481269CA2C90063780C /* AppDelegate.m */,
 				71D27483269CA2C90063780C /* SceneDelegate.h */,
@@ -110,6 +135,7 @@
 				71D2748E269CA2CA0063780C /* LaunchScreen.storyboard */,
 				71D27491269CA2CA0063780C /* Info.plist */,
 				71D27492269CA2CA0063780C /* main.m */,
+				71F73761269CC13500C25ED3 /* Keys.plist */,
 			);
 			path = HearMee;
 			sourceTree = "<group>";
@@ -132,6 +158,52 @@
 			path = HearMeeUITests;
 			sourceTree = "<group>";
 		};
+		71D274B5269CBD3F0063780C /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				71D274B8269CBE080063780C /* LoginViewController.h */,
+				71D274B9269CBE080063780C /* LoginViewController.m */,
+			);
+			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		71D274B6269CBD4D0063780C /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		71D274B7269CBD560063780C /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		77EA28186A6149B2DAAD5082 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				FD2DA784993E191BA1B52E43 /* Pods_HearMee.framework */,
+				432B648946E385AC0FDF7194 /* Pods_HearMee_HearMeeUITests.framework */,
+				E053D249A39C0FB713E5B0DC /* Pods_HearMeeTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E093352197449BE9CFC965CC /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				CD0B26360546ACFE699F2A5A /* Pods-HearMee.debug.xcconfig */,
+				49C94BCF573F200948C86AE7 /* Pods-HearMee.release.xcconfig */,
+				B34B5FB92E36B85CC874C5F8 /* Pods-HearMee-HearMeeUITests.debug.xcconfig */,
+				D8996E28F8B9C2B3CEE9C32B /* Pods-HearMee-HearMeeUITests.release.xcconfig */,
+				5D3BAE91A79BD2BB8A873F25 /* Pods-HearMeeTests.debug.xcconfig */,
+				8B5148E081BC362770E1C200 /* Pods-HearMeeTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -139,9 +211,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 71D274AC269CA2CA0063780C /* Build configuration list for PBXNativeTarget "HearMee" */;
 			buildPhases = (
+				A22BBAC085E9C3EB1FE46803 /* [CP] Check Pods Manifest.lock */,
 				71D27479269CA2C90063780C /* Sources */,
 				71D2747A269CA2C90063780C /* Frameworks */,
 				71D2747B269CA2C90063780C /* Resources */,
+				264C918756155301FB529807 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -156,6 +230,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 71D274AF269CA2CA0063780C /* Build configuration list for PBXNativeTarget "HearMeeTests" */;
 			buildPhases = (
+				ADC3F3E7AB5284E5E908E740 /* [CP] Check Pods Manifest.lock */,
 				71D27494269CA2CA0063780C /* Sources */,
 				71D27495269CA2CA0063780C /* Frameworks */,
 				71D27496269CA2CA0063780C /* Resources */,
@@ -174,9 +249,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 71D274B2269CA2CA0063780C /* Build configuration list for PBXNativeTarget "HearMeeUITests" */;
 			buildPhases = (
+				ECA9F2EA6D13A775A0421D1E /* [CP] Check Pods Manifest.lock */,
 				71D2749F269CA2CA0063780C /* Sources */,
 				71D274A0269CA2CA0063780C /* Frameworks */,
 				71D274A1269CA2CA0063780C /* Resources */,
+				BB457EF757593B10224F448C /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -234,6 +311,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				71F73762269CC13500C25ED3 /* Keys.plist in Resources */,
 				71D27490269CA2CA0063780C /* LaunchScreen.storyboard in Resources */,
 				71D2748D269CA2CA0063780C /* Assets.xcassets in Resources */,
 				71D2748B269CA2C90063780C /* Main.storyboard in Resources */,
@@ -256,11 +334,115 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		264C918756155301FB529807 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-HearMee/Pods-HearMee-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-HearMee/Pods-HearMee-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-HearMee/Pods-HearMee-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A22BBAC085E9C3EB1FE46803 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-HearMee-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		ADC3F3E7AB5284E5E908E740 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-HearMeeTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BB457EF757593B10224F448C /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-HearMee-HearMeeUITests/Pods-HearMee-HearMeeUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-HearMee-HearMeeUITests/Pods-HearMee-HearMeeUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-HearMee-HearMeeUITests/Pods-HearMee-HearMeeUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		ECA9F2EA6D13A775A0421D1E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-HearMee-HearMeeUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		71D27479269CA2C90063780C /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				71D274BA269CBE080063780C /* LoginViewController.m in Sources */,
 				71D27482269CA2C90063780C /* AppDelegate.m in Sources */,
 				71D27493269CA2CA0063780C /* main.m in Sources */,
 				71D27485269CA2C90063780C /* SceneDelegate.m in Sources */,
@@ -432,6 +614,7 @@
 		};
 		71D274AD269CA2CA0063780C /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = CD0B26360546ACFE699F2A5A /* Pods-HearMee.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -450,6 +633,7 @@
 		};
 		71D274AE269CA2CA0063780C /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 49C94BCF573F200948C86AE7 /* Pods-HearMee.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -468,6 +652,7 @@
 		};
 		71D274B0269CA2CA0063780C /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5D3BAE91A79BD2BB8A873F25 /* Pods-HearMeeTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
@@ -488,6 +673,7 @@
 		};
 		71D274B1269CA2CA0063780C /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8B5148E081BC362770E1C200 /* Pods-HearMeeTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
@@ -508,6 +694,7 @@
 		};
 		71D274B3269CA2CA0063780C /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B34B5FB92E36B85CC874C5F8 /* Pods-HearMee-HearMeeUITests.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 9982BNUYMZ;
@@ -526,6 +713,7 @@
 		};
 		71D274B4269CA2CA0063780C /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D8996E28F8B9C2B3CEE9C32B /* Pods-HearMee-HearMeeUITests.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 9982BNUYMZ;

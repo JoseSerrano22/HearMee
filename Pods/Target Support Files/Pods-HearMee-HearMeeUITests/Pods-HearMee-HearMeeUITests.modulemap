@@ -1,0 +1,6 @@
+framework module Pods_HearMee_HearMeeUITests {
+  umbrella header "Pods-HearMee-HearMeeUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}
