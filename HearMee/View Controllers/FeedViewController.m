@@ -6,6 +6,9 @@
 //
 
 #import "FeedViewController.h"
+#import "LoginViewController.h"
+#import "AppDelegate.h"
+#import "Parse/Parse.h"
 
 @interface FeedViewController ()
 
@@ -16,6 +19,16 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+}
+
+- (IBAction)_logOutDidTap:(id)sender {
+    
+    [PFUser logOutInBackgroundWithBlock:^(NSError * _Nullable error) {
+        UIStoryboard *const storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        LoginViewController *const loginViewController = [storyboard instantiateViewControllerWithIdentifier:@"LoginViewController"];
+        [[UIApplication sharedApplication].keyWindow setRootViewController: loginViewController];
+        NSLog(@"Logged out!");
+    }];
 }
 
 /*

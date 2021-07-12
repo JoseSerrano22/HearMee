@@ -150,7 +150,18 @@
                         <viewLayoutGuide key="safeArea" id="ncd-1h-ZQf"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <navigationItem key="navigationItem" id="f6l-bX-fFN"/>
+                    <navigationItem key="navigationItem" id="f6l-bX-fFN">
+                        <barButtonItem key="leftBarButtonItem" style="plain" id="vfv-N3-7Sn">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="MZg-kD-a13">
+                                <rect key="frame" x="16" y="7" width="86" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Log Out"/>
+                                <connections>
+                                    <action selector="_logOutDidTap:" destination="wnZ-jE-peL" eventType="touchUpInside" id="lSZ-he-bz8"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="erd-Ad-M8a" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
