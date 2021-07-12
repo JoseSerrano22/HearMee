@@ -1,0 +1,593 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		71D27482269CA2C90063780C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 71D27481269CA2C90063780C /* AppDelegate.m */; };
+		71D27485269CA2C90063780C /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 71D27484269CA2C90063780C /* SceneDelegate.m */; };
+		71D27488269CA2C90063780C /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 71D27487269CA2C90063780C /* ViewController.m */; };
+		71D2748B269CA2C90063780C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 71D27489269CA2C90063780C /* Main.storyboard */; };
+		71D2748D269CA2CA0063780C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 71D2748C269CA2CA0063780C /* Assets.xcassets */; };
+		71D27490269CA2CA0063780C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 71D2748E269CA2CA0063780C /* LaunchScreen.storyboard */; };
+		71D27493269CA2CA0063780C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 71D27492269CA2CA0063780C /* main.m */; };
+		71D2749D269CA2CA0063780C /* HearMeeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 71D2749C269CA2CA0063780C /* HearMeeTests.m */; };
+		71D274A8269CA2CA0063780C /* HearMeeUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 71D274A7269CA2CA0063780C /* HearMeeUITests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		71D27499269CA2CA0063780C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 71D27475269CA2C90063780C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 71D2747C269CA2C90063780C;
+			remoteInfo = HearMee;
+		};
+		71D274A4269CA2CA0063780C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 71D27475269CA2C90063780C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 71D2747C269CA2C90063780C;
+			remoteInfo = HearMee;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		71D2747D269CA2C90063780C /* HearMee.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HearMee.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		71D27480269CA2C90063780C /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		71D27481269CA2C90063780C /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		71D27483269CA2C90063780C /* SceneDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SceneDelegate.h; sourceTree = "<group>"; };
+		71D27484269CA2C90063780C /* SceneDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SceneDelegate.m; sourceTree = "<group>"; };
+		71D27486269CA2C90063780C /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		71D27487269CA2C90063780C /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		71D2748A269CA2C90063780C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		71D2748C269CA2CA0063780C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		71D2748F269CA2CA0063780C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		71D27491269CA2CA0063780C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		71D27492269CA2CA0063780C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		71D27498269CA2CA0063780C /* HearMeeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HearMeeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		71D2749C269CA2CA0063780C /* HearMeeTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HearMeeTests.m; sourceTree = "<group>"; };
+		71D2749E269CA2CA0063780C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		71D274A3269CA2CA0063780C /* HearMeeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HearMeeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		71D274A7269CA2CA0063780C /* HearMeeUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HearMeeUITests.m; sourceTree = "<group>"; };
+		71D274A9269CA2CA0063780C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		71D2747A269CA2C90063780C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		71D27495269CA2CA0063780C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		71D274A0269CA2CA0063780C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		71D27474269CA2C90063780C = {
+			isa = PBXGroup;
+			children = (
+				71D2747F269CA2C90063780C /* HearMee */,
+				71D2749B269CA2CA0063780C /* HearMeeTests */,
+				71D274A6269CA2CA0063780C /* HearMeeUITests */,
+				71D2747E269CA2C90063780C /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		71D2747E269CA2C90063780C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				71D2747D269CA2C90063780C /* HearMee.app */,
+				71D27498269CA2CA0063780C /* HearMeeTests.xctest */,
+				71D274A3269CA2CA0063780C /* HearMeeUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		71D2747F269CA2C90063780C /* HearMee */ = {
+			isa = PBXGroup;
+			children = (
+				71D27480269CA2C90063780C /* AppDelegate.h */,
+				71D27481269CA2C90063780C /* AppDelegate.m */,
+				71D27483269CA2C90063780C /* SceneDelegate.h */,
+				71D27484269CA2C90063780C /* SceneDelegate.m */,
+				71D27486269CA2C90063780C /* ViewController.h */,
+				71D27487269CA2C90063780C /* ViewController.m */,
+				71D27489269CA2C90063780C /* Main.storyboard */,
+				71D2748C269CA2CA0063780C /* Assets.xcassets */,
+				71D2748E269CA2CA0063780C /* LaunchScreen.storyboard */,
+				71D27491269CA2CA0063780C /* Info.plist */,
+				71D27492269CA2CA0063780C /* main.m */,
+			);
+			path = HearMee;
+			sourceTree = "<group>";
+		};
+		71D2749B269CA2CA0063780C /* HearMeeTests */ = {
+			isa = PBXGroup;
+			children = (
+				71D2749C269CA2CA0063780C /* HearMeeTests.m */,
+				71D2749E269CA2CA0063780C /* Info.plist */,
+			);
+			path = HearMeeTests;
+			sourceTree = "<group>";
+		};
+		71D274A6269CA2CA0063780C /* HearMeeUITests */ = {
+			isa = PBXGroup;
+			children = (
+				71D274A7269CA2CA0063780C /* HearMeeUITests.m */,
+				71D274A9269CA2CA0063780C /* Info.plist */,
+			);
+			path = HearMeeUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		71D2747C269CA2C90063780C /* HearMee */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 71D274AC269CA2CA0063780C /* Build configuration list for PBXNativeTarget "HearMee" */;
+			buildPhases = (
+				71D27479269CA2C90063780C /* Sources */,
+				71D2747A269CA2C90063780C /* Frameworks */,
+				71D2747B269CA2C90063780C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = HearMee;
+			productName = HearMee;
+			productReference = 71D2747D269CA2C90063780C /* HearMee.app */;
+			productType = "com.apple.product-type.application";
+		};
+		71D27497269CA2CA0063780C /* HearMeeTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 71D274AF269CA2CA0063780C /* Build configuration list for PBXNativeTarget "HearMeeTests" */;
+			buildPhases = (
+				71D27494269CA2CA0063780C /* Sources */,
+				71D27495269CA2CA0063780C /* Frameworks */,
+				71D27496269CA2CA0063780C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				71D2749A269CA2CA0063780C /* PBXTargetDependency */,
+			);
+			name = HearMeeTests;
+			productName = HearMeeTests;
+			productReference = 71D27498269CA2CA0063780C /* HearMeeTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		71D274A2269CA2CA0063780C /* HearMeeUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 71D274B2269CA2CA0063780C /* Build configuration list for PBXNativeTarget "HearMeeUITests" */;
+			buildPhases = (
+				71D2749F269CA2CA0063780C /* Sources */,
+				71D274A0269CA2CA0063780C /* Frameworks */,
+				71D274A1269CA2CA0063780C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				71D274A5269CA2CA0063780C /* PBXTargetDependency */,
+			);
+			name = HearMeeUITests;
+			productName = HearMeeUITests;
+			productReference = 71D274A3269CA2CA0063780C /* HearMeeUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		71D27475269CA2C90063780C /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 1250;
+				TargetAttributes = {
+					71D2747C269CA2C90063780C = {
+						CreatedOnToolsVersion = 12.5.1;
+					};
+					71D27497269CA2CA0063780C = {
+						CreatedOnToolsVersion = 12.5.1;
+						TestTargetID = 71D2747C269CA2C90063780C;
+					};
+					71D274A2269CA2CA0063780C = {
+						CreatedOnToolsVersion = 12.5.1;
+						TestTargetID = 71D2747C269CA2C90063780C;
+					};
+				};
+			};
+			buildConfigurationList = 71D27478269CA2C90063780C /* Build configuration list for PBXProject "HearMee" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 71D27474269CA2C90063780C;
+			productRefGroup = 71D2747E269CA2C90063780C /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				71D2747C269CA2C90063780C /* HearMee */,
+				71D27497269CA2CA0063780C /* HearMeeTests */,
+				71D274A2269CA2CA0063780C /* HearMeeUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		71D2747B269CA2C90063780C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				71D27490269CA2CA0063780C /* LaunchScreen.storyboard in Resources */,
+				71D2748D269CA2CA0063780C /* Assets.xcassets in Resources */,
+				71D2748B269CA2C90063780C /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		71D27496269CA2CA0063780C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		71D274A1269CA2CA0063780C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		71D27479269CA2C90063780C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				71D27488269CA2C90063780C /* ViewController.m in Sources */,
+				71D27482269CA2C90063780C /* AppDelegate.m in Sources */,
+				71D27493269CA2CA0063780C /* main.m in Sources */,
+				71D27485269CA2C90063780C /* SceneDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		71D27494269CA2CA0063780C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				71D2749D269CA2CA0063780C /* HearMeeTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		71D2749F269CA2CA0063780C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				71D274A8269CA2CA0063780C /* HearMeeUITests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		71D2749A269CA2CA0063780C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 71D2747C269CA2C90063780C /* HearMee */;
+			targetProxy = 71D27499269CA2CA0063780C /* PBXContainerItemProxy */;
+		};
+		71D274A5269CA2CA0063780C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 71D2747C269CA2C90063780C /* HearMee */;
+			targetProxy = 71D274A4269CA2CA0063780C /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		71D27489269CA2C90063780C /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				71D2748A269CA2C90063780C /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		71D2748E269CA2CA0063780C /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				71D2748F269CA2CA0063780C /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		71D274AA269CA2CA0063780C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		71D274AB269CA2CA0063780C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		71D274AD269CA2CA0063780C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 9982BNUYMZ;
+				INFOPLIST_FILE = HearMee/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.jose-serrano.HearMee";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		71D274AE269CA2CA0063780C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 9982BNUYMZ;
+				INFOPLIST_FILE = HearMee/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.jose-serrano.HearMee";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		71D274B0269CA2CA0063780C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 9982BNUYMZ;
+				INFOPLIST_FILE = HearMeeTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.jose-serrano.HearMeeTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/HearMee.app/HearMee";
+			};
+			name = Debug;
+		};
+		71D274B1269CA2CA0063780C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 9982BNUYMZ;
+				INFOPLIST_FILE = HearMeeTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.jose-serrano.HearMeeTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/HearMee.app/HearMee";
+			};
+			name = Release;
+		};
+		71D274B3269CA2CA0063780C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 9982BNUYMZ;
+				INFOPLIST_FILE = HearMeeUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.jose-serrano.HearMeeUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = HearMee;
+			};
+			name = Debug;
+		};
+		71D274B4269CA2CA0063780C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 9982BNUYMZ;
+				INFOPLIST_FILE = HearMeeUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.jose-serrano.HearMeeUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = HearMee;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		71D27478269CA2C90063780C /* Build configuration list for PBXProject "HearMee" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				71D274AA269CA2CA0063780C /* Debug */,
+				71D274AB269CA2CA0063780C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		71D274AC269CA2CA0063780C /* Build configuration list for PBXNativeTarget "HearMee" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				71D274AD269CA2CA0063780C /* Debug */,
+				71D274AE269CA2CA0063780C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		71D274AF269CA2CA0063780C /* Build configuration list for PBXNativeTarget "HearMeeTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				71D274B0269CA2CA0063780C /* Debug */,
+				71D274B1269CA2CA0063780C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		71D274B2269CA2CA0063780C /* Build configuration list for PBXNativeTarget "HearMeeUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				71D274B3269CA2CA0063780C /* Debug */,
+				71D274B4269CA2CA0063780C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 71D27475269CA2C90063780C /* Project object */;
+}
