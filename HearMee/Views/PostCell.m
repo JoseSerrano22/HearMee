@@ -14,13 +14,13 @@
     
     self.profileImage.layer.cornerRadius = self.profileImage.frame.size.width / 2;
     self.profileImage.clipsToBounds = YES;
-    PFUser *const postAuthor = self.post.author;
-    [postAuthor fetchInBackgroundWithBlock:^(PFObject * _Nullable object, NSError * _Nullable error) {
-        PFFileObject *const image = postAuthor[@"profile_image"];
-        NSURL *const url = [NSURL URLWithString:image.url];
-        [self.profileImage setImageWithURL:url];
-    }];
-
+    //    PFUser *const postAuthor = self.post.author;
+    //    [postAuthor fetchInBackgroundWithBlock:^(PFObject * _Nullable object, NSError * _Nullable error) {
+    //        PFFileObject *const image = postAuthor[@"profile_image"];
+    //        NSURL *const url = [NSURL URLWithString:image.url];
+    //        [self.profileImage setImageWithURL:url];
+    //    }];
+    
     [post.image getDataInBackgroundWithBlock:^(NSData * _Nullable data, NSError * _Nullable error) {
         if (!error) {
             self.postImage.image = [UIImage imageWithData:data];
@@ -34,13 +34,20 @@
     self.commentLabel.text = [NSString stringWithFormat:@"%@", self.post.commentCount];
     self.likeButton.selected = [self.post.likedByUsername containsObject:PFUser.currentUser.objectId];
     
-    
+    //    [self.post fetchInBackgroundWithBlock:^(PFObject * _Nullable object, NSError * _Nullable error) {
+    //        if (!error) {
+    //            PFFileObject *const audioObject = post.audio;
+    //            NSURL *const url = [NSURL URLWithString:audioObject.url];
+    //            [self.audioPost set:url];
+    //            self.audioPost = [[AVAudioFile alloc] initForReading:data error:nil];
+    //        }
+    //    }];
     
     NSString *const createdAtOriginalString = self.timestampLabel.text = [NSString stringWithFormat:@"%@", post.createdAt];
     NSDateFormatter *const formatter = [[NSDateFormatter alloc] init];
-
+    
     formatter.dateFormat = @"YYYY-MM-dd HH:mm:ss z";
-
+    
     NSDate *const date = [formatter dateFromString:createdAtOriginalString];
     NSDate *const now = [NSDate date];
     NSInteger timeApart = [now hoursFrom:date];
@@ -76,5 +83,20 @@
     self.likeLabel.text = [NSString stringWithFormat:@"%@", self.post.likeCount];
     
 }
+
+- (IBAction)playAudioDidTap:(id)sender {
+    
+    [self.post fetchInBackgroundWithBlock:^(PFObject * _Nullable object, NSError * _Nullable error) {
+        if (!error) {
+            PFFileObject *const audioObject = self.post.audio;
+            NSURL *const url = [NSURL URLWithString:audioObject.url];
+            NSData *data = [NSData dataWithContentsOfURL:url];
+            self.player = [[AVAudioPlayer alloc] initWithData:data error:nil];
+            [self.player play];
+        }
+    }];
+    
+}
+
 
 @end

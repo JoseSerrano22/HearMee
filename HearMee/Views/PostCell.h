@@ -27,8 +27,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) IBOutlet UILabel *captionLabel;
 @property (weak, nonatomic) IBOutlet UIButton *playAudioButton;
 
-
+@property (nonatomic, strong) AVAudioFile *audioPost;
 @property (strong, nonatomic) Post *post;
+@property (nonatomic,strong) AVAudioPlayer *player;
 
 -(void)setPost:(Post *)post;
 

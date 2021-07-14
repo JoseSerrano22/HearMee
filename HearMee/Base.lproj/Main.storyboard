@@ -312,6 +312,9 @@
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pFp-hx-QNN">
                                                                 <rect key="frame" x="172" y="172" width="30" height="30"/>
                                                                 <state key="normal" title="Play"/>
+                                                                <connections>
+                                                                    <action selector="playAudioDidTap:" destination="Aqi-KO-Kpv" eventType="touchUpInside" id="0FY-5z-Y78"/>
+                                                                </connections>
                                                             </button>
                                                         </subviews>
                                                     </view>
@@ -385,6 +388,9 @@
                             </button>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="tableView" destination="pav-NP-ncc" id="GdH-xi-dav"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="erd-Ad-M8a" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
