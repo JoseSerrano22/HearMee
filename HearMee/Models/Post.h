@@ -25,6 +25,7 @@
 @property (nonatomic, strong) NSMutableArray *likedByUsername;
 
 + (void) postUserAudio: ( AVAudioFile * _Nullable )audio withImage: ( UIImage * _Nullable )image withCaption: ( NSString * _Nullable )caption withCompletion: (PFBooleanResultBlock  _Nullable)completion;
+
 - (void) like;
 - (void) unlike;
 @end

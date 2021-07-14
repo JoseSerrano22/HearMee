@@ -313,7 +313,7 @@
                                                                 <rect key="frame" x="172" y="172" width="30" height="30"/>
                                                                 <state key="normal" title="Play"/>
                                                                 <connections>
-                                                                    <action selector="playAudioDidTap:" destination="Aqi-KO-Kpv" eventType="touchUpInside" id="0FY-5z-Y78"/>
+                                                                    <action selector="_playAudioDidTap:" destination="Aqi-KO-Kpv" eventType="touchUpInside" id="0FY-5z-Y78"/>
                                                                 </connections>
                                                             </button>
                                                         </subviews>

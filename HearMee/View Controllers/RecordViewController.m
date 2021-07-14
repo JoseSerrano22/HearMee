@@ -18,13 +18,13 @@
 @property (weak, nonatomic) IBOutlet UIButton *const stopButton;
 @property (weak, nonatomic) IBOutlet UIButton *const recordButton;
 
-@property (weak, nonatomic) IBOutlet UIImageView *postImage;
-@property (weak, nonatomic) IBOutlet UITextView *captionTextView;
+@property (weak, nonatomic) IBOutlet UIImageView *const postImage;
+@property (weak, nonatomic) IBOutlet UITextView *const captionTextView;
 
 
-@property (nonatomic,strong) NSArray *path;
-@property (nonatomic,retain) AVAudioRecorder *recorder;
-@property (nonatomic,strong) AVAudioPlayer *player;
+@property (nonatomic,strong) NSArray *const path;
+@property (nonatomic,retain) AVAudioRecorder *const recorder;
+@property (nonatomic,strong) AVAudioPlayer *const player;
 @end
 
 @implementation RecordViewController
@@ -44,14 +44,14 @@
     
     // Set the audio file
     self.path = [NSArray arrayWithObjects:[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject], @"AudioMemo.acc",nil];
-    NSURL *url = [NSURL fileURLWithPathComponents:self.path];
+    NSURL *const url = [NSURL fileURLWithPathComponents:self.path];
     
     // Setup audio session
-    AVAudioSession *session = [AVAudioSession sharedInstance];
+    AVAudioSession *const session = [AVAudioSession sharedInstance];
     [session setCategory:AVAudioSessionCategoryPlayAndRecord error:nil];
     
     // Define the recorder setting
-    NSMutableDictionary *setting = [[NSMutableDictionary alloc]init];
+    NSMutableDictionary *const setting = [[NSMutableDictionary alloc]init];
     [setting setValue:[NSNumber numberWithInteger:kAudioFormatMPEG4AAC] forKey:AVFormatIDKey];
     [setting setValue:[NSNumber numberWithFloat:44100.0] forKey:AVSampleRateKey];
     [setting setValue:[NSNumber numberWithInteger:2] forKey:AVNumberOfChannelsKey];
@@ -102,8 +102,7 @@
 }
 
 - (IBAction)_shareDidTap:(id)sender {
-//    NSData *audioData = [NSData dataWithContentsOfURL:self.recorder.url];
-    AVAudioFile *audioFile = [[AVAudioFile alloc] initForReading:self.recorder.url error:nil];
+    AVAudioFile *const audioFile = [[AVAudioFile alloc] initForReading:self.recorder.url error:nil];
     UIImage *const resizeImage = [self _resizeImage:self.postImage.image withSize:CGSizeMake(400, 400)];
     [Post postUserAudio:audioFile withImage:resizeImage withCaption:self.captionTextView.text withCompletion:nil];
 }
@@ -130,11 +129,11 @@
     imagePickerVC.allowsEditing = YES;
     
     UIAlertController *const usernameAlert = [UIAlertController alertControllerWithTitle:@"Choose"
-                                                                           message:@""
-                                                                    preferredStyle:(UIAlertControllerStyleAlert)];
+                                                                                 message:@""
+                                                                          preferredStyle:(UIAlertControllerStyleAlert)];
     UIAlertAction *const takePhotoAction = [UIAlertAction actionWithTitle:@"Take Photo"
-                                                              style:UIAlertActionStyleDefault
-                                                            handler:^(UIAlertAction * _Nonnull action) {
+                                                                    style:UIAlertActionStyleDefault
+                                                                  handler:^(UIAlertAction * _Nonnull action) {
         
         if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
             imagePickerVC.sourceType = UIImagePickerControllerSourceTypeCamera;
@@ -148,8 +147,8 @@
     [usernameAlert addAction:takePhotoAction];
     
     UIAlertAction *const cameraRollAction = [UIAlertAction actionWithTitle:@"Camera Roll"
-                                                               style:UIAlertActionStyleDefault
-                                                             handler:^(UIAlertAction * _Nonnull action) {
+                                                                     style:UIAlertActionStyleDefault
+                                                                   handler:^(UIAlertAction * _Nonnull action) {
         
         imagePickerVC.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
         [self presentViewController:imagePickerVC animated:YES completion:nil];

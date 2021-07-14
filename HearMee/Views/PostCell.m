@@ -34,15 +34,6 @@
     self.commentLabel.text = [NSString stringWithFormat:@"%@", self.post.commentCount];
     self.likeButton.selected = [self.post.likedByUsername containsObject:PFUser.currentUser.objectId];
     
-    //    [self.post fetchInBackgroundWithBlock:^(PFObject * _Nullable object, NSError * _Nullable error) {
-    //        if (!error) {
-    //            PFFileObject *const audioObject = post.audio;
-    //            NSURL *const url = [NSURL URLWithString:audioObject.url];
-    //            [self.audioPost set:url];
-    //            self.audioPost = [[AVAudioFile alloc] initForReading:data error:nil];
-    //        }
-    //    }];
-    
     NSString *const createdAtOriginalString = self.timestampLabel.text = [NSString stringWithFormat:@"%@", post.createdAt];
     NSDateFormatter *const formatter = [[NSDateFormatter alloc] init];
     
@@ -84,13 +75,13 @@
     
 }
 
-- (IBAction)playAudioDidTap:(id)sender {
+- (IBAction)_playAudioDidTap:(id)sender {
     
     [self.post fetchInBackgroundWithBlock:^(PFObject * _Nullable object, NSError * _Nullable error) {
         if (!error) {
             PFFileObject *const audioObject = self.post.audio;
             NSURL *const url = [NSURL URLWithString:audioObject.url];
-            NSData *data = [NSData dataWithContentsOfURL:url];
+            NSData *const data = [NSData dataWithContentsOfURL:url];
             self.player = [[AVAudioPlayer alloc] initWithData:data error:nil];
             [self.player play];
         }
