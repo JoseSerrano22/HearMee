@@ -10,6 +10,8 @@
 		3429800B0817096EE17F3E03 /* Pods_HearMee_HearMeeUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 432B648946E385AC0FDF7194 /* Pods_HearMee_HearMeeUITests.framework */; };
 		71CD70CA269D135100F1C990 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71CD70C9269D135100F1C990 /* AVFoundation.framework */; };
 		71CD70CD269DE6BE00F1C990 /* RecordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 71CD70CC269DE6BE00F1C990 /* RecordViewController.m */; };
+		71CD70D0269E034300F1C990 /* Post.m in Sources */ = {isa = PBXBuildFile; fileRef = 71CD70CF269E034300F1C990 /* Post.m */; };
+		71CD70D3269F39B900F1C990 /* PostCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 71CD70D2269F39B900F1C990 /* PostCell.m */; };
 		71D27482269CA2C90063780C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 71D27481269CA2C90063780C /* AppDelegate.m */; };
 		71D27485269CA2C90063780C /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 71D27484269CA2C90063780C /* SceneDelegate.m */; };
 		71D2748B269CA2C90063780C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 71D27489269CA2C90063780C /* Main.storyboard */; };
@@ -50,6 +52,10 @@
 		71CD70C9269D135100F1C990 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		71CD70CB269DE6BE00F1C990 /* RecordViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RecordViewController.h; sourceTree = "<group>"; };
 		71CD70CC269DE6BE00F1C990 /* RecordViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RecordViewController.m; sourceTree = "<group>"; };
+		71CD70CE269E034300F1C990 /* Post.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Post.h; sourceTree = "<group>"; };
+		71CD70CF269E034300F1C990 /* Post.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Post.m; sourceTree = "<group>"; };
+		71CD70D1269F39B900F1C990 /* PostCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PostCell.h; sourceTree = "<group>"; };
+		71CD70D2269F39B900F1C990 /* PostCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PostCell.m; sourceTree = "<group>"; };
 		71D2747D269CA2C90063780C /* HearMee.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HearMee.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		71D27480269CA2C90063780C /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		71D27481269CA2C90063780C /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -184,6 +190,8 @@
 		71D274B6269CBD4D0063780C /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				71CD70D1269F39B900F1C990 /* PostCell.h */,
+				71CD70D2269F39B900F1C990 /* PostCell.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -191,6 +199,8 @@
 		71D274B7269CBD560063780C /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				71CD70CE269E034300F1C990 /* Post.h */,
+				71CD70CF269E034300F1C990 /* Post.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -461,9 +471,11 @@
 				71D274BA269CBE080063780C /* LoginViewController.m in Sources */,
 				71F73765269CE3B200C25ED3 /* FeedViewController.m in Sources */,
 				71D27482269CA2C90063780C /* AppDelegate.m in Sources */,
+				71CD70D3269F39B900F1C990 /* PostCell.m in Sources */,
 				71CD70CD269DE6BE00F1C990 /* RecordViewController.m in Sources */,
 				71D27493269CA2CA0063780C /* main.m in Sources */,
 				71D27485269CA2C90063780C /* SceneDelegate.m in Sources */,
+				71CD70D0269E034300F1C990 /* Post.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
