@@ -586,7 +586,7 @@
                                             <outlet property="profileImage" destination="f1k-HF-jc2" id="Iz0-8B-5Jg"/>
                                             <outlet property="timestampLabel" destination="xU8-wx-bJz" id="E9k-Wu-SBF"/>
                                             <outlet property="usernameLabel" destination="36o-rW-Kch" id="bci-T7-gmM"/>
-                                            <segue destination="Q6f-de-d2s" kind="presentation" id="1rV-ii-Oo2"/>
+                                            <segue destination="Q6f-de-d2s" kind="presentation" identifier="detailsSegue" id="1rV-ii-Oo2"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -920,7 +920,7 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="Nmh-bW-GgW" kind="relationship" relationship="rootViewController" destinationCreationSelector="detailsSegue" id="y14-0b-S4b"/>
+                        <segue destination="Nmh-bW-GgW" kind="relationship" relationship="rootViewController" id="y14-0b-S4b"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="s5w-hY-9Pe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
