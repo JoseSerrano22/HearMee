@@ -7,6 +7,7 @@
 
 #import "FeedViewController.h"
 #import "LoginViewController.h"
+#import "DetailsViewController.h"
 #import "AppDelegate.h"
 #import "Parse/Parse.h"
 #import "Post.h"
@@ -124,14 +125,18 @@
 }
 
 
-/*
- #pragma mark - Navigation
- 
- // In a storyboard-based application, you will often want to do a little preparation before navigation
- - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
- // Get the new view controller using [segue destinationViewController].
- // Pass the selected object to the new view controller.
- }
- */
+#pragma mark - Navigation
+
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([[segue identifier] isEqualToString:@"detailsSegue"]){
+        PostCell *const tappedCell = sender;
+        NSIndexPath *const indexPath = [self.tableView indexPathForCell:tappedCell];
+        Post *const post = self.posts[indexPath.row];
+        UINavigationController *const nav = [segue destinationViewController];
+        DetailsViewController *const detailsViewController = (DetailsViewController *)[nav topViewController];
+        detailsViewController.post = post;
+    }
+}
 
 @end
