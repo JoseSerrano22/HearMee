@@ -91,7 +91,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="40.579710144927539" y="-13.392857142857142"/>
+            <point key="canvasLocation" x="-249" y="-14"/>
         </scene>
         <!--Record View Controller-->
         <scene sceneID="mae-IS-Q95">
@@ -192,10 +192,10 @@
             </objects>
             <point key="canvasLocation" x="2174" y="1509"/>
         </scene>
-        <!--View Controller-->
+        <!--Profile View Controller-->
         <scene sceneID="K7O-Gg-9sJ">
             <objects>
-                <viewController id="LQ0-d8-8Bq" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ProfileViewController" id="LQ0-d8-8Bq" customClass="ProfileViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="nT4-2O-5WU">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -290,7 +290,7 @@
                                         </collectionViewCellContentView>
                                         <size key="customSize" width="138" height="138"/>
                                         <connections>
-                                            <outlet property="postImageView" destination="VCT-dJ-JTV" id="ueI-6K-qkr"/>
+                                            <outlet property="postImage" destination="VCT-dJ-JTV" id="KW6-K1-rTK"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -331,16 +331,105 @@
                     <navigationItem key="navigationItem" id="ML9-aK-GeR">
                         <barButtonItem key="rightBarButtonItem" style="plain" id="Vmf-wk-bfp">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="9Zx-BG-fZq">
-                                <rect key="frame" x="-23" y="-15" width="86" height="30"/>
+                                <rect key="frame" x="288" y="7" width="86" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Edit Profile"/>
+                                <connections>
+                                    <segue destination="ndu-5v-eYi" kind="presentation" id="Zw2-tm-QSV"/>
+                                </connections>
                             </button>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="bioLabel" destination="l3z-OJ-ne5" id="lm0-vC-Aqg"/>
+                        <outlet property="collectionView" destination="eP4-ui-PFQ" id="Tdb-ul-18t"/>
+                        <outlet property="followersCountLabel" destination="puA-Ee-8Ik" id="cCK-Bx-TGs"/>
+                        <outlet property="followingCountLabel" destination="PIR-45-REE" id="vfY-4M-75b"/>
+                        <outlet property="postCountLabel" destination="gcT-wi-gxv" id="4BU-PA-xC1"/>
+                        <outlet property="profileImage" destination="Hx6-pC-w5Y" id="ybO-7S-yKd"/>
+                        <outlet property="usernameLabel" destination="lHQ-EP-mef" id="zMB-oz-LG5"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BJa-qF-g8s" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3120" y="-14.218009478672984"/>
+        </scene>
+        <!--Edit Profile View Controller-->
+        <scene sceneID="Mqv-1b-ttg">
+            <objects>
+                <viewController storyboardIdentifier="EditProfileViewController" id="nZn-Io-bCD" customClass="EditProfileViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="KMq-kM-5Zq">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placeholdertext.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="v4j-DL-uta">
+                                <rect key="frame" x="75" y="114.66666666666666" width="240" height="237"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="240" id="GDk-Tc-Eam"/>
+                                    <constraint firstAttribute="width" constant="240" id="oty-AD-Gf2"/>
+                                </constraints>
+                            </imageView>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VBr-TR-QfW">
+                                <rect key="frame" x="109.66666666666669" y="378" width="171" height="34"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="171" id="h3x-Y4-C4y"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Short Bio" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5PY-h8-5kg">
+                                <rect key="frame" x="109.66666666666669" y="437" width="171" height="34"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="171" id="V1f-bU-WzY"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="4Hu-hV-C2Y"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="4Hu-hV-C2Y" firstAttribute="trailing" secondItem="v4j-DL-uta" secondAttribute="trailing" constant="75" id="Dhg-hU-BXl"/>
+                            <constraint firstItem="5PY-h8-5kg" firstAttribute="centerX" secondItem="KMq-kM-5Zq" secondAttribute="centerX" id="EdO-dB-PBm"/>
+                            <constraint firstItem="v4j-DL-uta" firstAttribute="top" secondItem="4Hu-hV-C2Y" secondAttribute="top" constant="25" id="NR2-0V-iZO"/>
+                            <constraint firstItem="VBr-TR-QfW" firstAttribute="centerX" secondItem="KMq-kM-5Zq" secondAttribute="centerX" id="SkZ-R0-yVd"/>
+                            <constraint firstItem="5PY-h8-5kg" firstAttribute="top" secondItem="VBr-TR-QfW" secondAttribute="bottom" constant="25" id="doV-0i-bZr"/>
+                            <constraint firstItem="v4j-DL-uta" firstAttribute="centerX" secondItem="KMq-kM-5Zq" secondAttribute="centerX" id="fcZ-bw-tup"/>
+                            <constraint firstItem="VBr-TR-QfW" firstAttribute="top" secondItem="v4j-DL-uta" secondAttribute="bottom" constant="25" id="lYP-E0-fZa"/>
+                            <constraint firstItem="v4j-DL-uta" firstAttribute="leading" secondItem="4Hu-hV-C2Y" secondAttribute="leading" constant="75" id="tad-df-efW"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="RQT-vQ-99R">
+                        <barButtonItem key="leftBarButtonItem" style="plain" id="sZF-rV-3G6">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="TKL-Ha-Bf2">
+                                <rect key="frame" x="16" y="7" width="86" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Cancel"/>
+                                <connections>
+                                    <action selector="_cancelDidTap:" destination="nZn-Io-bCD" eventType="touchUpInside" id="6VO-17-Ugo"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="ZSL-A4-Gm5">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="TlM-2X-yER">
+                                <rect key="frame" x="288" y="7" width="86" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Save"/>
+                                <connections>
+                                    <action selector="_saveDidTap:" destination="nZn-Io-bCD" eventType="touchUpInside" id="6kD-bL-qS1"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="bioField" destination="5PY-h8-5kg" id="w1t-hg-n0W"/>
+                        <outlet property="profileImage" destination="v4j-DL-uta" id="zkc-Oc-L0c"/>
+                        <outlet property="usernameField" destination="VBr-TR-QfW" id="rFz-o8-0Rg"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="XIL-6t-6vT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5056.9230769230771" y="-16.350710900473931"/>
         </scene>
         <!--Feed View Controller-->
         <scene sceneID="Wgo-Uz-xgD">
@@ -626,6 +715,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FYE-wM-ue6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2173.8461538461538" y="-14.218009478672984"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="X7i-tP-zQy">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" modalPresentationStyle="fullScreen" id="ndu-5v-eYi" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="YI9-95-uQS">
+                        <rect key="frame" x="0.0" y="44" width="390" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="nZn-Io-bCD" kind="relationship" relationship="rootViewController" id="gVR-Tf-aJT"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="22G-2z-iQ4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4127.6923076923076" y="-16.350710900473931"/>
         </scene>
     </scenes>
     <resources>

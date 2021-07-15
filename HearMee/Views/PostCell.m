@@ -14,12 +14,12 @@
     
     self.profileImage.layer.cornerRadius = self.profileImage.frame.size.width / 2;
     self.profileImage.clipsToBounds = YES;
-    //    PFUser *const postAuthor = self.post.author;
-    //    [postAuthor fetchInBackgroundWithBlock:^(PFObject * _Nullable object, NSError * _Nullable error) {
-    //        PFFileObject *const image = postAuthor[@"profile_image"];
-    //        NSURL *const url = [NSURL URLWithString:image.url];
-    //        [self.profileImage setImageWithURL:url];
-    //    }];
+        PFUser *const postAuthor = self.post.author;
+        [postAuthor fetchInBackgroundWithBlock:^(PFObject * _Nullable object, NSError * _Nullable error) {
+            PFFileObject *const image = postAuthor[@"profile_image"];
+            NSURL *const url = [NSURL URLWithString:image.url];
+            [self.profileImage setImageWithURL:url];
+        }];
     
     [post.image getDataInBackgroundWithBlock:^(NSData * _Nullable data, NSError * _Nullable error) {
         if (!error) {

@@ -12,6 +12,9 @@
 		71CD70CD269DE6BE00F1C990 /* RecordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 71CD70CC269DE6BE00F1C990 /* RecordViewController.m */; };
 		71CD70D0269E034300F1C990 /* Post.m in Sources */ = {isa = PBXBuildFile; fileRef = 71CD70CF269E034300F1C990 /* Post.m */; };
 		71CD70D3269F39B900F1C990 /* PostCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 71CD70D2269F39B900F1C990 /* PostCell.m */; };
+		71CD70D6269FCD8B00F1C990 /* PostCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 71CD70D5269FCD8B00F1C990 /* PostCollectionCell.m */; };
+		71CD70DC269FCE6E00F1C990 /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 71CD70DB269FCE6E00F1C990 /* ProfileViewController.m */; };
+		71CD70DF269FCE8800F1C990 /* EditProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 71CD70DE269FCE8800F1C990 /* EditProfileViewController.m */; };
 		71D27482269CA2C90063780C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 71D27481269CA2C90063780C /* AppDelegate.m */; };
 		71D27485269CA2C90063780C /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 71D27484269CA2C90063780C /* SceneDelegate.m */; };
 		71D2748B269CA2C90063780C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 71D27489269CA2C90063780C /* Main.storyboard */; };
@@ -56,6 +59,12 @@
 		71CD70CF269E034300F1C990 /* Post.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Post.m; sourceTree = "<group>"; };
 		71CD70D1269F39B900F1C990 /* PostCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PostCell.h; sourceTree = "<group>"; };
 		71CD70D2269F39B900F1C990 /* PostCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PostCell.m; sourceTree = "<group>"; };
+		71CD70D4269FCD8B00F1C990 /* PostCollectionCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PostCollectionCell.h; sourceTree = "<group>"; };
+		71CD70D5269FCD8B00F1C990 /* PostCollectionCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PostCollectionCell.m; sourceTree = "<group>"; };
+		71CD70DA269FCE6E00F1C990 /* ProfileViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
+		71CD70DB269FCE6E00F1C990 /* ProfileViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
+		71CD70DD269FCE8800F1C990 /* EditProfileViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EditProfileViewController.h; sourceTree = "<group>"; };
+		71CD70DE269FCE8800F1C990 /* EditProfileViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EditProfileViewController.m; sourceTree = "<group>"; };
 		71D2747D269CA2C90063780C /* HearMee.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HearMee.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		71D27480269CA2C90063780C /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		71D27481269CA2C90063780C /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -183,6 +192,10 @@
 				71F73764269CE3B200C25ED3 /* FeedViewController.m */,
 				71CD70CB269DE6BE00F1C990 /* RecordViewController.h */,
 				71CD70CC269DE6BE00F1C990 /* RecordViewController.m */,
+				71CD70DA269FCE6E00F1C990 /* ProfileViewController.h */,
+				71CD70DB269FCE6E00F1C990 /* ProfileViewController.m */,
+				71CD70DD269FCE8800F1C990 /* EditProfileViewController.h */,
+				71CD70DE269FCE8800F1C990 /* EditProfileViewController.m */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -192,6 +205,8 @@
 			children = (
 				71CD70D1269F39B900F1C990 /* PostCell.h */,
 				71CD70D2269F39B900F1C990 /* PostCell.m */,
+				71CD70D4269FCD8B00F1C990 /* PostCollectionCell.h */,
+				71CD70D5269FCD8B00F1C990 /* PostCollectionCell.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -469,8 +484,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				71D274BA269CBE080063780C /* LoginViewController.m in Sources */,
+				71CD70DF269FCE8800F1C990 /* EditProfileViewController.m in Sources */,
 				71F73765269CE3B200C25ED3 /* FeedViewController.m in Sources */,
 				71D27482269CA2C90063780C /* AppDelegate.m in Sources */,
+				71CD70D6269FCD8B00F1C990 /* PostCollectionCell.m in Sources */,
+				71CD70DC269FCE6E00F1C990 /* ProfileViewController.m in Sources */,
 				71CD70D3269F39B900F1C990 /* PostCell.m in Sources */,
 				71CD70CD269DE6BE00F1C990 /* RecordViewController.m in Sources */,
 				71D27493269CA2CA0063780C /* main.m in Sources */,
