@@ -83,6 +83,7 @@
             NSURL *const url = [NSURL URLWithString:audioObject.url];
             NSData *const data = [NSData dataWithContentsOfURL:url];
             self.player = [[AVAudioPlayer alloc] initWithData:data error:nil];
+            self.player.volume = 10.0;
             [self.player play];
         }
     }];

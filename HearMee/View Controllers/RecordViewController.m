@@ -70,6 +70,7 @@
     if (!self.recorder.recording){
         self.player = [[AVAudioPlayer alloc] initWithContentsOfURL:self.recorder.url error:nil];
         [self.player setDelegate:self];
+        self.player.volume = 10.0;
         [self.player play];
     }
 }

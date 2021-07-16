@@ -8,7 +8,7 @@
 #import "ConversationsViewController.h"
 #import "ConversationsCell.h"
 
-@interface ConversationsViewController () < UITableViewDelegate, UITableViewDataSource>
+@interface ConversationsViewController () //< UITableViewDelegate, UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @end
@@ -17,8 +17,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.tableView.dataSource = self;
-    self.tableView.delegate = self;
+//    self.tableView.dataSource = self;
+//    self.tableView.delegate = self;
 }
 
 //- (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
