@@ -1019,22 +1019,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9rl-ck-nSA">
-                                <rect key="frame" x="16" y="717" width="317" height="34"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q6W-tD-fcL">
-                                <rect key="frame" x="341" y="717" width="33" height="34"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="33" id="0Zm-IH-3HW"/>
-                                    <constraint firstAttribute="height" constant="34" id="e4c-ux-jEN"/>
-                                </constraints>
-                                <state key="normal" image="paperplane.fill" catalog="system"/>
-                                <connections>
-                                    <action selector="_sendDidTap:" destination="fiU-KN-25D" eventType="touchUpInside" id="fYg-E5-6kf"/>
-                                </connections>
-                            </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="g8F-IR-hcD">
                                 <rect key="frame" x="0.0" y="0.0" width="390" height="701"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -1088,6 +1072,22 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9rl-ck-nSA">
+                                <rect key="frame" x="16" y="717" width="317" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q6W-tD-fcL">
+                                <rect key="frame" x="341" y="717" width="33" height="34"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="33" id="0Zm-IH-3HW"/>
+                                    <constraint firstAttribute="height" constant="34" id="e4c-ux-jEN"/>
+                                </constraints>
+                                <state key="normal" image="paperplane.fill" catalog="system"/>
+                                <connections>
+                                    <action selector="_sendDidTap:" destination="fiU-KN-25D" eventType="touchUpInside" id="fYg-E5-6kf"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="LUW-Lv-DLy"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
