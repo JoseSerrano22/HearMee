@@ -11,6 +11,7 @@
 		7196BC1F26A0C56200C600FD /* ConversationsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7196BC1E26A0C56200C600FD /* ConversationsViewController.m */; };
 		7196BC2226A0C58C00C600FD /* ChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7196BC2126A0C58C00C600FD /* ChatViewController.m */; };
 		7196BC2526A0C5A900C600FD /* ConversationsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7196BC2426A0C5A900C600FD /* ConversationsCell.m */; };
+		7196BC2B26A5D9A500C600FD /* ChatCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7196BC2A26A5D9A500C600FD /* ChatCell.m */; };
 		71AFC3D426A086DD006C4872 /* DetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 71AFC3D326A086DD006C4872 /* DetailsViewController.m */; };
 		71CD70CA269D135100F1C990 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71CD70C9269D135100F1C990 /* AVFoundation.framework */; };
 		71CD70CD269DE6BE00F1C990 /* RecordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 71CD70CC269DE6BE00F1C990 /* RecordViewController.m */; };
@@ -61,6 +62,8 @@
 		7196BC2126A0C58C00C600FD /* ChatViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChatViewController.m; sourceTree = "<group>"; };
 		7196BC2326A0C5A900C600FD /* ConversationsCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ConversationsCell.h; sourceTree = "<group>"; };
 		7196BC2426A0C5A900C600FD /* ConversationsCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ConversationsCell.m; sourceTree = "<group>"; };
+		7196BC2926A5D9A500C600FD /* ChatCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChatCell.h; sourceTree = "<group>"; };
+		7196BC2A26A5D9A500C600FD /* ChatCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChatCell.m; sourceTree = "<group>"; };
 		71AFC3D226A086DD006C4872 /* DetailsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailsViewController.h; sourceTree = "<group>"; };
 		71AFC3D326A086DD006C4872 /* DetailsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailsViewController.m; sourceTree = "<group>"; };
 		71CD70C7269D110F00F1C990 /* AVFAudio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFAudio.framework; path = System/Library/Frameworks/AVFAudio.framework; sourceTree = SDKROOT; };
@@ -227,6 +230,8 @@
 				71CD70D5269FCD8B00F1C990 /* PostCollectionCell.m */,
 				7196BC2326A0C5A900C600FD /* ConversationsCell.h */,
 				7196BC2426A0C5A900C600FD /* ConversationsCell.m */,
+				7196BC2926A5D9A500C600FD /* ChatCell.h */,
+				7196BC2A26A5D9A500C600FD /* ChatCell.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -512,6 +517,7 @@
 				71D27482269CA2C90063780C /* AppDelegate.m in Sources */,
 				71CD70D6269FCD8B00F1C990 /* PostCollectionCell.m in Sources */,
 				71CD70DC269FCE6E00F1C990 /* ProfileViewController.m in Sources */,
+				7196BC2B26A5D9A500C600FD /* ChatCell.m in Sources */,
 				71CD70D3269F39B900F1C990 /* PostCell.m in Sources */,
 				71CD70CD269DE6BE00F1C990 /* RecordViewController.m in Sources */,
 				71D27493269CA2CA0063780C /* main.m in Sources */,
