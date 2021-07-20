@@ -22,6 +22,7 @@
     
     self.usernameField.delegate = self;
     self.passwordField.delegate = self;
+    self.passwordField.secureTextEntry=true;
     
     UITapGestureRecognizer *const tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(_dismissKeyboard)];
     [self.view addGestureRecognizer:tap];

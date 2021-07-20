@@ -11,7 +11,6 @@
 @property (nonatomic, strong) PFUser *author;
 @property (strong, nonatomic) NSString *message;
 @property (nonatomic, strong) NSDate *createdAt;
-@property (strong, nonatomic) NSString *toUser;
 
 + (void) postMessage: ( NSString * _Nullable )message withCompletion: (PFBooleanResultBlock  _Nullable)completion;
 @end

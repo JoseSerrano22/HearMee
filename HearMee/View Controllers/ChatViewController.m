@@ -52,6 +52,10 @@
     }];
 }
 
+- (IBAction)_backDidTap:(id)sender {
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
 - (IBAction)_sendDidTap:(id)sender {
     [ChatMessage postMessage:self.messageField.text withCompletion:nil];
     self.messageField.text = @"";

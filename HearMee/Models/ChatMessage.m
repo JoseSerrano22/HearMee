@@ -11,7 +11,6 @@
 @dynamic author;
 @dynamic message;
 @dynamic createdAt;
-@dynamic toUser;
 
 + (nonnull NSString *)parseClassName {
 return @"ChatMessage";
