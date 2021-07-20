@@ -8,67 +8,55 @@
 #import "ChatViewController.h"
 #import "ChatCell.h"
 #import "Parse/Parse.h"
+#import "Post.h"
 
 @interface ChatViewController () < UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tableview;
 @property (weak, nonatomic) IBOutlet UITextField *messageField;
-@property (strong, nonatomic) NSMutableArray* messageArray;
+@property (weak, nonatomic) IBOutlet UITextField *chatWithField;
+@property (weak, nonatomic) IBOutlet UIButton *chatWithButton;
 @property (weak, nonatomic) IBOutlet UIButton *sendButton;
-
+@property (strong, nonatomic) NSMutableArray* messageArray;
+@property (nonatomic, assign) BOOL chatWith;
 @end
 
 @implementation ChatViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.chatWith = FALSE;
     self.tableview.dataSource = self;
     self.tableview.delegate = self;
     self.messageField.delegate = self;
     
-    [self _fetchPosts];
+    [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(_fetchMessages) userInfo:nil repeats:true];
     
-    //    self.messageArray = [[NSMutableArray alloc] init];
-    //    for(int i = 0; i < 10; i++) {
-    //        NSNumber* number = [NSNumber numberWithInt:i]; // <-- autoreleased, so you don't need to release it yourself
-    //        NSString* string = [NSString stringWithFormat:@"%@", number];
-    //        [self.messageArray addObject:string];
-    //    }
+    [self _fetchMessages];
 }
 
-- (void)_fetchPosts {
-    PFQuery *const messageQuery = [PFQuery queryWithClassName:@"Message"];
+- (void)_fetchMessages {
+    PFQuery *const postQuery = [ChatMessage query];
+    [postQuery orderByDescending:@"createdAt"];
+    [postQuery includeKey:@"author"];
+    postQuery.limit = 20;
     
-    [messageQuery findObjectsInBackgroundWithBlock:^(NSArray<PFObject *> * _Nullable messages, NSError * _Nullable error) {
-        self.messageArray = [[NSMutableArray alloc] init];
-        for (id messageObject in messages) {
-            NSString* messageText = (PFObject *)messageObject[@"Text"];
-            if (messages) {
-                [self.messageArray addObject:messageText];
-            }
-        }
-        dispatch_async(dispatch_get_main_queue(), ^(void){
+    [postQuery findObjectsInBackgroundWithBlock:^(NSArray<ChatMessage *> * _Nullable messages, NSError * _Nullable error) {
+        if (messages) {
+            self.messageArray = (NSMutableArray *) messages;
             [self.tableview reloadData];
-        });
-        
+        }
+        else {
+            NSLog(@"%@", error.localizedDescription);
+        }
     }];
 }
 
 - (IBAction)_sendDidTap:(id)sender {
-    
-    PFObject *newMessageObject = [PFObject objectWithClassName:@"Message"];
-    newMessageObject[@"Text"] = self.messageField.text;
-    
-    [newMessageObject saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-        if (succeeded) {
-            [self _fetchPosts];
-            dispatch_async(dispatch_get_main_queue(), ^(void){
-                self.messageField.text = @"";
-            });
-            
-        } else {
-            NSLog(@"error in SendDidTap");
-        }
-    }];
+    [ChatMessage postMessage:self.messageField.text withCompletion:nil];
+    self.messageField.text = @"";
+}
+
+- (IBAction)_chatWithDidTap:(id)sender {
 }
 
 
@@ -77,8 +65,10 @@
 }
 
 - (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
-    ChatCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ChatCell" forIndexPath:indexPath];
-    cell.messageLabel.text = self.messageArray[indexPath.row];
+    
+    ChatCell *const cell = [tableView dequeueReusableCellWithIdentifier:@"ChatCell" forIndexPath:indexPath];
+    ChatMessage *const message = self.messageArray[indexPath.row];
+    cell.message = message;
     return cell;
 }
 
