@@ -11,16 +11,16 @@
 #import "AVFoundation/AVFoundation.h"
 
 @interface DetailsViewController ()
-@property (weak, nonatomic) IBOutlet UIImageView *profileImage;
-@property (weak, nonatomic) IBOutlet UILabel *usernameLabel;
-@property (weak, nonatomic) IBOutlet UILabel *timestampLabel;
-@property (weak, nonatomic) IBOutlet UIImageView *postImage;
-@property (weak, nonatomic) IBOutlet UIButton *likeButton;
-@property (weak, nonatomic) IBOutlet UILabel *likeLabel;
-@property (weak, nonatomic) IBOutlet UIButton *commentButton;
-@property (weak, nonatomic) IBOutlet UILabel *commentLabel;
-@property (weak, nonatomic) IBOutlet UIButton *bookmarkLabel;
-@property (weak, nonatomic) IBOutlet UILabel *captionLabel;
+@property (weak, nonatomic) IBOutlet UIImageView *const profileImage;
+@property (weak, nonatomic) IBOutlet UILabel *const usernameLabel;
+@property (weak, nonatomic) IBOutlet UILabel *const timestampLabel;
+@property (weak, nonatomic) IBOutlet UIImageView *const postImage;
+@property (weak, nonatomic) IBOutlet UIButton *const likeButton;
+@property (weak, nonatomic) IBOutlet UILabel *const likeLabel;
+@property (weak, nonatomic) IBOutlet UIButton *const commentButton;
+@property (weak, nonatomic) IBOutlet UILabel *const commentLabel;
+@property (weak, nonatomic) IBOutlet UIButton *const bookmarkLabel;
+@property (weak, nonatomic) IBOutlet UILabel *const captionLabel;
 
 @property (nonatomic,strong) AVAudioPlayer *const player;
 @end

@@ -15,13 +15,13 @@
 
 @property (strong, nonatomic) NSMutableArray *const posts;
 @property (nonatomic, strong) UIRefreshControl *const refreshControl;
-@property (weak, nonatomic) IBOutlet UIImageView *profileImage;
-@property (weak, nonatomic) IBOutlet UILabel *usernameLabel;
-@property (weak, nonatomic) IBOutlet UILabel *followingCountLabel;
-@property (weak, nonatomic) IBOutlet UILabel *followersCountLabel;
-@property (weak, nonatomic) IBOutlet UILabel *postCountLabel;
-@property (weak, nonatomic) IBOutlet UILabel *bioLabel;
-@property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
+@property (weak, nonatomic) IBOutlet UIImageView *const profileImage;
+@property (weak, nonatomic) IBOutlet UILabel *const usernameLabel;
+@property (weak, nonatomic) IBOutlet UILabel *const followingCountLabel;
+@property (weak, nonatomic) IBOutlet UILabel *const followersCountLabel;
+@property (weak, nonatomic) IBOutlet UILabel *const postCountLabel;
+@property (weak, nonatomic) IBOutlet UILabel *const bioLabel;
+@property (weak, nonatomic) IBOutlet UICollectionView *const collectionView;
 
 @end
 
@@ -52,6 +52,7 @@
     [self.collectionView insertSubview:self.refreshControl atIndex:0];
     
 }
+#pragma mark - Private
 
 - (void)_fetchPosts {
     
@@ -98,18 +99,9 @@
     return cell;
 }
 
+#pragma mark - UICollectionViewDataSource
 - (NSInteger)collectionView:(nonnull UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
     return self.posts.count;
 }
-
-/*
- #pragma mark - Navigation
- 
- // In a storyboard-based application, you will often want to do a little preparation before navigation
- - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
- // Get the new view controller using [segue destinationViewController].
- // Pass the selected object to the new view controller.
- }
- */
 
 @end
