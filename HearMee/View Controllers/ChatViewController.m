@@ -11,7 +11,7 @@
 #import "Post.h"
 
 @interface ChatViewController () < UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate>
-@property (weak, nonatomic) IBOutlet UITableView *const tableview;
+@property (weak, nonatomic) IBOutlet UITableView *const tableView;
 @property (weak, nonatomic) IBOutlet UITextField *const messageField;
 @property (weak, nonatomic) IBOutlet UITextField *const chatWithField;
 @property (weak, nonatomic) IBOutlet UIButton *const chatWithButton;
@@ -25,10 +25,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.chatWith = FALSE;
-    self.tableview.dataSource = self;
-    self.tableview.delegate = self;
+    self.tableView.dataSource = self;
+    self.tableView.delegate = self;
     self.messageField.delegate = self;
     
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(_fetchMessages) userInfo:nil repeats:true];
     [self _fetchMessages];
 }
@@ -43,7 +44,7 @@
     [postQuery findObjectsInBackgroundWithBlock:^(NSArray<ChatMessage *> * _Nullable messages, NSError * _Nullable error) {
         if (messages) {
             self.messageArray = (NSMutableArray *) messages;
-            [self.tableview reloadData];
+            [self.tableView reloadData];
         }
         else {
             NSLog(@"%@", error.localizedDescription);

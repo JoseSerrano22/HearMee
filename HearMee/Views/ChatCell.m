@@ -14,15 +14,18 @@
     
     self.profileImage.layer.cornerRadius = self.profileImage.frame.size.width / 2;
     self.profileImage.clipsToBounds = YES;
-        PFUser *const postAuthor = self.message.author;
-        [postAuthor fetchInBackgroundWithBlock:^(PFObject * _Nullable object, NSError * _Nullable error) {
-            PFFileObject *const image = postAuthor[@"profile_image"];
+        PFUser *const messageAuthor = self.message.author;
+        [messageAuthor fetchInBackgroundWithBlock:^(PFObject * _Nullable object, NSError * _Nullable error) {
+            PFFileObject *const image = messageAuthor[@"profile_image"];
             NSURL *const url = [NSURL URLWithString:image.url];
             [self.profileImage setImageWithURL:url];
         }];
     
     self.messageLabel.text = message.message;
     self.usernameLabel.text = message.author.username;
+    
+    self.bubbleView.layer.cornerRadius = 16;
+    self.bubbleView.clipsToBounds = true;
     
     NSString *const createdAtOriginalString = self.timestampLabel.text = [NSString stringWithFormat:@"%@", message.createdAt];
     NSDateFormatter *const formatter = [[NSDateFormatter alloc] init];
