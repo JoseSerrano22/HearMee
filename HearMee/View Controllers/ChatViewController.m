@@ -16,15 +16,13 @@
 @property (weak, nonatomic) IBOutlet UITextField *const chatWithField;
 @property (weak, nonatomic) IBOutlet UIButton *const chatWithButton;
 @property (weak, nonatomic) IBOutlet UIButton *const sendButton;
-@property (strong, nonatomic) NSMutableArray* const messageArray;
-@property (nonatomic, assign) BOOL chatWith;
+@property (strong, nonatomic) NSMutableArray *const messageArray;
 @end
 
 @implementation ChatViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.chatWith = FALSE;
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
     self.messageField.delegate = self;
@@ -40,6 +38,8 @@
     PFQuery *const postQuery = [ChatMessage query];
     [postQuery orderByDescending:@"createdAt"];
     [postQuery includeKey:@"author"];
+    [postQuery includeKey:@"channelID"];
+    [postQuery whereKey:@"channelID" equalTo:self.channel];
     
     [postQuery findObjectsInBackgroundWithBlock:^(NSArray<ChatMessage *> * _Nullable messages, NSError * _Nullable error) {
         if (messages) {
@@ -57,7 +57,7 @@
 }
 
 - (IBAction)_sendDidTap:(id)sender {
-    [ChatMessage postMessage:self.messageField.text withCompletion:nil];
+    [ChatMessage postMessage:self.messageField.text withChannelID:self.channel withCompletion:nil];
     self.messageField.text = @"";
 }
 

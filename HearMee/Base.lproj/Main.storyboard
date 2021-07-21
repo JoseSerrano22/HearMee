@@ -234,7 +234,7 @@
                                             <outlet property="captionLabel" destination="Uuw-If-0iT" id="akY-6g-RPq"/>
                                             <outlet property="channelImage" destination="gfz-8w-lW5" id="emI-Yd-xJY"/>
                                             <outlet property="titleLabel" destination="TQB-Nf-lLd" id="G5H-6B-ciU"/>
-                                            <segue destination="Qz3-o8-t0a" kind="presentation" id="rcL-HT-z8o"/>
+                                            <segue destination="Qz3-o8-t0a" kind="presentation" identifier="ChatSegue" id="rcL-HT-z8o"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>

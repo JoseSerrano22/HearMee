@@ -6,6 +6,7 @@
 //
 
 #import "ChannelsViewController.h"
+#import "ChatViewController.h"
 #import "Channels.h"
 #import "ChannelsCell.h"
 
@@ -67,12 +68,12 @@
     }];
     
     UIAlertAction *const cancelAction = [UIAlertAction actionWithTitle:@"Cancel"
-                                                                 style:UIAlertActionStyleCancel
+                                                                 style:UIAlertActionStyleDefault
                                                                handler:^(UIAlertAction * _Nonnull action) {
     }];
     [alertVC addAction:cancelAction];
     
-    UIAlertAction *action=[UIAlertAction actionWithTitle:@"Create" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+    UIAlertAction *action=[UIAlertAction actionWithTitle:@"Done" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         NSString *title=alertVC.textFields[0].text;
         NSString *caption=alertVC.textFields[1].text;
         
@@ -94,6 +95,18 @@
     return self.channelsArray.count;
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    [self performSegueWithIdentifier:@"ChatSegue" sender:self];
+}
 
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    UINavigationController *const nav = [segue destinationViewController];
+    ChatViewController *chatVC = (ChatViewController *)[nav topViewController];
+    UITableViewCell *cell = sender;
+    NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
+    Channels *channelObject = self.channelsArray[indexPath.row];
+    chatVC.channel = channelObject;
+    
+}
 
 @end

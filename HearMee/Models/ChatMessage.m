@@ -11,15 +11,17 @@
 @dynamic author;
 @dynamic message;
 @dynamic createdAt;
+@dynamic channelID;
 
 + (nonnull NSString *)parseClassName {
 return @"ChatMessage";
 }
 
-+ (void) postMessage: ( NSString * _Nullable )message withCompletion: (PFBooleanResultBlock  _Nullable)completion {
++ (void) postMessage: ( NSString * _Nullable )message withChannelID:(PFObject* _Nonnull)channelID withCompletion: (PFBooleanResultBlock  _Nullable)completion {
     ChatMessage *newMessage = [ChatMessage new];
     newMessage.author = [PFUser currentUser];
     newMessage.message = message;
+    newMessage.channelID = channelID;
     newMessage.createdAt = [NSDate date];
     [newMessage saveInBackgroundWithBlock: completion];
 }

@@ -6,6 +6,7 @@
 //
 
 #import "Parse/Parse.h"
+#import "PFObject.h"
 
 @interface Channels : PFObject<PFSubclassing>
 @property (strong, nonatomic) NSString *title;
