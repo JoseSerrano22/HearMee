@@ -14,6 +14,7 @@
 @property (weak, nonatomic) IBOutlet UITableView *const tableView;
 @property (weak, nonatomic) IBOutlet UITextField *const messageField;
 @property (weak, nonatomic) IBOutlet UIButton *const sendButton;
+@property (nonatomic, strong) UIRefreshControl *const refreshControl;
 @property (strong, nonatomic) NSMutableArray *const messageArray;
 @end
 
@@ -26,8 +27,15 @@
     self.messageField.delegate = self;
     
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-    [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(_fetchMessages) userInfo:nil repeats:true];
+    
+//    currently disable becuase of to many request, in official demo activating again this code
+//    [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(_fetchMessages) userInfo:nil repeats:true];
+    
     [self _fetchMessages];
+    
+    self.refreshControl = [[UIRefreshControl alloc] init];
+    [self.refreshControl addTarget:self action:@selector(_fetchMessages) forControlEvents:UIControlEventValueChanged];
+    [self.tableView insertSubview:self.refreshControl atIndex:0];
 }
 
 #pragma mark - Private
@@ -47,6 +55,7 @@
         else {
             NSLog(@"%@", error.localizedDescription);
         }
+        [self.refreshControl endRefreshing];
     }];
 }
 
