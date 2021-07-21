@@ -1014,7 +1014,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="g8F-IR-hcD">
-                                <rect key="frame" x="0.0" y="187" width="390" height="657"/>
+                                <rect key="frame" x="0.0" y="145" width="390" height="699"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ChatCell" rowHeight="95" id="db2-R2-ldx" customClass="ChatCell">
@@ -1085,16 +1085,8 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="User's Name or Blank if public chat" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9rl-ck-nSA">
-                                <rect key="frame" x="15" y="96" width="317" height="34"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="317" id="5pz-qR-O05"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Message Here" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SFa-9l-iNh">
-                                <rect key="frame" x="16" y="145" width="317" height="34"/>
+                                <rect key="frame" x="16" y="103" width="317" height="34"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="317" id="G77-f5-yHm"/>
                                 </constraints>
@@ -1102,7 +1094,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hQl-04-ybb">
-                                <rect key="frame" x="339" y="147" width="36" height="30"/>
+                                <rect key="frame" x="339" y="105" width="36" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="9pM-9y-o90"/>
                                     <constraint firstAttribute="width" constant="36" id="Qx1-9X-bUQ"/>
@@ -1110,17 +1102,6 @@
                                 <state key="normal" title="Send"/>
                                 <connections>
                                     <action selector="_sendDidTap:" destination="fiU-KN-25D" eventType="touchUpInside" id="8Iu-kE-QCQ"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZTr-fW-vRE">
-                                <rect key="frame" x="342" y="98" width="33" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="5pm-R1-i94"/>
-                                    <constraint firstAttribute="width" constant="33" id="mLI-F8-ksl"/>
-                                </constraints>
-                                <state key="normal" title="Chat"/>
-                                <connections>
-                                    <action selector="_chatWithDidTap:" destination="fiU-KN-25D" eventType="touchUpInside" id="Pcw-dc-BlM"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -1132,14 +1113,9 @@
                             <constraint firstItem="hQl-04-ybb" firstAttribute="leading" secondItem="SFa-9l-iNh" secondAttribute="trailing" constant="6" id="6Au-Gh-pL9"/>
                             <constraint firstItem="hQl-04-ybb" firstAttribute="centerY" secondItem="SFa-9l-iNh" secondAttribute="centerY" id="BF3-mo-gFK"/>
                             <constraint firstItem="g8F-IR-hcD" firstAttribute="top" secondItem="SFa-9l-iNh" secondAttribute="bottom" constant="8" id="Hay-e4-xSB"/>
-                            <constraint firstItem="ZTr-fW-vRE" firstAttribute="leading" secondItem="9rl-ck-nSA" secondAttribute="trailing" constant="10" id="P28-wd-Gsz"/>
-                            <constraint firstItem="9rl-ck-nSA" firstAttribute="top" secondItem="LUW-Lv-DLy" secondAttribute="top" constant="8" id="S46-QI-QTb"/>
-                            <constraint firstItem="ZTr-fW-vRE" firstAttribute="centerY" secondItem="9rl-ck-nSA" secondAttribute="centerY" id="Ud5-LQ-TiN"/>
+                            <constraint firstItem="SFa-9l-iNh" firstAttribute="top" secondItem="LUW-Lv-DLy" secondAttribute="top" constant="15" id="Iy0-VI-SLE"/>
                             <constraint firstItem="SFa-9l-iNh" firstAttribute="leading" secondItem="LUW-Lv-DLy" secondAttribute="leading" constant="16" id="bZC-Sw-vbH"/>
-                            <constraint firstItem="9rl-ck-nSA" firstAttribute="leading" secondItem="LUW-Lv-DLy" secondAttribute="leading" constant="15" id="g2g-28-TOk"/>
-                            <constraint firstItem="SFa-9l-iNh" firstAttribute="top" secondItem="9rl-ck-nSA" secondAttribute="bottom" constant="15" id="gBx-7Q-CeV"/>
                             <constraint firstItem="LUW-Lv-DLy" firstAttribute="trailing" secondItem="hQl-04-ybb" secondAttribute="trailing" constant="15" id="m21-u2-UpR"/>
-                            <constraint firstItem="LUW-Lv-DLy" firstAttribute="trailing" secondItem="ZTr-fW-vRE" secondAttribute="trailing" constant="15" id="tgn-Ax-CVZ"/>
                             <constraint firstItem="g8F-IR-hcD" firstAttribute="trailing" secondItem="LUW-Lv-DLy" secondAttribute="trailing" id="vpl-C8-32m"/>
                         </constraints>
                     </view>
@@ -1156,8 +1132,6 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="chatWithButton" destination="ZTr-fW-vRE" id="31k-HC-V92"/>
-                        <outlet property="chatWithField" destination="9rl-ck-nSA" id="hdD-Pf-Wxk"/>
                         <outlet property="messageField" destination="SFa-9l-iNh" id="hcn-9u-jPX"/>
                         <outlet property="sendButton" destination="hQl-04-ybb" id="DZg-Cq-uUE"/>
                         <outlet property="tableView" destination="g8F-IR-hcD" id="1Af-lb-YaT"/>

@@ -13,8 +13,6 @@
 @interface ChatViewController () < UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *const tableView;
 @property (weak, nonatomic) IBOutlet UITextField *const messageField;
-@property (weak, nonatomic) IBOutlet UITextField *const chatWithField;
-@property (weak, nonatomic) IBOutlet UIButton *const chatWithButton;
 @property (weak, nonatomic) IBOutlet UIButton *const sendButton;
 @property (strong, nonatomic) NSMutableArray *const messageArray;
 @end
@@ -60,10 +58,6 @@
     [ChatMessage postMessage:self.messageField.text withChannelID:self.channel withCompletion:nil];
     self.messageField.text = @"";
 }
-
-- (IBAction)_chatWithDidTap:(id)sender {
-}
-
 
 -(void)_dismissKeyboard {
     [self.messageField resignFirstResponder];
