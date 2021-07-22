@@ -72,7 +72,7 @@
     [self.messageField resignFirstResponder];
 }
 
-#pragma mark - UICollectionViewDelegate
+#pragma mark - UICollectionViewDataSource
 
 - (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
     
@@ -81,8 +81,6 @@
     cell.message = message;
     return cell;
 }
-
-#pragma mark - UICollectionViewDataSource
 
 - (NSInteger)tableView:(nonnull UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return self.messageArray.count;

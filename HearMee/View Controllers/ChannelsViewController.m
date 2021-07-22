@@ -84,6 +84,8 @@
     [self presentViewController:alertVC animated:true completion:nil];
 }
 
+#pragma mark - UITableViewDataSource
+
 - (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
     ChannelsCell *const cell = [tableView dequeueReusableCellWithIdentifier:@"ChannelsCell" forIndexPath:indexPath];
     Channels *const channel = self.channelsArray[indexPath.row];
@@ -95,10 +97,14 @@
     return self.channelsArray.count;
 }
 
+#pragma mark - UITableViewDataDelegate
+
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [self.tableView deselectRowAtIndexPath:[self.tableView indexPathForSelectedRow] animated:YES];
     [self performSegueWithIdentifier:@"ChatSegue" sender:self];
 }
+
+#pragma mark - Navigation
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
     UINavigationController *const nav = [segue destinationViewController];

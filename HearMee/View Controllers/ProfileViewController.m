@@ -90,7 +90,7 @@
     }];
 }
 
-#pragma mark - UICollectionViewDelegate
+#pragma mark - UICollectionViewDataSource
 
 - (nonnull __kindof UICollectionViewCell *)collectionView:(nonnull UICollectionView *)collectionView cellForItemAtIndexPath:(nonnull NSIndexPath *)indexPath {
     PostCollectionCell *const cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"PostCollectionCell" forIndexPath:indexPath];
@@ -99,7 +99,6 @@
     return cell;
 }
 
-#pragma mark - UICollectionViewDataSource
 - (NSInteger)collectionView:(nonnull UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
     return self.posts.count;
 }

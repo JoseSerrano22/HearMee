@@ -105,25 +105,9 @@
 
 - (IBAction)_shareDidTap:(id)sender {
     AVAudioFile *const audioFile = [[AVAudioFile alloc] initForReading:self.recorder.url error:nil];
-//    UIImage *const resizeImage = [self _resizeImage:self.postImage.image withSize:CGSizeMake(400, 400)];
     UIImage *const resizeImage = [UIImage _resizeImage:self.postImage.image withSize:(CGSizeMake(400, 400))];
     [Post postUserAudio:audioFile withImage:resizeImage withCaption:self.captionTextView.text withCompletion:nil];
 }
-
-
-//- (UIImage *)_resizeImage:(UIImage *)image withSize:(CGSize)size {
-//    UIImageView *const resizeImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, size.width, size.height)];
-//
-//    resizeImageView.contentMode = UIViewContentModeScaleAspectFill;
-//    resizeImageView.image = image;
-//
-//    UIGraphicsBeginImageContext(size);
-//    [resizeImageView.layer renderInContext:UIGraphicsGetCurrentContext()];
-//    UIImage *const newImage = UIGraphicsGetImageFromCurrentImageContext();
-//    UIGraphicsEndImageContext();
-//
-//    return newImage;
-//}
 
 - (void)_tapImageGesture: (id)sender {
     

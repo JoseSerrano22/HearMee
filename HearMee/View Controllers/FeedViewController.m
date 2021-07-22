@@ -80,6 +80,16 @@
     self.skipCount++;
 }
 
+- (IBAction)_logOutDidTap:(id)sender {
+    
+    [PFUser logOutInBackgroundWithBlock:^(NSError * _Nullable error) {
+        UIStoryboard *const storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        LoginViewController *const loginViewController = [storyboard instantiateViewControllerWithIdentifier:@"LoginViewController"];
+        [[UIApplication sharedApplication].keyWindow setRootViewController: loginViewController];
+        NSLog(@"Logged out!");
+    }];
+}
+
 #pragma mark - UIScrollViewDelegate
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
@@ -94,23 +104,12 @@
     }
 }
 
-- (IBAction)_logOutDidTap:(id)sender {
-    
-    [PFUser logOutInBackgroundWithBlock:^(NSError * _Nullable error) {
-        UIStoryboard *const storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-        LoginViewController *const loginViewController = [storyboard instantiateViewControllerWithIdentifier:@"LoginViewController"];
-        [[UIApplication sharedApplication].keyWindow setRootViewController: loginViewController];
-        NSLog(@"Logged out!");
-    }];
-}
-
 #pragma mark - UITableViewDataSource
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return self.posts.count;
 }
 
-#pragma mark - UITableView
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     PostCell *const cell = [tableView dequeueReusableCellWithIdentifier:@"PostCell" forIndexPath:indexPath];
