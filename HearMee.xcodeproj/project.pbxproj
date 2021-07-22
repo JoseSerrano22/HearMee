@@ -14,6 +14,8 @@
 		7196BC3526A756AC00C600FD /* Channels.m in Sources */ = {isa = PBXBuildFile; fileRef = 7196BC3426A756AC00C600FD /* Channels.m */; };
 		7196BC3826A75AB700C600FD /* ChannelsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7196BC3726A75AB700C600FD /* ChannelsViewController.m */; };
 		7196BC3B26A75B0000C600FD /* ChannelsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7196BC3A26A75B0000C600FD /* ChannelsCell.m */; };
+		7196BC3F26A8E43700C600FD /* APIManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7196BC3E26A8E43700C600FD /* APIManager.m */; };
+		7196BC4A26A8E91C00C600FD /* UIImage+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 7196BC4926A8E91C00C600FD /* UIImage+Extension.m */; };
 		71AFC3D426A086DD006C4872 /* DetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 71AFC3D326A086DD006C4872 /* DetailsViewController.m */; };
 		71CD70CA269D135100F1C990 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71CD70C9269D135100F1C990 /* AVFoundation.framework */; };
 		71CD70CD269DE6BE00F1C990 /* RecordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 71CD70CC269DE6BE00F1C990 /* RecordViewController.m */; };
@@ -70,6 +72,10 @@
 		7196BC3726A75AB700C600FD /* ChannelsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChannelsViewController.m; sourceTree = "<group>"; };
 		7196BC3926A75B0000C600FD /* ChannelsCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChannelsCell.h; sourceTree = "<group>"; };
 		7196BC3A26A75B0000C600FD /* ChannelsCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChannelsCell.m; sourceTree = "<group>"; };
+		7196BC3D26A8E43700C600FD /* APIManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = APIManager.h; sourceTree = "<group>"; };
+		7196BC3E26A8E43700C600FD /* APIManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = APIManager.m; sourceTree = "<group>"; };
+		7196BC4826A8E91C00C600FD /* UIImage+Extension.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImage+Extension.h"; sourceTree = "<group>"; };
+		7196BC4926A8E91C00C600FD /* UIImage+Extension.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Extension.m"; sourceTree = "<group>"; };
 		71AFC3D226A086DD006C4872 /* DetailsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailsViewController.h; sourceTree = "<group>"; };
 		71AFC3D326A086DD006C4872 /* DetailsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailsViewController.m; sourceTree = "<group>"; };
 		71CD70C7269D110F00F1C990 /* AVFAudio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFAudio.framework; path = System/Library/Frameworks/AVFAudio.framework; sourceTree = SDKROOT; };
@@ -144,6 +150,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7196BC3C26A8E36D00C600FD /* API */ = {
+			isa = PBXGroup;
+			children = (
+				7196BC3D26A8E43700C600FD /* APIManager.h */,
+				7196BC3E26A8E43700C600FD /* APIManager.m */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		7196BC4026A8E4D900C600FD /* extensions */ = {
+			isa = PBXGroup;
+			children = (
+				7196BC4826A8E91C00C600FD /* UIImage+Extension.h */,
+				7196BC4926A8E91C00C600FD /* UIImage+Extension.m */,
+			);
+			path = extensions;
+			sourceTree = "<group>";
+		};
 		71D27474269CA2C90063780C = {
 			isa = PBXGroup;
 			children = (
@@ -169,6 +193,8 @@
 		71D2747F269CA2C90063780C /* HearMee */ = {
 			isa = PBXGroup;
 			children = (
+				7196BC4026A8E4D900C600FD /* extensions */,
+				7196BC3C26A8E36D00C600FD /* API */,
 				71D274B7269CBD560063780C /* Models */,
 				71D274B6269CBD4D0063780C /* Views */,
 				71D274B5269CBD3F0063780C /* View Controllers */,
@@ -519,6 +545,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				71D274BA269CBE080063780C /* LoginViewController.m in Sources */,
+				7196BC3F26A8E43700C600FD /* APIManager.m in Sources */,
 				7196BC3826A75AB700C600FD /* ChannelsViewController.m in Sources */,
 				71CD70DF269FCE8800F1C990 /* EditProfileViewController.m in Sources */,
 				7196BC3526A756AC00C600FD /* Channels.m in Sources */,
@@ -532,6 +559,7 @@
 				7196BC3B26A75B0000C600FD /* ChannelsCell.m in Sources */,
 				71CD70D3269F39B900F1C990 /* PostCell.m in Sources */,
 				71CD70CD269DE6BE00F1C990 /* RecordViewController.m in Sources */,
+				7196BC4A26A8E91C00C600FD /* UIImage+Extension.m in Sources */,
 				71D27493269CA2CA0063780C /* main.m in Sources */,
 				71D27485269CA2C90063780C /* SceneDelegate.m in Sources */,
 				7196BC2226A0C58C00C600FD /* ChatViewController.m in Sources */,

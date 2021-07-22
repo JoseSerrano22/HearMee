@@ -7,6 +7,7 @@
 
 #import "EditProfileViewController.h"
 #import "UIImageView+AFNetworking.h"
+#import "UIImage+Extension.h"
 #import <Parse/Parse.h>
 #import "Post.h"
 
@@ -55,7 +56,7 @@
 - (IBAction)_saveDidTap:(id)sender {
     
     if (![self _isTextFieldEmpty]){
-        UIImage *const resizeImage = [self _resizeImage:self.profileImage.image withSize:CGSizeMake(200, 200)];
+        UIImage *const resizeImage = [UIImage _resizeImage:self.profileImage.image withSize:(CGSizeMake(200, 200))];
         NSData *const data = UIImagePNGRepresentation(resizeImage);
         PFFileObject *const image = [PFFileObject fileObjectWithName:@"image.png" data:data];
         PFUser *const user = [PFUser currentUser];
@@ -63,25 +64,12 @@
             user[@"profile_image"] = image;
             [user saveInBackground];
         }];
+        
         PFUser.currentUser[@"username"] = self.usernameField.text;
         PFUser.currentUser[@"bio"] = self.bioField.text;
         [PFUser.currentUser saveInBackground];
         [self dismissViewControllerAnimated:YES completion:nil];
     }
-}
-
-- (UIImage *)_resizeImage:(UIImage *)image withSize:(CGSize)size {
-    UIImageView *const resizeImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, size.width, size.height)];
-    
-    resizeImageView.contentMode = UIViewContentModeScaleAspectFill;
-    resizeImageView.image = image;
-    
-    UIGraphicsBeginImageContext(size);
-    [resizeImageView.layer renderInContext:UIGraphicsGetCurrentContext()];
-    UIImage *const newImage = UIGraphicsGetImageFromCurrentImageContext();
-    UIGraphicsEndImageContext();
-    
-    return newImage;
 }
 
 - (void)_tapImageGesture: (id)sender {
