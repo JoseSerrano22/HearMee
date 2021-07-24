@@ -8,6 +8,7 @@
 #import "FeedViewController.h"
 #import "LoginViewController.h"
 #import "DetailsViewController.h"
+#import "APIManager.h"
 #import "AppDelegate.h"
 #import "Parse/Parse.h"
 #import "Post.h"
@@ -40,25 +41,24 @@
 
 #pragma mark - Private
 
+
+
 - (void)_fetchPosts {
-    PFQuery *const postQuery = [Post query];
-    [postQuery orderByDescending:@"createdAt"];
-    [postQuery includeKey:@"author"];
-    postQuery.limit = 20;
     
-    [postQuery findObjectsInBackgroundWithBlock:^(NSArray<Post *> * _Nullable posts, NSError * _Nullable error) {
-        if (posts) {
-            self.posts = (NSMutableArray *) posts;
-            [self.tableView reloadData];
-        }
-        else {
-            NSLog(@"%@", error.localizedDescription);
-        }
+    [[APIManager shared] fetchAllPosts:^(NSArray * _Nonnull posts, NSError * _Nonnull error) {
+            if(posts){
+                self.posts = (NSMutableArray *) posts;
+                [self.tableView reloadData];
+            } else{
+                NSLog(@"%@", error.localizedDescription);
+            }
         [self.refreshControl endRefreshing];
+            
     }];
-}
+    }
 
 - (void)_loadMoreData {
+    
     PFQuery *const query = [PFQuery queryWithClassName:@"Post"];
     
     query.limit = 20 * self.skipCount;

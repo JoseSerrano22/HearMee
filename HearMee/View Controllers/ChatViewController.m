@@ -6,6 +6,7 @@
 //
 
 #import "ChatViewController.h"
+#import "APIManager.h"
 #import "ChatCell.h"
 #import "Parse/Parse.h"
 #import "Post.h"
@@ -28,8 +29,8 @@
     
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     
-//    currently disable becuase of to many request, in official demo activating again this code
-//    [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(_fetchMessages) userInfo:nil repeats:true];
+    //    currently disable becuase of to many request, in official demo activating again this code
+    //    [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(_fetchMessages) userInfo:nil repeats:true];
     
     [self _fetchMessages];
     
@@ -41,22 +42,15 @@
 #pragma mark - Private
 
 - (void)_fetchMessages {
-    PFQuery *const postQuery = [ChatMessage query];
-    [postQuery orderByDescending:@"createdAt"];
-    [postQuery includeKey:@"author"];
-    [postQuery includeKey:@"channelID"];
-    [postQuery whereKey:@"channelID" equalTo:self.channel];
-    
-    [postQuery findObjectsInBackgroundWithBlock:^(NSArray<ChatMessage *> * _Nullable messages, NSError * _Nullable error) {
-        if (messages) {
+    [[APIManager shared] fetchAllMessage:^(NSArray * _Nonnull messages, NSError * _Nonnull error) {
+        if(messages){
             self.messageArray = (NSMutableArray *) messages;
             [self.tableView reloadData];
-        }
-        else {
+        } else{
             NSLog(@"%@", error.localizedDescription);
         }
         [self.refreshControl endRefreshing];
-    }];
+    } withChannel:self.channel];
 }
 
 - (IBAction)_backDidTap:(id)sender {

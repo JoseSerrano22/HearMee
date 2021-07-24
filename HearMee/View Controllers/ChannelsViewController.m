@@ -7,6 +7,7 @@
 
 #import "ChannelsViewController.h"
 #import "ChatViewController.h"
+#import "APIManager.h"
 #import "Channels.h"
 #import "ChannelsCell.h"
 
@@ -32,12 +33,10 @@
 }
 
 - (void)_fetchChannels {
-    PFQuery *const channelQuery = [Channels query];
-    [channelQuery orderByDescending:@"createdAt"];
     
-    [channelQuery findObjectsInBackgroundWithBlock:^(NSArray<Channels *> * _Nullable channels, NSError * _Nullable error) {
-        if (channels) {
-            self.channelsArray = (NSMutableArray *) channels;
+    [[APIManager shared] fetchAllChannels:^(NSArray * _Nonnull channel, NSError * _Nonnull error) {
+        if (channel) {
+            self.channelsArray = (NSMutableArray *) channel;
             [self.tableView reloadData];
         }
         else {
