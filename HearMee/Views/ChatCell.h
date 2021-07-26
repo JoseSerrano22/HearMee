@@ -14,6 +14,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface ChatCell : UITableViewCell
+
 @property (weak, nonatomic) IBOutlet UIImageView *const profileImage;
 @property (weak, nonatomic) IBOutlet UILabel *const usernameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *const messageLabel;
@@ -21,7 +22,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) IBOutlet UIView *bubbleView;
 
 @property (strong, nonatomic) ChatMessage *message;
+
 -(void)setMessage:(ChatMessage *)message;
+
 @end
 
 NS_ASSUME_NONNULL_END

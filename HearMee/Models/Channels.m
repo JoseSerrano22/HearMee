@@ -8,10 +8,10 @@
 #import "Channels.h"
 
 @implementation Channels
+
 @dynamic title;
 @dynamic caption;
 @dynamic image;
-
 
 + (nonnull NSString *)parseClassName {
     return @"Channels";
@@ -29,15 +29,9 @@
 
 + (PFFileObject *)getPFFileFromImage: (UIImage * _Nullable)image {
 
-    if (!image) {
-        return nil;
-    }
-    
+    if (!image) {return nil;}
     NSData *imageData = UIImagePNGRepresentation(image);
-    
-    if (!imageData) {
-        return nil;
-    }
+    if (!imageData) {return nil;}
     return [PFFileObject fileObjectWithName:@"image.png" data:imageData];
 }
 

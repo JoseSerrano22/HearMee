@@ -11,6 +11,7 @@
 #import "AVFoundation/AVFoundation.h"
 
 @interface DetailsViewController ()
+
 @property (weak, nonatomic) IBOutlet UIImageView *const profileImage;
 @property (weak, nonatomic) IBOutlet UILabel *const usernameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *const timestampLabel;
@@ -21,8 +22,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *const commentLabel;
 @property (weak, nonatomic) IBOutlet UIButton *const bookmarkLabel;
 @property (weak, nonatomic) IBOutlet UILabel *const captionLabel;
-
 @property (nonatomic,strong) AVAudioPlayer *const player;
+
 @end
 
 @implementation DetailsViewController
@@ -37,6 +38,7 @@
     
     self.profileImage.layer.cornerRadius = self.profileImage.frame.size.width / 2;
     self.profileImage.clipsToBounds = YES;
+    
     PFUser *const postAuthor = self.post.author;
     [postAuthor fetchInBackgroundWithBlock:^(PFObject * _Nullable object, NSError * _Nullable error) {
         PFFileObject *const image = postAuthor[@"profile_image"];
@@ -56,9 +58,7 @@
     
     NSString *const createdAtOriginalString = self.timestampLabel.text = [NSString stringWithFormat:@"%@", self.post.createdAt];
     NSDateFormatter *const formatter = [[NSDateFormatter alloc] init];
-    
     formatter.dateFormat = @"YYYY-MM-dd HH:mm:ss z";
-    
     NSDate *const date = [formatter dateFromString:createdAtOriginalString];
     NSDate *const now = [NSDate date];
     NSInteger timeApart = [now hoursFrom:date];
@@ -74,6 +74,7 @@
 }
 
 #pragma mark - Private
+
 - (IBAction)_backDidTap:(id)sender {
     [self dismissViewControllerAnimated:YES completion:nil];
 }

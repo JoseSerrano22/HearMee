@@ -53,10 +53,10 @@
     [self.collectionView insertSubview:self.refreshControl atIndex:0];
     
 }
+
 #pragma mark - Private
 
 - (void)_fetchPosts {
-    
     [[APIManager shared] fetchAllProfile:^(NSArray * _Nonnull posts, NSError * _Nonnull error) {
         if(posts){
             self.posts = (NSMutableArray *) posts;

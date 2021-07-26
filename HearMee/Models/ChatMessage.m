@@ -8,13 +8,14 @@
 #import "ChatMessage.h"
 
 @implementation ChatMessage
+
 @dynamic author;
 @dynamic message;
 @dynamic createdAt;
 @dynamic channelID;
 
 + (nonnull NSString *)parseClassName {
-return @"ChatMessage";
+    return @"ChatMessage";
 }
 
 + (void) postMessage: ( NSString * _Nullable )message withChannelID:(PFObject* _Nonnull)channelID withCompletion: (PFBooleanResultBlock  _Nullable)completion {
@@ -25,4 +26,5 @@ return @"ChatMessage";
     newMessage.createdAt = [NSDate date];
     [newMessage saveInBackgroundWithBlock: completion];
 }
+
 @end

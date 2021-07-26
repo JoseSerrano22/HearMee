@@ -77,7 +77,6 @@
 }
 
 - (BOOL)_isTextFieldEmpty {
-    
     BOOL flag = FALSE;
     
     if ([self.usernameField.text isEqual:@""]) {
@@ -118,11 +117,11 @@
         }];
         flag = TRUE;
     }
-    
     return flag;
 }
 
 #pragma mark - UITextFieldDelegate
+
 - (BOOL)textFieldShouldReturn:(UITextField *)textField{
     [textField resignFirstResponder];
     return YES;

@@ -40,29 +40,17 @@
 
 + (PFFileObject *)getPFFileFromImage: (UIImage * _Nullable)image {
 
-    if (!image) {
-        return nil;
-    }
-    
+    if (!image) {return nil;}
     NSData *imageData = UIImagePNGRepresentation(image);
-    
-    if (!imageData) {
-        return nil;
-    }
+    if (!imageData) {return nil;}
     return [PFFileObject fileObjectWithName:@"image.png" data:imageData];
 }
 
 + (PFFileObject *)getPFFileFromAudio: ( AVAudioFile* _Nullable)audio {
 
-    if (!audio) {
-        return nil;
-    }
-    
+    if (!audio) {return nil;}
     NSData *audioData = [NSData dataWithContentsOfURL:audio.url];
-
-    if (!audioData) {
-        return nil;
-    }
+    if (!audioData) {return nil;}
     return [PFFileObject fileObjectWithName:@"AudioMemo.acc" data:audioData];
 }
 

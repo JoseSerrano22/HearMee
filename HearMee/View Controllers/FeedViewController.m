@@ -41,10 +41,7 @@
 
 #pragma mark - Private
 
-
-
 - (void)_fetchPosts {
-    
     [[APIManager shared] fetchAllPosts:^(NSArray * _Nonnull posts, NSError * _Nonnull error) {
             if(posts){
                 self.posts = (NSMutableArray *) posts;
@@ -58,7 +55,6 @@
     }
 
 - (void)_loadMoreData {
-    
     PFQuery *const query = [PFQuery queryWithClassName:@"Post"];
     
     query.limit = 20 * self.skipCount;
@@ -119,13 +115,13 @@
 }
 
 #pragma mark - UITableViewDelegate
+
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [self.tableView deselectRowAtIndexPath:[self.tableView indexPathForSelectedRow] animated:YES];
 }
 
 
 #pragma mark - Navigation
-
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([[segue identifier] isEqualToString:@"detailsSegue"]){

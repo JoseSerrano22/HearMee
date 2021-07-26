@@ -69,7 +69,6 @@
 #pragma mark - UICollectionViewDataSource
 
 - (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
-    
     ChatCell *const cell = [tableView dequeueReusableCellWithIdentifier:@"ChatCell" forIndexPath:indexPath];
     ChatMessage *const message = self.messageArray[indexPath.row];
     cell.message = message;

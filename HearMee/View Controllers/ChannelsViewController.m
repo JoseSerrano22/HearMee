@@ -12,6 +12,7 @@
 #import "ChannelsCell.h"
 
 @interface ChannelsViewController () <UITableViewDelegate, UITableViewDataSource>
+
 @property (weak, nonatomic) IBOutlet UITableView *const tableView;
 @property (nonatomic, strong) UIRefreshControl *const refreshControl;
 @property (strong, nonatomic) NSMutableArray *const channelsArray;
@@ -33,7 +34,6 @@
 }
 
 - (void)_fetchChannels {
-    
     [[APIManager shared] fetchAllChannels:^(NSArray * _Nonnull channel, NSError * _Nonnull error) {
         if (channel) {
             self.channelsArray = (NSMutableArray *) channel;
@@ -51,7 +51,6 @@
 }
 
 -(void)_showInputAlert {
-    
     UIAlertController *alertVC=[UIAlertController alertControllerWithTitle:@"Create Channel" message:@"" preferredStyle:UIAlertControllerStyleAlert];
     
     [alertVC addTextFieldWithConfigurationHandler:^(UITextField * _Nonnull textField) {

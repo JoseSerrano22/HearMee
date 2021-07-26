@@ -23,15 +23,12 @@
     
     self.messageLabel.text = message.message;
     self.usernameLabel.text = message.author.username;
-    
     self.bubbleView.layer.cornerRadius = 16;
     self.bubbleView.clipsToBounds = true;
     
     NSString *const createdAtOriginalString = self.timestampLabel.text = [NSString stringWithFormat:@"%@", message.createdAt];
     NSDateFormatter *const formatter = [[NSDateFormatter alloc] init];
-    
     formatter.dateFormat = @"YYYY-MM-dd HH:mm:ss z";
-    
     NSDate *const date = [formatter dateFromString:createdAtOriginalString];
     NSDate *const now = [NSDate date];
     NSInteger timeApart = [now hoursFrom:date];

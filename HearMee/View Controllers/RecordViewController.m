@@ -15,14 +15,12 @@
 #import "Post.h"
 
 @interface RecordViewController () < AVAudioRecorderDelegate, AVAudioPlayerDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextViewDelegate>
+
 @property (weak, nonatomic) IBOutlet UIButton *const playButton;
 @property (weak, nonatomic) IBOutlet UIButton *const stopButton;
 @property (weak, nonatomic) IBOutlet UIButton *const recordButton;
-
 @property (weak, nonatomic) IBOutlet UIImageView *const postImage;
 @property (weak, nonatomic) IBOutlet UITextView *const captionTextView;
-
-
 @property (nonatomic,strong) NSArray *const path;
 @property (nonatomic,retain) AVAudioRecorder *const recorder;
 @property (nonatomic,strong) AVAudioPlayer *const player;
@@ -110,7 +108,6 @@
 }
 
 - (void)_tapImageGesture: (id)sender {
-    
     UIImagePickerController *const imagePickerVC = [UIImagePickerController new];
     imagePickerVC.delegate = self;
     imagePickerVC.allowsEditing = YES;
@@ -149,7 +146,6 @@
 #pragma mark - UIImagePickerControllerDelegate
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info {
-    
     UIImage *const editedImage = info[UIImagePickerControllerEditedImage];
     self.postImage.image = editedImage;
     [self dismissViewControllerAnimated:YES completion:nil];
@@ -165,16 +161,14 @@
     return YES;
 }
 
-- (void)textViewDidBeginEditing:(UITextView *)textView
-{
+- (void)textViewDidBeginEditing:(UITextView *)textView{
     if ([textView.text isEqualToString:@"Write a caption..."]){
         textView.text = @"";
     }
     [textView becomeFirstResponder];
 }
 
-- (void)textViewDidEndEditing:(UITextView *)textView
-{
+- (void)textViewDidEndEditing:(UITextView *)textView{
     if ([textView.text isEqualToString:@""]) {
         textView.text = @"Write a caption...";
     }
@@ -193,7 +187,6 @@
 #pragma mark - AVAudioPlayerDelegate
 
 - (void) audioPlayerDidFinishPlaying:(AVAudioPlayer *)player successfully:(BOOL)flag{
-    
     UIAlertController *const alertPrompt = [UIAlertController
                                             alertControllerWithTitle:@"Completed"
                                             message:@"The Recording has been Finished"
@@ -202,6 +195,6 @@
     UIAlertAction *const action = [UIAlertAction actionWithTitle:@"Okay" style:UIAlertActionStyleCancel handler:nil];
     [alertPrompt addAction:action];
     [self presentViewController:alertPrompt animated:YES completion:nil];
-    
 }
+
 @end

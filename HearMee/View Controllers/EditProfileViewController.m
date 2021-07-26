@@ -12,6 +12,7 @@
 #import "Post.h"
 
 @interface EditProfileViewController () <UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate>
+
 @property (weak, nonatomic) IBOutlet UIImageView *const profileImage;
 @property (weak, nonatomic) IBOutlet UITextField *const usernameField;
 @property (weak, nonatomic) IBOutlet UITextField *const bioField;
@@ -111,7 +112,6 @@
 }
 
 - (BOOL)_isTextFieldEmpty {
-    
     BOOL flag = FALSE;
     
     if ([self.usernameField.text isEqual:@""]) {
@@ -144,7 +144,6 @@
 }
 
 - (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text {
-    
     if([text isEqualToString:@"\n"]) {
         [textView resignFirstResponder];
         return NO;
@@ -155,7 +154,6 @@
 #pragma mark - UIImagePickerControllerDelegate
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info {
-    
     UIImage *const editedImage = info[UIImagePickerControllerEditedImage];
     self.profileImage.image = editedImage;
     [self dismissViewControllerAnimated:YES completion:nil];
