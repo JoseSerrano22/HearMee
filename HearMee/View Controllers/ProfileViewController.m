@@ -7,6 +7,7 @@
 
 #import "ProfileViewController.h"
 #import "PostCollectionCell.h"
+#import "APIManager.h"
 #import "Post.h"
 #import "Parse/Parse.h"
 #import "UIImageView+AFNetworking.h"
@@ -56,14 +57,8 @@
 
 - (void)_fetchPosts {
     
-    PFQuery *const query = [PFQuery queryWithClassName:@"Post"];
-    [query orderByDescending:@"createdAt"];
-    [query includeKey:@"author"];
-    [query whereKey:@"author" equalTo:[PFUser currentUser]];
-    
-    [query findObjectsInBackgroundWithBlock:^(NSArray *posts, NSError *error) {
-        if (posts != nil) {
-            
+    [[APIManager shared] fetchAllProfile:^(NSArray * _Nonnull posts, NSError * _Nonnull error) {
+        if(posts){
             self.posts = (NSMutableArray *) posts;
             NSLog(@"Posts assigned to array");
             
@@ -71,15 +66,12 @@
             self.postCountLabel.text = [NSString stringWithFormat:@"%ld", (long)numOfPost];
             
             PFUser *const currentUser = PFUser.currentUser;
-            [currentUser fetchInBackgroundWithBlock:^(PFObject * _Nullable object, NSError * _Nullable error) {
-                self.usernameLabel.text = [currentUser username];
-                PFFileObject *const image = currentUser[@"profile_image"];
-                NSURL *const url = [NSURL URLWithString:image.url];
-                [self.profileImage setImageWithURL:url];
-                self.usernameLabel.text = [currentUser username];
-                self.bioLabel.text = currentUser[@"bio"];
-                
-            }];
+            self.usernameLabel.text = [currentUser username];
+            PFFileObject *const image = currentUser[@"profile_image"];
+            NSURL *const url = [NSURL URLWithString:image.url];
+            [self.profileImage setImageWithURL:url];
+            self.usernameLabel.text = [currentUser username];
+            self.bioLabel.text = currentUser[@"bio"];
             [self.collectionView reloadData];
             
         } else {
@@ -88,6 +80,11 @@
         }
         [self.refreshControl endRefreshing];
     }];
+    
+    PFQuery *const query = [PFQuery queryWithClassName:@"Post"];
+    [query orderByDescending:@"createdAt"];
+    [query includeKey:@"author"];
+    [query whereKey:@"author" equalTo:[PFUser currentUser]];
 }
 
 #pragma mark - UICollectionViewDataSource

@@ -22,6 +22,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (void)fetchAllMessage:(void(^)(NSArray *messages, NSError *error))completion withChannel:(Channels * _Nullable)channel;
 
+- (void)fetchAllProfile:(void(^)(NSArray *posts, NSError *error))completion;
+
 @end
 
 NS_ASSUME_NONNULL_END

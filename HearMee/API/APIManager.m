@@ -50,4 +50,15 @@
     }];
 }
 
+- (void)fetchAllProfile:(void(^)(NSArray *posts, NSError *error))completion {
+    PFQuery *const postQuery = [Post query];
+    [postQuery orderByDescending:@"createdAt"];
+    [postQuery includeKey:@"author"];
+    [postQuery whereKey:@"author" equalTo:[PFUser currentUser]];
+    
+    [postQuery findObjectsInBackgroundWithBlock:^(NSArray<Post *> * _Nullable posts, NSError * _Nullable error) {
+        completion(posts, error);
+    }];
+}
+
 @end
