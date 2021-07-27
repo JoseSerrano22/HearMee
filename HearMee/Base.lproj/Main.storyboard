@@ -1277,19 +1277,19 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4hf-ul-vqq">
-                                <rect key="frame" x="174" y="431" width="42" height="30"/>
+                                <rect key="frame" x="178" y="431" width="34" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Parrot"/>
+                                <state key="normal" title="echo"/>
                                 <connections>
-                                    <action selector="_parrotDidTap:" destination="CtR-bD-Xys" eventType="touchUpInside" id="Ylv-Y8-5Yy"/>
+                                    <action selector="_echoDidTap:" destination="CtR-bD-Xys" eventType="touchUpInside" id="Ylv-Y8-5Yy"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wax-5O-DY3">
-                                <rect key="frame" x="178" y="519" width="35" height="30"/>
+                                <rect key="frame" x="172" y="519" width="48" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Echo"/>
+                                <state key="normal" title="Reverb"/>
                                 <connections>
-                                    <action selector="_echoDidTap:" destination="CtR-bD-Xys" eventType="touchUpInside" id="kKE-E3-9IV"/>
+                                    <action selector="_reverbDidTap:" destination="CtR-bD-Xys" eventType="touchUpInside" id="kKE-E3-9IV"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Xd-IT-q84">
