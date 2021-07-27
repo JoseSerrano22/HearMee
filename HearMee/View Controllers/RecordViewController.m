@@ -8,6 +8,7 @@
 #import "RecordViewController.h"
 #import "AVFoundation/AVFoundation.h"
 #import "FeedViewController.h"
+#import "AudioFilterViewController.h"
 #import "UIImage+Extension.h"
 #import "Parse/Parse.h"
 #import "PFObject.h"
@@ -21,6 +22,8 @@
 @property (weak, nonatomic) IBOutlet UIButton *const recordButton;
 @property (weak, nonatomic) IBOutlet UIImageView *const postImage;
 @property (weak, nonatomic) IBOutlet UITextView *const captionTextView;
+@property (weak, nonatomic) IBOutlet UIButton *backwardButtton;
+@property (weak, nonatomic) IBOutlet UIButton *forwardButton;
 @property (nonatomic,strong) NSArray *const path;
 @property (nonatomic,retain) AVAudioRecorder *const recorder;
 @property (nonatomic,strong) AVAudioPlayer *const player;
@@ -36,10 +39,6 @@
     UITapGestureRecognizer *const tapGesture1 = [[UITapGestureRecognizer alloc] initWithTarget:self  action:@selector(_tapImageGesture:)];
     tapGesture1.numberOfTapsRequired = 1;
     [self.postImage addGestureRecognizer:tapGesture1];
-    
-    // Hide the Stop and Play button when application launches
-    [self.playButton setHidden:YES];
-    [self.stopButton setHidden:YES];
     
     // Set the audio file
     self.path = [NSArray arrayWithObjects:[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject], @"AudioMemo.acc",nil];
@@ -99,7 +98,32 @@
     }
     [self.stopButton setHidden:NO];
     [self.playButton setHidden:NO];
+    [self.backwardButtton setHidden:NO];
+    [self.forwardButton setHidden:NO];
 }
+
+- (IBAction)_backwardDidTap:(id)sender {
+    NSTimeInterval time = self.player.currentTime;
+    time -= 5;
+    
+    if (time < 0){
+        [self.player stop];
+      } else {
+          self.player.currentTime = time;
+      }
+}
+
+- (IBAction)_forwardDidTap:(id)sender {
+    NSTimeInterval time = self.player.currentTime;
+    time += 5;
+    
+    if (time > self.player.duration){
+        [self.player stop];
+      } else {
+          self.player.currentTime = time;
+      }
+}
+
 
 - (IBAction)_shareDidTap:(id)sender {
     AVAudioFile *const audioFile = [[AVAudioFile alloc] initForReading:self.recorder.url error:nil];
@@ -195,6 +219,20 @@
     UIAlertAction *const action = [UIAlertAction actionWithTitle:@"Okay" style:UIAlertActionStyleCancel handler:nil];
     [alertPrompt addAction:action];
     [self presentViewController:alertPrompt animated:YES completion:nil];
+}
+
+#pragma mark - Navigation
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([[segue identifier] isEqualToString:@"audioFilterSegue"]){
+        
+        UINavigationController *const nav = [segue destinationViewController];
+        AudioFilterViewController *const audioFilterVC = (AudioFilterViewController *)[nav topViewController];
+        audioFilterVC.caption = self.captionTextView.text;
+        UIImage *const resizeImage = [UIImage _resizeImage:self.postImage.image withSize:(CGSizeMake(400, 400))];
+        audioFilterVC.postImage = resizeImage;
+        audioFilterVC.audioFile = [[AVAudioFile alloc] initForReading:self.recorder.url error:nil];
+    }
 }
 
 @end

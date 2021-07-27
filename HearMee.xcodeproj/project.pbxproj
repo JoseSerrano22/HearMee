@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		3429800B0817096EE17F3E03 /* Pods_HearMee_HearMeeUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 432B648946E385AC0FDF7194 /* Pods_HearMee_HearMeeUITests.framework */; };
+		710BADC526AF75C700FE4ECE /* AudioFilterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 710BADC426AF75C700FE4ECE /* AudioFilterViewController.m */; };
 		7196BC2226A0C58C00C600FD /* ChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7196BC2126A0C58C00C600FD /* ChatViewController.m */; };
 		7196BC2B26A5D9A500C600FD /* ChatCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7196BC2A26A5D9A500C600FD /* ChatCell.m */; };
 		7196BC3226A6364200C600FD /* ChatMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 7196BC3126A6364200C600FD /* ChatMessage.m */; };
@@ -60,6 +61,8 @@
 		432B648946E385AC0FDF7194 /* Pods_HearMee_HearMeeUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HearMee_HearMeeUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		49C94BCF573F200948C86AE7 /* Pods-HearMee.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HearMee.release.xcconfig"; path = "Target Support Files/Pods-HearMee/Pods-HearMee.release.xcconfig"; sourceTree = "<group>"; };
 		5D3BAE91A79BD2BB8A873F25 /* Pods-HearMeeTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HearMeeTests.debug.xcconfig"; path = "Target Support Files/Pods-HearMeeTests/Pods-HearMeeTests.debug.xcconfig"; sourceTree = "<group>"; };
+		710BADC326AF75C700FE4ECE /* AudioFilterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AudioFilterViewController.h; sourceTree = "<group>"; };
+		710BADC426AF75C700FE4ECE /* AudioFilterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AudioFilterViewController.m; sourceTree = "<group>"; };
 		7196BC2026A0C58C00C600FD /* ChatViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChatViewController.h; sourceTree = "<group>"; };
 		7196BC2126A0C58C00C600FD /* ChatViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChatViewController.m; sourceTree = "<group>"; };
 		7196BC2926A5D9A500C600FD /* ChatCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChatCell.h; sourceTree = "<group>"; };
@@ -249,6 +252,8 @@
 				7196BC2126A0C58C00C600FD /* ChatViewController.m */,
 				7196BC3626A75AB700C600FD /* ChannelsViewController.h */,
 				7196BC3726A75AB700C600FD /* ChannelsViewController.m */,
+				710BADC326AF75C700FE4ECE /* AudioFilterViewController.h */,
+				710BADC426AF75C700FE4ECE /* AudioFilterViewController.m */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -552,6 +557,7 @@
 				71F73765269CE3B200C25ED3 /* FeedViewController.m in Sources */,
 				71AFC3D426A086DD006C4872 /* DetailsViewController.m in Sources */,
 				71D27482269CA2C90063780C /* AppDelegate.m in Sources */,
+				710BADC526AF75C700FE4ECE /* AudioFilterViewController.m in Sources */,
 				71CD70D6269FCD8B00F1C990 /* PostCollectionCell.m in Sources */,
 				71CD70DC269FCE6E00F1C990 /* ProfileViewController.m in Sources */,
 				7196BC2B26A5D9A500C600FD /* ChatCell.m in Sources */,

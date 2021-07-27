@@ -85,4 +85,26 @@
     }];
 }
 
+- (IBAction)_backwardDidTap:(id)sender {
+    NSTimeInterval time = self.player.currentTime;
+    time -= 5;
+    
+    if (time < 0){
+        [self.player stop];
+      } else {
+          self.player.currentTime = time;
+      }
+}
+
+- (IBAction)_forwardDidTap:(id)sender {
+    NSTimeInterval time = self.player.currentTime;
+    time += 5;
+    
+    if (time > self.player.duration){
+        [self.player stop];
+      } else {
+          self.player.currentTime = time;
+      }
+}
+
 @end
