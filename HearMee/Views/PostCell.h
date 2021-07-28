@@ -29,6 +29,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (strong, nonatomic) Post *post;
 @property (nonatomic,strong) AVAudioPlayer *const player;
+@property (strong,nonatomic) AVAudioEngine *audioEngine;
+@property (strong, nonatomic)  AVAudioPlayerNode *audioPlayerNode;
+@property (strong,nonatomic) AVAudioFile *audioFile;
 
 -(void)setPost:(Post *)post;
 

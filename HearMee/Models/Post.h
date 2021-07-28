@@ -17,12 +17,15 @@
 @property (nonatomic, strong) NSString *caption;
 @property (nonatomic, strong) PFFileObject *image;
 @property (nonatomic, strong) PFFileObject *audio;
+@property (nonatomic, strong) NSString *filterName;
 @property (nonatomic, strong) NSNumber *likeCount;
 @property (nonatomic, strong) NSNumber *commentCount;
 @property (nonatomic, strong) NSDate *createdAt;
 @property (nonatomic, strong) NSMutableArray *likedByUsername;
 
 + (void) postUserAudio: ( AVAudioFile * _Nullable )audio withImage: ( UIImage * _Nullable )image withCaption: ( NSString * _Nullable )caption withCompletion: (PFBooleanResultBlock  _Nullable)completion;
+
++ (void) postUserAudio: ( AVAudioFile * _Nullable )audio withFilter:( NSString * _Nullable )filter withImage: ( UIImage * _Nullable )image withCaption: ( NSString * _Nullable )caption withCompletion: (PFBooleanResultBlock  _Nullable)completion;
 
 - (void) like;
 - (void) unlike;
