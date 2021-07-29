@@ -18,6 +18,28 @@
     return sharedManager;
 }
 
+-(void)getPodcastwithCompletion:(void (^)(NSArray *podcasts, NSError *error))completion withNamePodcast:(NSString * _Nullable)name{
+    
+    NSString *urlString = [NSString stringWithFormat:@"https://itunes.apple.com/search?media=podcast&term=%@", name];
+    NSURL *url = [NSURL URLWithString:urlString];
+    NSURLRequest *request = [NSURLRequest requestWithURL:url cachePolicy:NSURLRequestReloadIgnoringLocalCacheData timeoutInterval:10.0];
+    NSURLSession *session = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration] delegate:nil delegateQueue:[NSOperationQueue mainQueue]];
+    NSURLSessionDataTask *task = [session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+           if (error != nil) {
+               NSLog(@"%@", [error localizedDescription]);
+               completion(nil,error);
+           }
+           else {
+               NSDictionary *dataDictionary = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
+               NSArray *dictionaries = dataDictionary[@"results"];
+               NSArray *podcast = [Podcast podcastsWithDictionaries:dictionaries];
+               completion(podcast, nil);
+
+           }
+       }];
+    [task resume];
+}
+
 - (void)fetchAllPosts:(void(^)(NSArray *posts, NSError *error))completion {
     PFQuery *const postQuery = [Post query];
     [postQuery orderByDescending:@"createdAt"];

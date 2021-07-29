@@ -6,6 +6,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Podcast.h"
 #import "Post.h"
 #import "ChatMessage.h"
 #import "Channels.h"
@@ -15,6 +16,8 @@ NS_ASSUME_NONNULL_BEGIN
 @interface APIManager : NSObject
 
 + (instancetype)shared;
+
+-(void)getPodcastwithCompletion:(void (^)(NSArray *podcasts, NSError *error))completion withNamePodcast:(NSString * _Nullable)name;
 
 - (void)fetchAllPosts:(void(^)(NSArray *posts, NSError *error))completion;
 

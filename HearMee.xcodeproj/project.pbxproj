@@ -36,6 +36,9 @@
 		71D274A8269CA2CA0063780C /* HearMeeUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 71D274A7269CA2CA0063780C /* HearMeeUITests.m */; };
 		71D274BA269CBE080063780C /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 71D274B9269CBE080063780C /* LoginViewController.m */; };
 		71F73765269CE3B200C25ED3 /* FeedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 71F73764269CE3B200C25ED3 /* FeedViewController.m */; };
+		71F9002626B1DF8B000DAE96 /* PodcastSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 71F9002526B1DF8B000DAE96 /* PodcastSearchViewController.m */; };
+		71F9002926B1E338000DAE96 /* PodcastSearchCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 71F9002826B1E338000DAE96 /* PodcastSearchCell.m */; };
+		71F9003826B20360000DAE96 /* Podcast.m in Sources */ = {isa = PBXBuildFile; fileRef = 71F9003726B20360000DAE96 /* Podcast.m */; };
 		750E133AE38E65DD29EC4BD5 /* Pods_HearMeeTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E053D249A39C0FB713E5B0DC /* Pods_HearMeeTests.framework */; };
 		E836358D68FE143A53AB702D /* Pods_HearMee.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD2DA784993E191BA1B52E43 /* Pods_HearMee.framework */; };
 /* End PBXBuildFile section */
@@ -116,6 +119,12 @@
 		71D274B9269CBE080063780C /* LoginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		71F73763269CE3B200C25ED3 /* FeedViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FeedViewController.h; sourceTree = "<group>"; };
 		71F73764269CE3B200C25ED3 /* FeedViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FeedViewController.m; sourceTree = "<group>"; };
+		71F9002426B1DF8B000DAE96 /* PodcastSearchViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PodcastSearchViewController.h; sourceTree = "<group>"; };
+		71F9002526B1DF8B000DAE96 /* PodcastSearchViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PodcastSearchViewController.m; sourceTree = "<group>"; };
+		71F9002726B1E338000DAE96 /* PodcastSearchCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PodcastSearchCell.h; sourceTree = "<group>"; };
+		71F9002826B1E338000DAE96 /* PodcastSearchCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PodcastSearchCell.m; sourceTree = "<group>"; };
+		71F9003626B20360000DAE96 /* Podcast.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Podcast.h; sourceTree = "<group>"; };
+		71F9003726B20360000DAE96 /* Podcast.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Podcast.m; sourceTree = "<group>"; };
 		8B5148E081BC362770E1C200 /* Pods-HearMeeTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HearMeeTests.release.xcconfig"; path = "Target Support Files/Pods-HearMeeTests/Pods-HearMeeTests.release.xcconfig"; sourceTree = "<group>"; };
 		B34B5FB92E36B85CC874C5F8 /* Pods-HearMee-HearMeeUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HearMee-HearMeeUITests.debug.xcconfig"; path = "Target Support Files/Pods-HearMee-HearMeeUITests/Pods-HearMee-HearMeeUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		CD0B26360546ACFE699F2A5A /* Pods-HearMee.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HearMee.debug.xcconfig"; path = "Target Support Files/Pods-HearMee/Pods-HearMee.debug.xcconfig"; sourceTree = "<group>"; };
@@ -254,6 +263,8 @@
 				7196BC3726A75AB700C600FD /* ChannelsViewController.m */,
 				710BADC326AF75C700FE4ECE /* AudioFilterViewController.h */,
 				710BADC426AF75C700FE4ECE /* AudioFilterViewController.m */,
+				71F9002426B1DF8B000DAE96 /* PodcastSearchViewController.h */,
+				71F9002526B1DF8B000DAE96 /* PodcastSearchViewController.m */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -269,6 +280,8 @@
 				7196BC2A26A5D9A500C600FD /* ChatCell.m */,
 				7196BC3926A75B0000C600FD /* ChannelsCell.h */,
 				7196BC3A26A75B0000C600FD /* ChannelsCell.m */,
+				71F9002726B1E338000DAE96 /* PodcastSearchCell.h */,
+				71F9002826B1E338000DAE96 /* PodcastSearchCell.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -282,6 +295,8 @@
 				7196BC3126A6364200C600FD /* ChatMessage.m */,
 				7196BC3326A756AC00C600FD /* Channels.h */,
 				7196BC3426A756AC00C600FD /* Channels.m */,
+				71F9003626B20360000DAE96 /* Podcast.h */,
+				71F9003726B20360000DAE96 /* Podcast.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -558,10 +573,13 @@
 				71AFC3D426A086DD006C4872 /* DetailsViewController.m in Sources */,
 				71D27482269CA2C90063780C /* AppDelegate.m in Sources */,
 				710BADC526AF75C700FE4ECE /* AudioFilterViewController.m in Sources */,
+				71F9002626B1DF8B000DAE96 /* PodcastSearchViewController.m in Sources */,
 				71CD70D6269FCD8B00F1C990 /* PostCollectionCell.m in Sources */,
 				71CD70DC269FCE6E00F1C990 /* ProfileViewController.m in Sources */,
 				7196BC2B26A5D9A500C600FD /* ChatCell.m in Sources */,
+				71F9002926B1E338000DAE96 /* PodcastSearchCell.m in Sources */,
 				7196BC3226A6364200C600FD /* ChatMessage.m in Sources */,
+				71F9003826B20360000DAE96 /* Podcast.m in Sources */,
 				7196BC3B26A75B0000C600FD /* ChannelsCell.m in Sources */,
 				71CD70D3269F39B900F1C990 /* PostCell.m in Sources */,
 				71CD70CD269DE6BE00F1C990 /* RecordViewController.m in Sources */,
