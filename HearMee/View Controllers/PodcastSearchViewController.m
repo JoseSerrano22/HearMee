@@ -57,22 +57,23 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    PodcastSearchCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    [self.tableView deselectRowAtIndexPath:[self.tableView indexPathForSelectedRow] animated:YES];
+    [self.view endEditing:YES];
     
+    PodcastSearchCell *cell = [tableView cellForRowAtIndexPath:indexPath];
     UIApplication *application = [UIApplication sharedApplication];
     [application openURL:cell.trackViewUrl options:@{} completionHandler:nil];
 }
 
 
 - (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText{
-
         [self _fetchPodcasts];
-
 }
 
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar {
     NSLog(@"Search Clicked");
     [self _fetchPodcasts];
+    [self.view endEditing:YES];
 }
 
 @end

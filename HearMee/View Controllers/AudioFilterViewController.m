@@ -6,6 +6,7 @@
 //
 
 #import "AudioFilterViewController.h"
+#import "PostRecordViewController.h"
 #import "Post.h"
 
 @interface AudioFilterViewController ()
@@ -23,10 +24,6 @@
     // Do any additional setup after loading the view
 }
 
-- (IBAction)_shareDidTap:(id)sender {
-    [Post postUserAudio:self.audioFile withFilter:self.filterName withImage:self.postImage withCaption:self.caption withCompletion:nil];
-}
-
 - (IBAction)_backDidTap:(id)sender {
     [self dismissViewControllerAnimated:YES completion:nil];
 }
@@ -35,84 +32,18 @@
     
     self.filterName = @"slow";
     [self _typeOfAudioFilter:self.filterName];
-    
-//    self.audioEngine = [[AVAudioEngine alloc] init];
-//    self.audioPlayerNode = [[AVAudioPlayerNode alloc] init];
-//
-//
-//    [self.audioEngine attachNode:self.audioPlayerNode];
-//
-//    AVAudioUnitTimePitch *changeRatePitchNode = [[AVAudioUnitTimePitch alloc] init];
-//
-//    changeRatePitchNode.rate = 0.5;
-//
-//    [self.audioEngine attachNode:changeRatePitchNode];
-//
-//    [self.audioEngine connect:self.audioPlayerNode to:changeRatePitchNode format:self.audioFile.processingFormat];
-//    [self.audioEngine connect:changeRatePitchNode to:self.audioEngine.outputNode format:self.audioFile.processingFormat];
-//
-//    [self.audioPlayerNode stop];
-//    [self.audioPlayerNode scheduleFile:self.audioFile atTime:nil completionHandler:nil];
-//
-//    [self.audioEngine startAndReturnError:nil];
-//    [self.audioPlayerNode setVolume:10.0];
-//    [self.audioPlayerNode play];
-    
-
 }
 
 - (IBAction)_fastDidTap:(id)sender {
     
     self.filterName = @"fast";
     [self _typeOfAudioFilter:self.filterName];
-    
-//    self.audioEngine = [[AVAudioEngine alloc] init];
-//    self.audioPlayerNode = [[AVAudioPlayerNode alloc] init];
-//
-//    [self.audioEngine attachNode:self.audioPlayerNode];
-//
-//    AVAudioUnitTimePitch *changeRatePitchNode = [[AVAudioUnitTimePitch alloc] init];
-//
-//    changeRatePitchNode.rate = 1.75;
-//
-//    [self.audioEngine attachNode:changeRatePitchNode];
-//
-//    [self.audioEngine connect:self.audioPlayerNode to:changeRatePitchNode format:self.audioFile.processingFormat];
-//    [self.audioEngine connect:changeRatePitchNode to:self.audioEngine.outputNode format:self.audioFile.processingFormat];
-//
-//    [self.audioPlayerNode stop];
-//    [self.audioPlayerNode scheduleFile:self.audioFile atTime:nil completionHandler:nil];
-//
-//    [self.audioEngine startAndReturnError:nil];
-//    [self.audioPlayerNode setVolume:10.0];
-//    [self.audioPlayerNode play];
 }
 
 - (IBAction)_highPitchDidTap:(id)sender {
     
     self.filterName = @"highPitch";
     [self _typeOfAudioFilter:self.filterName];
-    
-//    self.audioEngine = [[AVAudioEngine alloc] init];
-//    self.audioPlayerNode = [[AVAudioPlayerNode alloc] init];
-//
-//    [self.audioEngine attachNode:self.audioPlayerNode];
-//
-//    AVAudioUnitTimePitch *changeRatePitchNode = [[AVAudioUnitTimePitch alloc] init];
-//
-//    changeRatePitchNode.pitch = 1000;
-//
-//    [self.audioEngine attachNode:changeRatePitchNode];
-//
-//    [self.audioEngine connect:self.audioPlayerNode to:changeRatePitchNode format:self.audioFile.processingFormat];
-//    [self.audioEngine connect:changeRatePitchNode to:self.audioEngine.outputNode format:self.audioFile.processingFormat];
-//
-//    [self.audioPlayerNode stop];
-//    [self.audioPlayerNode scheduleFile:self.audioFile atTime:nil completionHandler:nil];
-//
-//    [self.audioEngine startAndReturnError:nil];
-//    [self.audioPlayerNode setVolume:10.0];
-//    [self.audioPlayerNode play];
 }
 
 - (IBAction)_lowPitchDidTap:(id)sender {
@@ -128,6 +59,7 @@
 }
 
 - (IBAction)_reverbDidTap:(id)sender {
+    
     self.filterName = @"reverb";
     [self _typeOfAudioFilter:self.filterName];
 }
@@ -247,14 +179,16 @@
     }
 }
 
-/*
- #pragma mark - Navigation
- 
- // In a storyboard-based application, you will often want to do a little preparation before navigation
- - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
- // Get the new view controller using [segue destinationViewController].
- // Pass the selected object to the new view controller.
- }
- */
+#pragma mark - Navigation
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([[segue identifier] isEqualToString:@"postSegue"]){
+        
+        UINavigationController *const nav = [segue destinationViewController];
+        PostRecordViewController *const postRecordVC = (PostRecordViewController *)[nav topViewController];
+        postRecordVC.audioFile = self.audioFile;
+        postRecordVC.filterName = self.filterName;
+    }
+}
 
 @end

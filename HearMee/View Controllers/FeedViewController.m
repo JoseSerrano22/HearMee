@@ -81,7 +81,8 @@
     [PFUser logOutInBackgroundWithBlock:^(NSError * _Nullable error) {
         UIStoryboard *const storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
         LoginViewController *const loginViewController = [storyboard instantiateViewControllerWithIdentifier:@"LoginViewController"];
-        [[UIApplication sharedApplication].keyWindow setRootViewController: loginViewController];
+        [UIApplication.sharedApplication.windows.lastObject.rootViewController
+            presentViewController:loginViewController animated:YES completion:nil];
         NSLog(@"Logged out!");
     }];
 }

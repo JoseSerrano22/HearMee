@@ -7,6 +7,7 @@
 
 #import "ProfileViewController.h"
 #import "PostCollectionCell.h"
+#import "DetailsViewController.h"
 #import "APIManager.h"
 #import "Post.h"
 #import "Parse/Parse.h"
@@ -98,6 +99,19 @@
 
 - (NSInteger)collectionView:(nonnull UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
     return self.posts.count;
+}
+
+#pragma mark - Navigation
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([[segue identifier] isEqualToString:@"detailsProfileSegue"]){
+        PostCollectionCell *const tappedCell = sender;
+        NSIndexPath *const indexPath = [self.collectionView indexPathForCell:tappedCell];
+        Post *const post = self.posts[indexPath.row];
+        UINavigationController *const nav = [segue destinationViewController];
+        DetailsViewController *const detailsViewController = (DetailsViewController *)[nav topViewController];
+        detailsViewController.post = post;
+    }
 }
 
 @end

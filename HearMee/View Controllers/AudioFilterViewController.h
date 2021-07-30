@@ -13,8 +13,8 @@ NS_ASSUME_NONNULL_BEGIN
 @interface AudioFilterViewController : UIViewController
 
 @property (strong, nonatomic) AVAudioFile *audioFile;
-@property (strong, nonatomic) UIImage *postImage;
-@property (strong, nonatomic) NSString *caption;
+//@property (strong, nonatomic) UIImage *postImage;
+//@property (strong, nonatomic) NSString *caption;
 
 @end
 
