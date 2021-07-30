@@ -104,7 +104,7 @@
 
 - (IBAction)_backwardDidTap:(id)sender {
     NSTimeInterval time = self.player.currentTime;
-    time -= 5;
+    time -= 3;
     
     if (time < 0){
         [self.player stop];
@@ -115,7 +115,7 @@
 
 - (IBAction)_forwardDidTap:(id)sender {
     NSTimeInterval time = self.player.currentTime;
-    time += 5;
+    time += 3;
     
     if (time > self.player.duration){
         [self.player stop];
@@ -128,7 +128,7 @@
 - (IBAction)_shareDidTap:(id)sender {
     AVAudioFile *const audioFile = [[AVAudioFile alloc] initForReading:self.recorder.url error:nil];
     UIImage *const resizeImage = [UIImage _resizeImage:self.postImage.image withSize:(CGSizeMake(400, 400))];
-    [Post postUserAudio:audioFile withImage:resizeImage withCaption:self.captionTextView.text withCompletion:nil];
+    [Post postUserAudio:audioFile withFilter:nil withImage:resizeImage withCaption:self.captionTextView.text withCompletion:nil];
 }
 
 - (void)_tapImageGesture: (id)sender {

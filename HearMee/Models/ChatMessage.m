@@ -19,6 +19,7 @@
 }
 
 + (void) postMessage: ( NSString * _Nullable )message withChannelID:(PFObject* _Nonnull)channelID withCompletion: (PFBooleanResultBlock  _Nullable)completion {
+    
     ChatMessage *newMessage = [ChatMessage new];
     newMessage.author = [PFUser currentUser];
     newMessage.message = message;

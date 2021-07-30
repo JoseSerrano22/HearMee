@@ -12,12 +12,12 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface PodcastSearchCell : UITableViewCell
 
-@property (weak, nonatomic) IBOutlet UIImageView *podcastImage;
-@property (weak, nonatomic) IBOutlet UILabel *podcastNameLabel;
-@property (weak, nonatomic) IBOutlet UILabel *artistLabel;
-@property (weak, nonatomic) IBOutlet UILabel *genreLabel;
+@property (weak, nonatomic) IBOutlet UIImageView *const podcastImage;
+@property (weak, nonatomic) IBOutlet UILabel *const podcastNameLabel;
+@property (weak, nonatomic) IBOutlet UILabel *const artistLabel;
+@property (weak, nonatomic) IBOutlet UILabel *const genreLabel;
 
-@property (strong, nonatomic) NSURL *trackViewUrl;
+@property (strong, nonatomic) NSURL *const trackViewUrl;
 
 @property (nonatomic, strong) Podcast *podcast;
 

@@ -23,12 +23,16 @@
 @property (weak, nonatomic) IBOutlet UIButton *const bookmarkLabel;
 @property (weak, nonatomic) IBOutlet UILabel *const captionLabel;
 @property (nonatomic,strong) AVAudioPlayer *const player;
+@property (strong,nonatomic) AVAudioEngine *const audioEngine;
+@property (strong, nonatomic)  AVAudioPlayerNode *const audioPlayerNode;
+@property (strong,nonatomic) AVAudioFile *const audioFile;
 
 @end
 
 @implementation DetailsViewController
 
 - (void)viewDidLoad {
+    
     [super viewDidLoad];
     NSLog(@"%@",self.post);
     PFUser *const user = self.post.author;
@@ -104,19 +108,30 @@
     
     [self.post fetchInBackgroundWithBlock:^(PFObject * _Nullable object, NSError * _Nullable error) {
         if (!error) {
+            
             PFFileObject *const audioObject = self.post.audio;
             NSURL *const url = [NSURL URLWithString:audioObject.url];
             NSData *const data = [NSData dataWithContentsOfURL:url];
-            self.player = [[AVAudioPlayer alloc] initWithData:data error:nil];
-            self.player.volume = 10.0;
-            [self.player play];
+            
+            NSString *const filePath = [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0] stringByAppendingPathComponent:@"AudioMemo.acc"];
+            [data writeToFile:filePath atomically:YES];
+            NSArray *const pathArray = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask,YES);
+            NSString *const documentsDirectory = [pathArray objectAtIndex:0];
+            NSString *const soundPath = [documentsDirectory stringByAppendingPathComponent:@"AudioMemo.acc"];
+            
+            NSURL *soundUrl;
+            if ([[NSFileManager defaultManager] fileExistsAtPath:soundPath]){
+                soundUrl = [NSURL fileURLWithPath:soundPath isDirectory:NO];
+            }
+            
+            [self _typeOfAudioFilter:self.post.filterName withURL:soundUrl];
         }
     }];
 }
 
 - (IBAction)_backwardDidTap:(id)sender {
     NSTimeInterval time = self.player.currentTime;
-    time -= 5;
+    time -= 3;
     
     if (time < 0){
         [self.player stop];
@@ -127,13 +142,134 @@
 
 - (IBAction)_forwardDidTap:(id)sender {
     NSTimeInterval time = self.player.currentTime;
-    time += 5;
+    time += 3;
     
     if (time > self.player.duration){
         [self.player stop];
       } else {
           self.player.currentTime = time;
       }
+}
+
+-(void)_typeOfAudioFilter:(NSString * _Nullable)filterName withURL:(NSURL * _Nonnull)url {
+    
+    self.audioFile = [[AVAudioFile alloc] initForReading:url error:nil];
+    self.audioEngine = [[AVAudioEngine alloc] init];
+    self.audioPlayerNode = [[AVAudioPlayerNode alloc] init];
+    [self.audioEngine attachNode:self.audioPlayerNode];
+    
+    AVAudioUnitTimePitch *const changeRatePitchNode = [[AVAudioUnitTimePitch alloc] init];
+    AVAudioUnitDistortion *const echoNode = [[AVAudioUnitDistortion alloc] init];
+    AVAudioUnitReverb *const reverbNode = [[AVAudioUnitReverb alloc] init];
+    
+    if ([filterName isEqualToString:@"slow"]){
+        
+        changeRatePitchNode.rate = 0.5;
+        
+        [self.audioEngine attachNode:changeRatePitchNode];
+        
+        [self.audioEngine connect:self.audioPlayerNode to:changeRatePitchNode format:self.audioFile.processingFormat];
+        [self.audioEngine connect:changeRatePitchNode to:self.audioEngine.outputNode format:self.audioFile.processingFormat];
+        
+        [self.audioPlayerNode stop];
+        [self.audioPlayerNode scheduleFile:self.audioFile atTime:nil completionHandler:nil];
+        
+        [self.audioEngine startAndReturnError:nil];
+        [self.audioPlayerNode setVolume:10.0];
+        [self.audioPlayerNode play];
+        
+    } else if ([filterName isEqualToString:@"fast"]){
+        
+        changeRatePitchNode.rate = 2.0;
+        
+        [self.audioEngine attachNode:changeRatePitchNode];
+        
+        [self.audioEngine connect:self.audioPlayerNode to:changeRatePitchNode format:self.audioFile.processingFormat];
+        [self.audioEngine connect:changeRatePitchNode to:self.audioEngine.outputNode format:self.audioFile.processingFormat];
+        
+        [self.audioPlayerNode stop];
+        [self.audioPlayerNode scheduleFile:self.audioFile atTime:nil completionHandler:nil];
+        
+        [self.audioEngine startAndReturnError:nil];
+        [self.audioPlayerNode setVolume:10.0];
+        [self.audioPlayerNode play];
+        
+    } else if ([filterName isEqualToString:@"highPitch"]){
+        
+        changeRatePitchNode.pitch = 1000;
+        
+        [self.audioEngine attachNode:changeRatePitchNode];
+        
+        [self.audioEngine connect:self.audioPlayerNode to:changeRatePitchNode format:self.audioFile.processingFormat];
+        [self.audioEngine connect:changeRatePitchNode to:self.audioEngine.outputNode format:self.audioFile.processingFormat];
+        
+        [self.audioPlayerNode stop];
+        [self.audioPlayerNode scheduleFile:self.audioFile atTime:nil completionHandler:nil];
+        
+        [self.audioEngine startAndReturnError:nil];
+        [self.audioPlayerNode setVolume:10.0];
+        [self.audioPlayerNode play];
+        
+    } else if ([filterName isEqualToString:@"lowPitch"]){
+        
+        changeRatePitchNode.rate = .90;
+        changeRatePitchNode.pitch = -400;
+        [reverbNode loadFactoryPreset:AVAudioUnitReverbPresetMediumHall];
+        [reverbNode setWetDryMix:16];
+        
+        [self.audioEngine attachNode:changeRatePitchNode];
+        [self.audioEngine attachNode:reverbNode];
+        
+        [self.audioEngine connect:self.audioPlayerNode to:changeRatePitchNode format:self.audioFile.processingFormat];
+        [self.audioEngine connect:changeRatePitchNode to:reverbNode format:self.audioFile.processingFormat];
+        [self.audioEngine connect:reverbNode to:self.audioEngine.outputNode format:self.audioFile.processingFormat];
+        
+        [self.audioPlayerNode stop];
+        [self.audioPlayerNode scheduleFile:self.audioFile atTime:nil completionHandler:nil];
+        
+        [self.audioEngine startAndReturnError:nil];
+        [self.audioPlayerNode setVolume:10.0];
+        [self.audioPlayerNode play];
+        
+    } else if ([filterName isEqualToString:@"echo"]){
+        
+        [echoNode loadFactoryPreset:AVAudioUnitDistortionPresetMultiEcho1];
+        
+        [self.audioEngine attachNode:echoNode];
+        
+        [self.audioEngine connect:self.audioPlayerNode to:echoNode format:self.audioFile.processingFormat];
+        [self.audioEngine connect:echoNode to:self.audioEngine.outputNode format:self.audioFile.processingFormat];
+        
+        [self.audioPlayerNode stop];
+        [self.audioPlayerNode scheduleFile:self.audioFile atTime:nil completionHandler:nil];
+        
+        [self.audioEngine startAndReturnError:nil];
+        [self.audioPlayerNode setVolume:10.0];
+        [self.audioPlayerNode play];
+        
+    } else if ([filterName isEqualToString:@"reverb"]){
+        
+        [reverbNode loadFactoryPreset:AVAudioUnitReverbPresetCathedral];
+        [reverbNode setWetDryMix:50];
+        
+        [self.audioEngine attachNode:reverbNode];
+        
+        [self.audioEngine connect:self.audioPlayerNode to:reverbNode format:self.audioFile.processingFormat];
+        [self.audioEngine connect:reverbNode to:self.audioEngine.outputNode format:self.audioFile.processingFormat];
+        
+        [self.audioPlayerNode stop];
+        [self.audioPlayerNode scheduleFile:self.audioFile atTime:nil completionHandler:nil];
+        
+        [self.audioEngine startAndReturnError:nil];
+        [self.audioPlayerNode setVolume:10.0];
+        [self.audioPlayerNode play];
+        
+    }else{
+        
+        self.player = [[AVAudioPlayer alloc] initWithContentsOfURL:url error:nil];
+        self.player.volume = 10.0;
+        [self.player play];
+    }
 }
 
 @end

@@ -23,8 +23,6 @@
 @property (nonatomic, strong) NSDate *createdAt;
 @property (nonatomic, strong) NSMutableArray *likedByUsername;
 
-+ (void) postUserAudio: ( AVAudioFile * _Nullable )audio withImage: ( UIImage * _Nullable )image withCaption: ( NSString * _Nullable )caption withCompletion: (PFBooleanResultBlock  _Nullable)completion;
-
 + (void) postUserAudio: ( AVAudioFile * _Nullable )audio withFilter:( NSString * _Nullable )filter withImage: ( UIImage * _Nullable )image withCaption: ( NSString * _Nullable )caption withCompletion: (PFBooleanResultBlock  _Nullable)completion;
 
 - (void) like;

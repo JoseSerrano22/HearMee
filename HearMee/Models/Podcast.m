@@ -10,6 +10,7 @@
 @implementation Podcast
 
 - (id)initWithDictionary:(NSDictionary *)dictionary {
+    
     self = [super init];
 
     self.artistName = dictionary[@"artistName"];
@@ -26,7 +27,7 @@
 }
 
 + (NSArray *)podcastsWithDictionaries:(NSArray *)dictionaries {
-    // Implement this function
+    
     NSMutableArray *podcasts = [[NSMutableArray alloc ] init];
     for (NSDictionary *dictionary in dictionaries) {
         Podcast *podcast = [[Podcast alloc] initWithDictionary:dictionary];

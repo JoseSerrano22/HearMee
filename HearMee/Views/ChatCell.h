@@ -19,7 +19,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) IBOutlet UILabel *const usernameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *const messageLabel;
 @property (weak, nonatomic) IBOutlet UILabel *const timestampLabel;
-@property (weak, nonatomic) IBOutlet UIView *bubbleView;
+@property (weak, nonatomic) IBOutlet UIView *const bubbleView;
 
 @property (strong, nonatomic) ChatMessage *message;
 

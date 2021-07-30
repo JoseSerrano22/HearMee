@@ -20,7 +20,6 @@
 + (void) postChannelTitle: ( NSString * _Nullable )title withImage: ( UIImage * _Nullable )image withCaption: ( NSString * _Nullable )caption withCompletion: (PFBooleanResultBlock  _Nullable)completion {
     
     Channels *newChannel = [Channels new];
-    
     newChannel.title = title;
     newChannel.image = [self getPFFileFromImage:image];
     newChannel.caption = caption;

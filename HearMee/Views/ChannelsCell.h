@@ -12,9 +12,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface ChannelsCell : UITableViewCell
 
-@property (weak, nonatomic) IBOutlet UIImageView *channelImage;
-@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
-@property (weak, nonatomic) IBOutlet UILabel *captionLabel;
+@property (weak, nonatomic) IBOutlet UIImageView *const channelImage;
+@property (weak, nonatomic) IBOutlet UILabel *const titleLabel;
+@property (weak, nonatomic) IBOutlet UILabel *const captionLabel;
 
 @property (strong, nonatomic) Channels *channel;
 
