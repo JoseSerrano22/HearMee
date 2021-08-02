@@ -10,6 +10,7 @@
 @implementation ChatCell
 
 -(void)setMessage:(ChatMessage *)message{
+    
     _message = message;
     
     self.profileImage.layer.cornerRadius = self.profileImage.frame.size.width / 2;
@@ -25,7 +26,6 @@
     self.usernameLabel.text = message.author.username;
     self.bubbleView.layer.cornerRadius = 16;
     self.bubbleView.clipsToBounds = true;
-    
     
     NSString *const createdAtOriginalString = self.timestampLabel.text = [NSString stringWithFormat:@"%@", message.createdAt];
     NSDateFormatter *const formatter = [[NSDateFormatter alloc] init];

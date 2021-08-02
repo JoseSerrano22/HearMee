@@ -11,6 +11,7 @@
 @implementation PodcastSearchCell
 
 -(void)setPodcast:(Podcast *) podcast{
+    
     _podcast = podcast;
     
     self.podcastNameLabel.text = podcast.trackName;

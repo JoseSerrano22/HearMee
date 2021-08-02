@@ -21,6 +21,7 @@
 @property (nonatomic, strong) UIRefreshControl *const refreshControl;
 @property (nonatomic) BOOL isMoreDataLoading;
 @property (nonatomic) int skipCount;
+
 @end
 
 @implementation FeedViewController
@@ -42,7 +43,9 @@
 #pragma mark - Private
 
 - (void)_fetchPosts {
+    
     [[APIManager shared] fetchAllPosts:^(NSArray * _Nonnull posts, NSError * _Nonnull error) {
+        
             if(posts){
                 self.posts = (NSMutableArray *) posts;
                 [self.tableView reloadData];
@@ -55,6 +58,7 @@
     }
 
 - (void)_loadMoreData {
+    
     PFQuery *const query = [PFQuery queryWithClassName:@"Post"];
     
     query.limit = 20 * self.skipCount;
@@ -63,7 +67,6 @@
     
     [query findObjectsInBackgroundWithBlock:^(NSArray *posts, NSError *error) {
         if (posts != nil) {
-            
             self.isMoreDataLoading = false;
             self.posts = (NSMutableArray *) posts;
             NSLog(@"Posts added to array");
@@ -90,6 +93,7 @@
 #pragma mark - UIScrollViewDelegate
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    
     if(!self.isMoreDataLoading){
         int scrollViewContentHeight = self.tableView.contentSize.height;
         int scrollOffsetThreshold = scrollViewContentHeight - self.tableView.bounds.size.height;

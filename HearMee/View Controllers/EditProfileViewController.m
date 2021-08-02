@@ -22,6 +22,7 @@
 @implementation EditProfileViewController
 
 - (void)viewDidLoad {
+    
     [super viewDidLoad];
     
     self.usernameField.delegate = self;
@@ -107,11 +108,13 @@
 }
 
 -(void)_dismissKeyboard {
+    
     [self.usernameField resignFirstResponder];
     [self.bioField resignFirstResponder];
 }
 
 - (BOOL)_isTextFieldEmpty {
+    
     BOOL flag = FALSE;
     
     if ([self.usernameField.text isEqual:@""]) {
@@ -139,11 +142,13 @@
 #pragma mark - UITextFieldDelegate
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField{
+    
     [textField resignFirstResponder];
     return YES;
 }
 
 - (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text {
+    
     if([text isEqualToString:@"\n"]) {
         [textView resignFirstResponder];
         return NO;
@@ -154,6 +159,7 @@
 #pragma mark - UIImagePickerControllerDelegate
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info {
+    
     UIImage *const editedImage = info[UIImagePickerControllerEditedImage];
     self.profileImage.image = editedImage;
     [self dismissViewControllerAnimated:YES completion:nil];

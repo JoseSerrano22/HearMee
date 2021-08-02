@@ -20,6 +20,7 @@
 @implementation PodcastSearchViewController
 
 - (void)viewDidLoad {
+    
     [super viewDidLoad];
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
@@ -28,14 +29,15 @@
     [self _fetchPodcasts];
 }
 
+#pragma mark - private
+
 - (void)_fetchPodcasts {
     
-    NSString *searchText = self.searchBar.text;
+    NSString *const searchText = self.searchBar.text;
     [searchText stringByReplacingOccurrencesOfString:@" " withString:@""];
     [searchText lowercaseString];
     
     [[APIManager shared] getPodcastwithCompletion:^(NSArray * _Nonnull podcasts, NSError * _Nonnull error) {
-        
         if(podcasts){
             self.podcasts = (NSMutableArray *) podcasts;
             [self.tableView reloadData];
@@ -45,6 +47,8 @@
         
     } withNamePodcast:searchText];
 }
+
+#pragma mark - UITableViewDataSource
 
 - (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
     PodcastSearchCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"PodcastSearchCell"];
@@ -56,21 +60,27 @@
     return  self.podcasts.count;
 }
 
+#pragma mark - UITableViewDelegate
+
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    
     [self.tableView deselectRowAtIndexPath:[self.tableView indexPathForSelectedRow] animated:YES];
     [self.view endEditing:YES];
-    
     PodcastSearchCell *cell = [tableView cellForRowAtIndexPath:indexPath];
     UIApplication *application = [UIApplication sharedApplication];
     [application openURL:cell.trackViewUrl options:@{} completionHandler:nil];
 }
 
+#pragma mark - NSTextField
 
 - (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText{
         [self _fetchPodcasts];
 }
 
+#pragma mark - UISearchBarDelegate
+
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar {
+    
     NSLog(@"Search Clicked");
     [self _fetchPodcasts];
     [self.view endEditing:YES];

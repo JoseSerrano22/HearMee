@@ -24,12 +24,12 @@
 @property (weak, nonatomic) IBOutlet UILabel *const commentLabel;
 @property (weak, nonatomic) IBOutlet UIButton *const bookmarkLabel;
 @property (weak, nonatomic) IBOutlet UILabel *const captionLabel;
-@property (weak, nonatomic) IBOutlet UIVisualEffectView *visualEffectView;
+@property (weak, nonatomic) IBOutlet UIVisualEffectView *const visualEffectView;
+@property (weak, nonatomic) IBOutlet UITableView *const tableView;
 @property (nonatomic,strong) AVAudioPlayer *const player;
 @property (strong,nonatomic) AVAudioEngine *const audioEngine;
 @property (strong, nonatomic)  AVAudioPlayerNode *const audioPlayerNode;
 @property (strong,nonatomic) AVAudioFile *const audioFile;
-@property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) NSMutableArray *const commentArray;
 @property (nonatomic, strong) UIRefreshControl *const refreshControl;
 
@@ -38,12 +38,12 @@
 @implementation DetailsViewController
 
 - (void)viewDidLoad {
+    
     [super viewDidLoad];
-    NSLog(@"%@",self.post);
     
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
-//    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     
     [self _setPostFromCell];
     [self _fetchComments];
@@ -104,6 +104,7 @@
 }
 
 - (void)_fetchComments {
+    
     [[APIManager shared] fetchAllComments:^(NSArray * _Nonnull comments, NSError * _Nonnull error) {
         
         if (comments){
@@ -125,6 +126,7 @@
 }
 
 - (IBAction)_didTapFavorite:(id)sender {
+    
     if(self.likeButton.selected){
         self.likeButton.selected = false;
         [self.likeButton setSelected:NO];
@@ -144,6 +146,7 @@
 }
 
 -(void)_postGestureDidTap: (id)sender{
+    
     if(!self.likeButton.selected) {
         self.likeButton.selected = true;
         [self.likeButton setSelected:YES];
@@ -182,6 +185,7 @@
 }
 
 - (IBAction)_backwardDidTap:(id)sender {
+    
     NSTimeInterval time = self.player.currentTime;
     time -= 3;
     
@@ -193,6 +197,7 @@
 }
 
 - (IBAction)_forwardDidTap:(id)sender {
+    
     NSTimeInterval time = self.player.currentTime;
     time += 3;
     
@@ -325,7 +330,7 @@
 }
 
 -(void)_showInputAlertComment {
-    UIAlertController *alertVC=[UIAlertController alertControllerWithTitle:@"Comment" message:@"" preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertController *const alertVC = [UIAlertController alertControllerWithTitle:@"Comment" message:@"" preferredStyle:UIAlertControllerStyleAlert];
     
     [alertVC addTextFieldWithConfigurationHandler:^(UITextField * _Nonnull textField) {
         {
@@ -339,8 +344,8 @@
     }];
     [alertVC addAction:cancelAction];
     
-    UIAlertAction *action=[UIAlertAction actionWithTitle:@"Post" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-        NSString *comment=alertVC.textFields[0].text;
+    UIAlertAction *const action = [UIAlertAction actionWithTitle:@"Post" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        NSString *const comment = alertVC.textFields[0].text;
         
         [Comment postComment:comment withPostID:self.post withCompletion:nil];
         self.post.commentCount = [NSNumber numberWithInteger:([self.post.commentCount intValue] + 1)];

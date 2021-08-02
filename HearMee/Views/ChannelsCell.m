@@ -10,6 +10,7 @@
 @implementation ChannelsCell
 
 -(void)setChannel:(Channels *)channel{
+    
     _channel = channel;
     
     self.captionLabel.text = channel.caption;

@@ -58,6 +58,7 @@
 #pragma mark - Private
 
 - (void)_fetchPosts {
+    
     [[APIManager shared] fetchAllProfile:^(NSArray * _Nonnull posts, NSError * _Nonnull error) {
         if(posts){
             self.posts = (NSMutableArray *) posts;
@@ -81,19 +82,14 @@
         }
         [self.refreshControl endRefreshing];
     }];
-    
-    PFQuery *const query = [PFQuery queryWithClassName:@"Post"];
-    [query orderByDescending:@"createdAt"];
-    [query includeKey:@"author"];
-    [query whereKey:@"author" equalTo:[PFUser currentUser]];
 }
 
 #pragma mark - UICollectionViewDataSource
 
 - (nonnull __kindof UICollectionViewCell *)collectionView:(nonnull UICollectionView *)collectionView cellForItemAtIndexPath:(nonnull NSIndexPath *)indexPath {
+    
     PostCollectionCell *const cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"PostCollectionCell" forIndexPath:indexPath];
     cell.post = self.posts[indexPath.item];
-    
     return cell;
 }
 
@@ -104,6 +100,7 @@
 #pragma mark - Navigation
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    
     if ([[segue identifier] isEqualToString:@"detailsProfileSegue"]){
         PostCollectionCell *const tappedCell = sender;
         NSIndexPath *const indexPath = [self.collectionView indexPathForCell:tappedCell];

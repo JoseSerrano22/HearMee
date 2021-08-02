@@ -12,11 +12,13 @@
 #import "Post.h"
 
 @interface ChatViewController () < UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate>
+
 @property (weak, nonatomic) IBOutlet UITableView *const tableView;
 @property (weak, nonatomic) IBOutlet UITextField *const messageField;
 @property (weak, nonatomic) IBOutlet UIButton *const sendButton;
 @property (nonatomic, strong) UIRefreshControl *const refreshControl;
 @property (strong, nonatomic) NSMutableArray *const messageArray;
+
 @end
 
 @implementation ChatViewController
@@ -42,6 +44,7 @@
 #pragma mark - Private
 
 - (void)_fetchMessages {
+    
     [[APIManager shared] fetchAllMessage:^(NSArray * _Nonnull messages, NSError * _Nonnull error) {
         if(messages){
             self.messageArray = (NSMutableArray *) messages;
@@ -69,6 +72,7 @@
 #pragma mark - UITableViewDataSource
 
 - (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
+    
     ChatCell *const cell = [tableView dequeueReusableCellWithIdentifier:@"ChatCell" forIndexPath:indexPath];
     ChatMessage *const message = self.messageArray[indexPath.row];
     cell.message = message;
@@ -82,6 +86,7 @@
 #pragma mark - UITextFieldDelegate
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField{
+    
     [textField resignFirstResponder];
     return YES;
 }

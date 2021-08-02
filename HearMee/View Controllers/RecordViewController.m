@@ -25,6 +25,7 @@
 @property (nonatomic,strong) NSArray *const path;
 @property (nonatomic,retain) AVAudioRecorder *const recorder;
 @property (nonatomic,strong) AVAudioPlayer *const player;
+
 @end
 
 @implementation RecordViewController
@@ -57,6 +58,7 @@
 #pragma mark - Private
 
 - (IBAction)_playDidTap:(id)sender {
+    
     if (!self.recorder.recording){
         self.player = [[AVAudioPlayer alloc] initWithContentsOfURL:self.recorder.url error:nil];
         [self.player setDelegate:self];
@@ -66,12 +68,14 @@
 }
 
 - (IBAction)_stopDidTap:(id)sender {
+    
     [self.recorder stop];
     AVAudioSession *const audioSession = [AVAudioSession sharedInstance];
     [audioSession setActive:NO error:nil];
 }
 
 - (IBAction)_recordDidTap:(id)sender {
+    
     if (self.player.playing) { [self.player stop]; }
     
     if (!self.recorder.recording) {
@@ -95,6 +99,7 @@
 }
 
 - (IBAction)_backwardDidTap:(id)sender {
+    
     NSTimeInterval time = self.player.currentTime;
     time -= 3;
     
@@ -106,6 +111,7 @@
 }
 
 - (IBAction)_forwardDidTap:(id)sender {
+    
     NSTimeInterval time = self.player.currentTime;
     time += 3;
     
@@ -119,6 +125,7 @@
 #pragma mark - AVAudioRecorderDelegate
 
 - (void) audioRecorderDidFinishRecording:(AVAudioRecorder *)avrecorder successfully:(BOOL)flag{
+    
     [self.recordButton setTitle:@"Record" forState:UIControlStateNormal];
     [self.stopButton setHidden:NO];
     [self.playButton setHidden:NO];
@@ -128,6 +135,7 @@
 #pragma mark - AVAudioPlayerDelegate
 
 - (void) audioPlayerDidFinishPlaying:(AVAudioPlayer *)player successfully:(BOOL)flag{
+     
     UIAlertController *const alertPrompt = [UIAlertController
                                             alertControllerWithTitle:@"Completed"
                                             message:@"The Recording has been Finished"
@@ -141,8 +149,8 @@
 #pragma mark - Navigation
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    
     if ([[segue identifier] isEqualToString:@"audioFilterSegue"]){
-        
         UINavigationController *const nav = [segue destinationViewController];
         AudioFilterViewController *const audioFilterVC = (AudioFilterViewController *)[nav topViewController];
         audioFilterVC.audioFile = [[AVAudioFile alloc] initForReading:self.recorder.url error:nil];

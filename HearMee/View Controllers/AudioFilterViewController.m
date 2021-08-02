@@ -11,18 +11,13 @@
 
 @interface AudioFilterViewController ()
 
-@property (strong,nonatomic) AVAudioEngine *audioEngine;
-@property (strong, nonatomic)  AVAudioPlayerNode *audioPlayerNode;
-@property (strong, nonatomic) NSString *filterName;
+@property (strong,nonatomic) AVAudioEngine *const audioEngine;
+@property (strong, nonatomic)  AVAudioPlayerNode *const audioPlayerNode;
+@property (strong, nonatomic) NSString *const filterName;
 
 @end
 
 @implementation AudioFilterViewController
-
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    // Do any additional setup after loading the view
-}
 
 - (IBAction)_backDidTap:(id)sender {
     [self dismissViewControllerAnimated:YES completion:nil];
@@ -182,8 +177,8 @@
 #pragma mark - Navigation
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    
     if ([[segue identifier] isEqualToString:@"postSegue"]){
-        
         UINavigationController *const nav = [segue destinationViewController];
         PostRecordViewController *const postRecordVC = (PostRecordViewController *)[nav topViewController];
         postRecordVC.audioFile = self.audioFile;

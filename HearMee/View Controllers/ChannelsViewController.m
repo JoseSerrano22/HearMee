@@ -51,7 +51,7 @@
 }
 
 -(void)_showInputAlert {
-    UIAlertController *alertVC=[UIAlertController alertControllerWithTitle:@"Create Channel" message:@"" preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertController *const alertVC = [UIAlertController alertControllerWithTitle:@"Create Channel" message:@"" preferredStyle:UIAlertControllerStyleAlert];
     
     [alertVC addTextFieldWithConfigurationHandler:^(UITextField * _Nonnull textField) {
         {
@@ -71,9 +71,9 @@
     }];
     [alertVC addAction:cancelAction];
     
-    UIAlertAction *action=[UIAlertAction actionWithTitle:@"Done" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-        NSString *title=alertVC.textFields[0].text;
-        NSString *caption=alertVC.textFields[1].text;
+    UIAlertAction *const action = [UIAlertAction actionWithTitle:@"Done" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        NSString *const title = alertVC.textFields[0].text;
+        NSString *const caption = alertVC.textFields[1].text;
         
         [Channels postChannelTitle:title withImage:nil withCaption:caption withCompletion:nil];
     }];
@@ -85,6 +85,7 @@
 #pragma mark - UITableViewDataSource
 
 - (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
+    
     ChannelsCell *const cell = [tableView dequeueReusableCellWithIdentifier:@"ChannelsCell" forIndexPath:indexPath];
     Channels *const channel = self.channelsArray[indexPath.row];
     cell.channel = channel;
@@ -105,6 +106,7 @@
 #pragma mark - Navigation
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    
     UINavigationController *const nav = [segue destinationViewController];
     ChatViewController *chatVC = (ChatViewController *)[nav topViewController];
     UITableViewCell *cell = sender;

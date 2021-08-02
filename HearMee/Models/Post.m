@@ -40,7 +40,6 @@
     [newPost saveInBackgroundWithBlock: completion];
 }
 
-
 + (PFFileObject *)getPFFileFromImage: (UIImage * _Nullable)image {
 
     if (!image) {return nil;}

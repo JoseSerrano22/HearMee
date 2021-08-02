@@ -10,6 +10,7 @@
 @implementation CommentCell
 
 -(void)setComment:(Comment *)comment{
+    
     _comment = comment;
     
     self.profileImage.layer.cornerRadius = self.profileImage.frame.size.width / 2;
