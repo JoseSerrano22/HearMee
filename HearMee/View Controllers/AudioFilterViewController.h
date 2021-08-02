@@ -12,7 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface AudioFilterViewController : UIViewController
 
-@property (strong, nonatomic) AVAudioFile *const audioFile;
+@property (strong, nonatomic) AVAudioFile *audioFile;
 
 @end
 

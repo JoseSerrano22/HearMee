@@ -12,8 +12,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface PostRecordViewController : UIViewController
 
-@property (strong, nonatomic) AVAudioFile *const audioFile;
-@property (strong, nonatomic) NSString *const filterName;
+@property (strong, nonatomic) AVAudioFile *audioFile;
+@property (strong, nonatomic) NSString *filterName;
 
 @end
 
