@@ -24,7 +24,7 @@
     
     self.captionTextView.delegate = self;
     self.postImage.userInteractionEnabled = YES;
-    UITapGestureRecognizer *const tapGesture1 = [[UITapGestureRecognizer alloc] initWithTarget:self  action:@selector(_tapImageGesture:)];
+    UITapGestureRecognizer *const tapGesture1 = [[UITapGestureRecognizer alloc] initWithTarget:self  action:@selector(_imageGestureDidTap:)];
     tapGesture1.numberOfTapsRequired = 1;
     [self.postImage addGestureRecognizer:tapGesture1];
 }

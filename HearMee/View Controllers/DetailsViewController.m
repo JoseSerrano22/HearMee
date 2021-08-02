@@ -9,8 +9,10 @@
 #import "UIImageView+AFNetworking.h"
 #import "DateTools.h"
 #import "AVFoundation/AVFoundation.h"
+#import "CommentCell.h"
+#import "APIManager.h"
 
-@interface DetailsViewController ()
+@interface DetailsViewController () <UITableViewDataSource, UITableViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UIImageView *const profileImage;
 @property (weak, nonatomic) IBOutlet UILabel *const usernameLabel;
@@ -22,19 +24,43 @@
 @property (weak, nonatomic) IBOutlet UILabel *const commentLabel;
 @property (weak, nonatomic) IBOutlet UIButton *const bookmarkLabel;
 @property (weak, nonatomic) IBOutlet UILabel *const captionLabel;
+@property (weak, nonatomic) IBOutlet UIVisualEffectView *visualEffectView;
 @property (nonatomic,strong) AVAudioPlayer *const player;
 @property (strong,nonatomic) AVAudioEngine *const audioEngine;
 @property (strong, nonatomic)  AVAudioPlayerNode *const audioPlayerNode;
 @property (strong,nonatomic) AVAudioFile *const audioFile;
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (strong, nonatomic) NSMutableArray *const commentArray;
+@property (nonatomic, strong) UIRefreshControl *const refreshControl;
 
 @end
 
 @implementation DetailsViewController
 
 - (void)viewDidLoad {
-    
     [super viewDidLoad];
     NSLog(@"%@",self.post);
+    
+    self.tableView.delegate = self;
+    self.tableView.dataSource = self;
+//    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    
+    [self _setPostFromCell];
+    [self _fetchComments];
+    
+    UITapGestureRecognizer *const tapGesturePost = [[UITapGestureRecognizer alloc] initWithTarget:self  action:@selector(_postGestureDidTap:)];
+    tapGesturePost.numberOfTapsRequired = 2;
+    [self.visualEffectView addGestureRecognizer:tapGesturePost];
+    
+    self.refreshControl = [[UIRefreshControl alloc] init];
+    [self.refreshControl addTarget:self action:@selector(_fetchComments) forControlEvents:UIControlEventValueChanged];
+    [self.tableView insertSubview:self.refreshControl atIndex:0];
+}
+
+#pragma mark - Private
+
+-(void)_setPostFromCell{
+    
     PFUser *const user = self.post.author;
     
     self.usernameLabel.text = user.username;
@@ -77,10 +103,25 @@
     }
 }
 
-#pragma mark - Private
+- (void)_fetchComments {
+    [[APIManager shared] fetchAllComments:^(NSArray * _Nonnull comments, NSError * _Nonnull error) {
+        
+        if (comments){
+            self.commentArray = (NSMutableArray *) comments;
+            [self.tableView reloadData];
+        } else{
+            NSLog(@"%@", error.localizedDescription);
+        }
+        [self.refreshControl endRefreshing];
+    } withPost:self.post];
+}
 
 - (IBAction)_backDidTap:(id)sender {
     [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (IBAction)_commentDidTap:(id)sender {
+    [self _showInputAlertComment];
 }
 
 - (IBAction)_didTapFavorite:(id)sender {
@@ -94,14 +135,25 @@
         self.likeButton.selected = true;
         [self.likeButton setSelected:YES];
         self.post.likeCount = [NSNumber numberWithInteger:([self.post.likeCount intValue] + 1)];
-        
         if(!self.post.likedByUsername) {
             self.post.likedByUsername = [NSMutableArray new];
         }
         [self.post like];
     }
     self.likeLabel.text = [NSString stringWithFormat:@"%@", self.post.likeCount];
-    
+}
+
+-(void)_postGestureDidTap: (id)sender{
+    if(!self.likeButton.selected) {
+        self.likeButton.selected = true;
+        [self.likeButton setSelected:YES];
+        self.post.likeCount = [NSNumber numberWithInteger:([self.post.likeCount intValue] + 1)];
+        if(!self.post.likedByUsername) {
+            self.post.likedByUsername = [NSMutableArray new];
+        }
+        [self.post like];
+    }
+    self.likeLabel.text = [NSString stringWithFormat:@"%@", self.post.likeCount];
 }
 
 - (IBAction)_playAudioDidTap:(id)sender {
@@ -270,6 +322,53 @@
         self.player.volume = 10.0;
         [self.player play];
     }
+}
+
+-(void)_showInputAlertComment {
+    UIAlertController *alertVC=[UIAlertController alertControllerWithTitle:@"Comment" message:@"" preferredStyle:UIAlertControllerStyleAlert];
+    
+    [alertVC addTextFieldWithConfigurationHandler:^(UITextField * _Nonnull textField) {
+        {
+            textField.clearButtonMode=UITextFieldViewModeWhileEditing;
+        }
+    }];
+    
+    UIAlertAction *const cancelAction = [UIAlertAction actionWithTitle:@"Cancel"
+                                                                 style:UIAlertActionStyleDefault
+                                                               handler:^(UIAlertAction * _Nonnull action) {
+    }];
+    [alertVC addAction:cancelAction];
+    
+    UIAlertAction *action=[UIAlertAction actionWithTitle:@"Post" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        NSString *comment=alertVC.textFields[0].text;
+        
+        [Comment postComment:comment withPostID:self.post withCompletion:nil];
+        self.post.commentCount = [NSNumber numberWithInteger:([self.post.commentCount intValue] + 1)];
+        self.commentLabel.text = [NSString stringWithFormat:@"%@", self.post.commentCount];
+    }];
+    
+    [alertVC addAction:action];
+    [self presentViewController:alertVC animated:true completion:nil];
+}
+
+#pragma mark - UITableViewDataSource
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return self.commentArray.count;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    CommentCell *const cell = [tableView dequeueReusableCellWithIdentifier:@"CommentCell" forIndexPath:indexPath];
+    Comment *const comment = self.commentArray[indexPath.row];
+    cell.comment = comment;
+    return cell;
+}
+
+#pragma mark - UITableViewDelegate
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [self.tableView deselectRowAtIndexPath:[self.tableView indexPathForSelectedRow] animated:YES];
 }
 
 @end

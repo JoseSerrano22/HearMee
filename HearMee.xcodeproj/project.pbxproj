@@ -11,6 +11,8 @@
 		0C5C35CBB5D875D00EEB9B66 /* Pods_HearMeeTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 583108E6510B460D0D070636 /* Pods_HearMeeTests.framework */; };
 		4B58545A62C0B757B0162D09 /* Pods_HearMee.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D1B3E8361C7D680FDCA6D870 /* Pods_HearMee.framework */; };
 		710BADC526AF75C700FE4ECE /* AudioFilterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 710BADC426AF75C700FE4ECE /* AudioFilterViewController.m */; };
+		717CE7B926B78C2A009308E2 /* Comment.m in Sources */ = {isa = PBXBuildFile; fileRef = 717CE7B826B78C2A009308E2 /* Comment.m */; };
+		717CE7BC26B85BF5009308E2 /* CommentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 717CE7BB26B85BF5009308E2 /* CommentCell.m */; };
 		7185E7C726B0EECB00E9559C /* Keys.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7185E7C626B0EECB00E9559C /* Keys.plist */; };
 		7196BC2226A0C58C00C600FD /* ChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7196BC2126A0C58C00C600FD /* ChatViewController.m */; };
 		7196BC2B26A5D9A500C600FD /* ChatCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7196BC2A26A5D9A500C600FD /* ChatCell.m */; };
@@ -69,6 +71,10 @@
 		6C1FD242FECD201E482B5B53 /* Pods-HearMeeTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HearMeeTests.debug.xcconfig"; path = "Target Support Files/Pods-HearMeeTests/Pods-HearMeeTests.debug.xcconfig"; sourceTree = "<group>"; };
 		710BADC326AF75C700FE4ECE /* AudioFilterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AudioFilterViewController.h; sourceTree = "<group>"; };
 		710BADC426AF75C700FE4ECE /* AudioFilterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AudioFilterViewController.m; sourceTree = "<group>"; };
+		717CE7B726B78C2A009308E2 /* Comment.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Comment.h; sourceTree = "<group>"; };
+		717CE7B826B78C2A009308E2 /* Comment.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Comment.m; sourceTree = "<group>"; };
+		717CE7BA26B85BF5009308E2 /* CommentCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CommentCell.h; sourceTree = "<group>"; };
+		717CE7BB26B85BF5009308E2 /* CommentCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CommentCell.m; sourceTree = "<group>"; };
 		7185E7C626B0EECB00E9559C /* Keys.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Keys.plist; sourceTree = "<group>"; };
 		7196BC2026A0C58C00C600FD /* ChatViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChatViewController.h; sourceTree = "<group>"; };
 		7196BC2126A0C58C00C600FD /* ChatViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChatViewController.m; sourceTree = "<group>"; };
@@ -287,6 +293,8 @@
 				7196BC3A26A75B0000C600FD /* ChannelsCell.m */,
 				71F9002726B1E338000DAE96 /* PodcastSearchCell.h */,
 				71F9002826B1E338000DAE96 /* PodcastSearchCell.m */,
+				717CE7BA26B85BF5009308E2 /* CommentCell.h */,
+				717CE7BB26B85BF5009308E2 /* CommentCell.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -302,6 +310,8 @@
 				7196BC3426A756AC00C600FD /* Channels.m */,
 				71F9003626B20360000DAE96 /* Podcast.h */,
 				71F9003726B20360000DAE96 /* Podcast.m */,
+				717CE7B726B78C2A009308E2 /* Comment.h */,
+				717CE7B826B78C2A009308E2 /* Comment.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -584,9 +594,11 @@
 				7196BC2B26A5D9A500C600FD /* ChatCell.m in Sources */,
 				71F9002926B1E338000DAE96 /* PodcastSearchCell.m in Sources */,
 				7196BC3226A6364200C600FD /* ChatMessage.m in Sources */,
+				717CE7B926B78C2A009308E2 /* Comment.m in Sources */,
 				71F9003826B20360000DAE96 /* Podcast.m in Sources */,
 				7196BC3B26A75B0000C600FD /* ChannelsCell.m in Sources */,
 				71CD70D3269F39B900F1C990 /* PostCell.m in Sources */,
+				717CE7BC26B85BF5009308E2 /* CommentCell.m in Sources */,
 				71CD70CD269DE6BE00F1C990 /* RecordViewController.m in Sources */,
 				71FEB9B526B46C67000F149B /* PostRecordViewController.m in Sources */,
 				7196BC4A26A8E91C00C600FD /* UIImage+Extension.m in Sources */,

@@ -10,7 +10,6 @@
 @implementation PostCell
 
 -(void)setPost:(Post *)post{
-    
     _post = post;
     
     self.profileImage.layer.cornerRadius = self.profileImage.frame.size.width / 2;
@@ -34,7 +33,7 @@
     self.likeLabel.text = [NSString stringWithFormat:@"%@", self.post.likeCount];
     self.commentLabel.text = [NSString stringWithFormat:@"%@", self.post.commentCount];
     self.likeButton.selected = [self.post.likedByUsername containsObject:PFUser.currentUser.objectId];
-    
+        
     NSString *const createdAtOriginalString = self.timestampLabel.text = [NSString stringWithFormat:@"%@", post.createdAt];
     NSDateFormatter *const formatter = [[NSDateFormatter alloc] init];
     formatter.dateFormat = @"YYYY-MM-dd HH:mm:ss z";

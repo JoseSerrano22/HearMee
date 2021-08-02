@@ -10,6 +10,7 @@
 #import "Post.h"
 #import "ChatMessage.h"
 #import "Channels.h"
+#import "Comment.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -24,6 +25,8 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)fetchAllChannels:(void(^)(NSArray *channel, NSError *error))completion;
 
 - (void)fetchAllMessage:(void(^)(NSArray *messages, NSError *error))completion withChannel:(Channels * _Nullable)channel;
+
+- (void)fetchAllComments:(void(^)(NSArray *comments, NSError *error))completion withPost:(Post * _Nullable)post;
 
 - (void)fetchAllProfile:(void(^)(NSArray *posts, NSError *error))completion;
 

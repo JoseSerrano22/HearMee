@@ -76,6 +76,19 @@
     }];
 }
 
+- (void)fetchAllComments:(void(^)(NSArray *comments, NSError *error))completion withPost:(Post * _Nullable)post {
+    
+    PFQuery *const commentQuery = [Comment query];
+    [commentQuery orderByDescending:@"createdAt"];
+    [commentQuery includeKey:@"author"];
+    [commentQuery includeKey:@"postID"];
+    [commentQuery whereKey:@"postID" equalTo:post];
+    
+    [commentQuery findObjectsInBackgroundWithBlock:^(NSArray<Comment *> * _Nullable comments, NSError * _Nullable error) {
+        completion(comments, error);
+    }];
+}
+
 - (void)fetchAllProfile:(void(^)(NSArray *posts, NSError *error))completion {
     
     PFQuery *const postQuery = [Post query];

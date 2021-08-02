@@ -43,9 +43,9 @@
     self.profileImage.clipsToBounds = YES;
     
     self.profileImage.userInteractionEnabled = YES;
-    UITapGestureRecognizer *const tapGesture1 = [[UITapGestureRecognizer alloc] initWithTarget:self  action:@selector(_tapImageGesture:)];
-    tapGesture1.numberOfTapsRequired = 1;
-    [self.profileImage addGestureRecognizer:tapGesture1];
+    UITapGestureRecognizer *const tapGestureImage = [[UITapGestureRecognizer alloc] initWithTarget:self  action:@selector(_imageGestureDidTap:)];
+    tapGestureImage.numberOfTapsRequired = 1;
+    [self.profileImage addGestureRecognizer:tapGestureImage];
 }
 
 #pragma mark - Private
@@ -73,7 +73,7 @@
     }
 }
 
-- (void)_tapImageGesture: (id)sender {
+- (void)_imageGestureDidTap: (id)sender {
     
     UIImagePickerController *const imagePickerVC = [UIImagePickerController new];
     imagePickerVC.delegate = self;
