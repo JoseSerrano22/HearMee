@@ -1,0 +1,6 @@
+framework module DORDoneHUD {
+  umbrella header "DORDoneHUD-umbrella.h"
+
+  export *
+  module * { export * }
+}

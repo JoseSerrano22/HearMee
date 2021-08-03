@@ -9,6 +9,7 @@
 #import "AVFoundation/AVFoundation.h"
 #import "FeedViewController.h"
 #import "AudioFilterViewController.h"
+#import "DORDoneHUD.h"
 #import "UIImage+Extension.h"
 #import "Parse/Parse.h"
 #import "PFObject.h"
@@ -135,15 +136,7 @@
 #pragma mark - AVAudioPlayerDelegate
 
 - (void) audioPlayerDidFinishPlaying:(AVAudioPlayer *)player successfully:(BOOL)flag{
-     
-    UIAlertController *const alertPrompt = [UIAlertController
-                                            alertControllerWithTitle:@"Completed"
-                                            message:@"The Recording has been Finished"
-                                            preferredStyle:UIAlertControllerStyleAlert];
-    
-    UIAlertAction *const action = [UIAlertAction actionWithTitle:@"Okay" style:UIAlertActionStyleCancel handler:nil];
-    [alertPrompt addAction:action];
-    [self presentViewController:alertPrompt animated:YES completion:nil];
+    [DORDoneHUD show:self.view message:@"Completed"];
 }
 
 #pragma mark - Navigation

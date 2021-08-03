@@ -9,6 +9,8 @@ target 'HearMee' do
 	pod 'Parse'
 	pod 'AFNetworking'
   	pod 'DateTools'
+	pod "DORDoneHUD"
+	pod 'LSAnimator', '~> 2.1.3'
 
   target 'HearMeeTests' do
     inherit! :search_paths

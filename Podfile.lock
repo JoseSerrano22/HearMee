@@ -16,6 +16,8 @@ PODS:
     - AFNetworking/NSURLSession
   - Bolts/Tasks (1.9.1)
   - DateTools (2.0.0)
+  - DORDoneHUD (0.1.0)
+  - LSAnimator (2.1.4)
   - Parse (1.19.2):
     - Parse/Core (= 1.19.2)
   - Parse/Core (1.19.2):
@@ -24,6 +26,8 @@ PODS:
 DEPENDENCIES:
   - AFNetworking
   - DateTools
+  - DORDoneHUD
+  - LSAnimator (~> 2.1.3)
   - Parse
 
 SPEC REPOS:
@@ -31,14 +35,18 @@ SPEC REPOS:
     - AFNetworking
     - Bolts
     - DateTools
+    - DORDoneHUD
+    - LSAnimator
     - Parse
 
 SPEC CHECKSUMS:
   AFNetworking: 7864c38297c79aaca1500c33288e429c3451fdce
   Bolts: 8c1e8aab2f603387b8b9924f57d1d64f43d3ffdc
   DateTools: 933ac9c490f21f92127cf690ccd8c397e0126caf
+  DORDoneHUD: 935f98589307717526703933e1bf27d4e69e26e1
+  LSAnimator: 9f13256cd41a31a0ad2269fa6238a3dd083472c3
   Parse: 081fb8755c3000fd11df817eec235def233d0af3
 
-PODFILE CHECKSUM: 900b0f3423b300b83fff3d2066629a51e6b8a930
+PODFILE CHECKSUM: 01d489ae8f135415459003362b05cd7ca9e882db
 
 COCOAPODS: 1.10.1

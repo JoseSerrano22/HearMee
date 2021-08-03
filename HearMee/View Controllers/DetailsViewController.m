@@ -11,6 +11,7 @@
 #import "AVFoundation/AVFoundation.h"
 #import "CommentCell.h"
 #import "APIManager.h"
+#import "LSAnimator.h"
 
 @interface DetailsViewController () <UITableViewDataSource, UITableViewDelegate>
 
@@ -25,6 +26,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *const bookmarkLabel;
 @property (weak, nonatomic) IBOutlet UILabel *const captionLabel;
 @property (weak, nonatomic) IBOutlet UIVisualEffectView *const visualEffectView;
+@property (weak, nonatomic) IBOutlet UIImageView *likeImage;
 @property (weak, nonatomic) IBOutlet UITableView *const tableView;
 @property (nonatomic,strong) AVAudioPlayer *const player;
 @property (strong,nonatomic) AVAudioEngine *const audioEngine;
@@ -48,7 +50,7 @@
     [self _setPostFromCell];
     [self _fetchComments];
     
-    UITapGestureRecognizer *const tapGesturePost = [[UITapGestureRecognizer alloc] initWithTarget:self  action:@selector(_postGestureDidTap:)];
+    UITapGestureRecognizer *const tapGesturePost = [[UITapGestureRecognizer alloc] initWithTarget:self  action:@selector(_favoriteGestureDidTap:)];
     tapGesturePost.numberOfTapsRequired = 2;
     [self.visualEffectView addGestureRecognizer:tapGesturePost];
     
@@ -145,7 +147,13 @@
     self.likeLabel.text = [NSString stringWithFormat:@"%@", self.post.likeCount];
 }
 
--(void)_postGestureDidTap: (id)sender{
+-(void)_favoriteGestureDidTap: (id)sender{
+    
+    LSAnimator *heartAnimator = [LSAnimator animatorWithView:self.likeImage];
+    self.likeImage.alpha = 1;
+    heartAnimator.transformScale(1.7).bounce.spring.makeOpacity(0).animateWithCompletion(1.5, ^{
+        heartAnimator.transformScale(1/1.7).animate(0.1);
+    });
     
     if(!self.likeButton.selected) {
         self.likeButton.selected = true;

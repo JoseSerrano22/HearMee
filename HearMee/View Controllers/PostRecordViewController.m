@@ -8,6 +8,7 @@
 #import "PostRecordViewController.h"
 #import "FeedViewController.h"
 #import "UIImage+Extension.h"
+#import "DORDoneHUD.h"
 #import "Post.h"
 
 @interface PostRecordViewController () <UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextViewDelegate>
@@ -40,7 +41,11 @@
     
     UIImage *const resizeImage = [UIImage _resizeImage:self.postImage.image withSize:(CGSizeMake(400, 400))];
     [Post postUserAudio:self.audioFile withFilter:self.filterName withImage:resizeImage withCaption:self.captionTextView.text withCompletion:nil];
-    [self.view.window.rootViewController dismissViewControllerAnimated:true completion:nil];
+    [DORDoneHUD show:self.view message:@"Posted!"];
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 0.85 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
+        [self.view.window.rootViewController dismissViewControllerAnimated:true completion:nil];
+    });
 }
 
 - (void)_tapImageGesture: (id)sender {
