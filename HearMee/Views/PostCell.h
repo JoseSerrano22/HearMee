@@ -11,6 +11,7 @@
 #import "DateTools.h"
 #import "AVFoundation/AVFoundation.h"
 #import "UIImageView+AFNetworking.h"
+#import "AVAudioPlayerNode+Extension.h"
 
 NS_ASSUME_NONNULL_BEGIN
 

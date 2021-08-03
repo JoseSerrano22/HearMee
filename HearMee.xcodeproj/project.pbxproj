@@ -10,6 +10,7 @@
 		208CD28B221BDC273D3A4D6D /* Pods_HearMee_HearMeeUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BECE48C14A383AB07A2F0174 /* Pods_HearMee_HearMeeUITests.framework */; };
 		710BADC526AF75C700FE4ECE /* AudioFilterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 710BADC426AF75C700FE4ECE /* AudioFilterViewController.m */; };
 		7145A73026B8B31B0029441D /* LSAnimator.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7145A72C26B8B2DF0029441D /* LSAnimator.framework */; };
+		7145A73926B98EB80029441D /* AVAudioPlayerNode+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 7145A73826B98EB80029441D /* AVAudioPlayerNode+Extension.m */; };
 		717CE7B926B78C2A009308E2 /* Comment.m in Sources */ = {isa = PBXBuildFile; fileRef = 717CE7B826B78C2A009308E2 /* Comment.m */; };
 		717CE7BC26B85BF5009308E2 /* CommentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 717CE7BB26B85BF5009308E2 /* CommentCell.m */; };
 		7185E7C726B0EECB00E9559C /* Keys.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7185E7C626B0EECB00E9559C /* Keys.plist */; };
@@ -70,6 +71,8 @@
 		710BADC326AF75C700FE4ECE /* AudioFilterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AudioFilterViewController.h; sourceTree = "<group>"; };
 		710BADC426AF75C700FE4ECE /* AudioFilterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AudioFilterViewController.m; sourceTree = "<group>"; };
 		7145A72C26B8B2DF0029441D /* LSAnimator.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = LSAnimator.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7145A73726B98EB80029441D /* AVAudioPlayerNode+Extension.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AVAudioPlayerNode+Extension.h"; sourceTree = "<group>"; };
+		7145A73826B98EB80029441D /* AVAudioPlayerNode+Extension.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "AVAudioPlayerNode+Extension.m"; sourceTree = "<group>"; };
 		717CE7B726B78C2A009308E2 /* Comment.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Comment.h; sourceTree = "<group>"; };
 		717CE7B826B78C2A009308E2 /* Comment.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Comment.m; sourceTree = "<group>"; };
 		717CE7BA26B85BF5009308E2 /* CommentCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CommentCell.h; sourceTree = "<group>"; };
@@ -188,6 +191,8 @@
 			children = (
 				7196BC4826A8E91C00C600FD /* UIImage+Extension.h */,
 				7196BC4926A8E91C00C600FD /* UIImage+Extension.m */,
+				7145A73726B98EB80029441D /* AVAudioPlayerNode+Extension.h */,
+				7145A73826B98EB80029441D /* AVAudioPlayerNode+Extension.m */,
 			);
 			path = extensions;
 			sourceTree = "<group>";
@@ -595,6 +600,7 @@
 				71F9002626B1DF8B000DAE96 /* PodcastSearchViewController.m in Sources */,
 				71CD70D6269FCD8B00F1C990 /* PostCollectionCell.m in Sources */,
 				71CD70DC269FCE6E00F1C990 /* ProfileViewController.m in Sources */,
+				7145A73926B98EB80029441D /* AVAudioPlayerNode+Extension.m in Sources */,
 				7196BC2B26A5D9A500C600FD /* ChatCell.m in Sources */,
 				71F9002926B1E338000DAE96 /* PodcastSearchCell.m in Sources */,
 				7196BC3226A6364200C600FD /* ChatMessage.m in Sources */,
