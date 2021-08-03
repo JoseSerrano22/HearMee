@@ -13,6 +13,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 +(void)typeOfAudioFilter:(NSString * _Nullable)filterName withAudioFile:(AVAudioFile * _Nullable)audioFile withAudioEngine:(AVAudioEngine * _Nullable)audioEngine withAudioPlayerNode:(AVAudioPlayerNode * _Nullable)audioPlayerNode withAudioPlayer:(AVAudioPlayer * _Nullable)player withURL:(NSURL * _Nullable)url;
 
++(void)playAudioPlayerNode:(AVAudioPlayerNode * _Nullable)audioPlayerNode withAudioEngine:(AVAudioEngine * _Nullable)audioEngine withAudioFile:(AVAudioFile * _Nullable)audioFile;
+
 @end
 
 NS_ASSUME_NONNULL_END
