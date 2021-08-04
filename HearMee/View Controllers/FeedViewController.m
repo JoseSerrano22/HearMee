@@ -6,7 +6,6 @@
 //
 
 #import "FeedViewController.h"
-#import "LoginViewController.h"
 #import "DetailsViewController.h"
 #import "APIManager.h"
 #import "AppDelegate.h"
@@ -77,17 +76,6 @@
         }
     }];
     self.skipCount++;
-}
-
-- (IBAction)_logOutDidTap:(id)sender {
-    
-    [PFUser logOutInBackgroundWithBlock:^(NSError * _Nullable error) {
-        UIStoryboard *const storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-        LoginViewController *const loginViewController = [storyboard instantiateViewControllerWithIdentifier:@"LoginViewController"];
-        [UIApplication.sharedApplication.windows.lastObject.rootViewController
-            presentViewController:loginViewController animated:YES completion:nil];
-        NSLog(@"Logged out!");
-    }];
 }
 
 #pragma mark - UIScrollViewDelegate

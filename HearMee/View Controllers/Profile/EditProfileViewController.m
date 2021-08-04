@@ -6,8 +6,10 @@
 //
 
 #import "EditProfileViewController.h"
+#import "LoginViewController.h"
 #import "UIImageView+AFNetworking.h"
 #import "UIImage+Extension.h"
+#import "AppDelegate.h"
 #import <Parse/Parse.h>
 #import "Post.h"
 
@@ -51,8 +53,15 @@
 
 #pragma mark - Private
 
-- (IBAction)_cancelDidTap:(id)sender {
-    [self dismissViewControllerAnimated:YES completion:nil];
+- (IBAction)_logOutDidTap:(id)sender {
+    
+    [PFUser logOutInBackgroundWithBlock:^(NSError * _Nullable error) {
+        UIStoryboard *const storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        LoginViewController *const loginViewController = [storyboard instantiateViewControllerWithIdentifier:@"LoginViewController"];
+        [UIApplication.sharedApplication.windows.lastObject.rootViewController
+            presentViewController:loginViewController animated:YES completion:nil];
+        NSLog(@"Logged out!");
+    }];
 }
 
 - (IBAction)_saveDidTap:(id)sender {

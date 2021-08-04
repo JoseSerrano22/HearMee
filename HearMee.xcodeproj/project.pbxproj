@@ -177,6 +177,41 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7145A73A26B9F4E00029441D /* Record */ = {
+			isa = PBXGroup;
+			children = (
+				71CD70CB269DE6BE00F1C990 /* RecordViewController.h */,
+				71CD70CC269DE6BE00F1C990 /* RecordViewController.m */,
+				710BADC326AF75C700FE4ECE /* AudioFilterViewController.h */,
+				710BADC426AF75C700FE4ECE /* AudioFilterViewController.m */,
+				71FEB9B326B46C67000F149B /* PostRecordViewController.h */,
+				71FEB9B426B46C67000F149B /* PostRecordViewController.m */,
+			);
+			path = Record;
+			sourceTree = "<group>";
+		};
+		7145A73B26B9F51A0029441D /* Chat */ = {
+			isa = PBXGroup;
+			children = (
+				7196BC2026A0C58C00C600FD /* ChatViewController.h */,
+				7196BC2126A0C58C00C600FD /* ChatViewController.m */,
+				7196BC3626A75AB700C600FD /* ChannelsViewController.h */,
+				7196BC3726A75AB700C600FD /* ChannelsViewController.m */,
+			);
+			path = Chat;
+			sourceTree = "<group>";
+		};
+		7145A73C26B9F5350029441D /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				71CD70DA269FCE6E00F1C990 /* ProfileViewController.h */,
+				71CD70DB269FCE6E00F1C990 /* ProfileViewController.m */,
+				71CD70DD269FCE8800F1C990 /* EditProfileViewController.h */,
+				71CD70DE269FCE8800F1C990 /* EditProfileViewController.m */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
 		7196BC3C26A8E36D00C600FD /* API */ = {
 			isa = PBXGroup;
 			children = (
@@ -262,28 +297,17 @@
 		71D274B5269CBD3F0063780C /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				7145A73C26B9F5350029441D /* Profile */,
+				7145A73B26B9F51A0029441D /* Chat */,
+				7145A73A26B9F4E00029441D /* Record */,
 				71D274B8269CBE080063780C /* LoginViewController.h */,
 				71D274B9269CBE080063780C /* LoginViewController.m */,
 				71F73763269CE3B200C25ED3 /* FeedViewController.h */,
 				71F73764269CE3B200C25ED3 /* FeedViewController.m */,
-				71CD70CB269DE6BE00F1C990 /* RecordViewController.h */,
-				71CD70CC269DE6BE00F1C990 /* RecordViewController.m */,
-				71CD70DA269FCE6E00F1C990 /* ProfileViewController.h */,
-				71CD70DB269FCE6E00F1C990 /* ProfileViewController.m */,
-				71CD70DD269FCE8800F1C990 /* EditProfileViewController.h */,
-				71CD70DE269FCE8800F1C990 /* EditProfileViewController.m */,
 				71AFC3D226A086DD006C4872 /* DetailsViewController.h */,
 				71AFC3D326A086DD006C4872 /* DetailsViewController.m */,
-				7196BC2026A0C58C00C600FD /* ChatViewController.h */,
-				7196BC2126A0C58C00C600FD /* ChatViewController.m */,
-				7196BC3626A75AB700C600FD /* ChannelsViewController.h */,
-				7196BC3726A75AB700C600FD /* ChannelsViewController.m */,
-				710BADC326AF75C700FE4ECE /* AudioFilterViewController.h */,
-				710BADC426AF75C700FE4ECE /* AudioFilterViewController.m */,
 				71F9002426B1DF8B000DAE96 /* PodcastSearchViewController.h */,
 				71F9002526B1DF8B000DAE96 /* PodcastSearchViewController.m */,
-				71FEB9B326B46C67000F149B /* PostRecordViewController.h */,
-				71FEB9B426B46C67000F149B /* PostRecordViewController.m */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
