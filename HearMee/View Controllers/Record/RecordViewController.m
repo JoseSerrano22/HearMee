@@ -9,6 +9,7 @@
 #import "AVFoundation/AVFoundation.h"
 #import "FeedViewController.h"
 #import "AudioFilterViewController.h"
+#import "UIImageView+AFNetworking.h"
 #import "DORDoneHUD.h"
 #import "UIImage+Extension.h"
 #import "Parse/Parse.h"
@@ -19,10 +20,10 @@
 @interface RecordViewController () < AVAudioRecorderDelegate, AVAudioPlayerDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UIButton *const playButton;
-@property (weak, nonatomic) IBOutlet UIButton *const stopButton;
 @property (weak, nonatomic) IBOutlet UIButton *const recordButton;
-@property (weak, nonatomic) IBOutlet UIButton *backwardButtton;
-@property (weak, nonatomic) IBOutlet UIButton *forwardButton;
+@property (weak, nonatomic) IBOutlet UIButton *const backwardButtton;
+@property (weak, nonatomic) IBOutlet UIButton *const forwardButton;
+@property (weak, nonatomic) IBOutlet UIImageView *const profileImage;
 @property (nonatomic,strong) NSArray *const path;
 @property (nonatomic,retain) AVAudioRecorder *const recorder;
 @property (nonatomic,strong) AVAudioPlayer *const player;
@@ -33,6 +34,16 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    PFUser *const currentUser = PFUser.currentUser;
+    [currentUser fetchInBackgroundWithBlock:^(PFObject * _Nullable object, NSError * _Nullable error) {
+        PFFileObject *const image = currentUser[@"profile_image"];
+        NSURL *const url = [NSURL URLWithString:image.url];
+        [self.profileImage setImageWithURL:url];
+    }];
+    
+    self.profileImage.layer.cornerRadius = self.profileImage.frame.size.width / 2;
+    self.profileImage.clipsToBounds = YES;
     
     // Set the audio file
     self.path = [NSArray arrayWithObjects:[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject], @"AudioMemo.acc",nil];
@@ -61,18 +72,20 @@
 - (IBAction)_playDidTap:(id)sender {
     
     if (!self.recorder.recording){
-        self.player = [[AVAudioPlayer alloc] initWithContentsOfURL:self.recorder.url error:nil];
-        [self.player setDelegate:self];
-        self.player.volume = 10.0;
-        [self.player play];
+        
+        if(!self.player.isPlaying){
+            self.player = [[AVAudioPlayer alloc] initWithContentsOfURL:self.recorder.url error:nil];
+            [self.player setDelegate:self];
+            self.player.volume = 10.0;
+            [self.player play];
+            [self.playButton setImage:[UIImage imageNamed:@"pause-1.png"] forState:UIControlStateNormal];
+            
+        } else{
+            [self.player pause];
+            [self.playButton setImage:[UIImage imageNamed:@"play.png"] forState:UIControlStateNormal];
+            
+        }
     }
-}
-
-- (IBAction)_stopDidTap:(id)sender {
-    
-    [self.recorder stop];
-    AVAudioSession *const audioSession = [AVAudioSession sharedInstance];
-    [audioSession setActive:NO error:nil];
 }
 
 - (IBAction)_recordDidTap:(id)sender {
@@ -80,30 +93,33 @@
     if (self.player.playing) { [self.player stop]; }
     
     if (!self.recorder.recording) {
+        
         AVAudioSession *const session = [AVAudioSession sharedInstance];
         [session setActive:YES error:nil];
         
         // Start recording
         [self.recorder record];
-        [self.recordButton setTitle:@"Pause" forState:UIControlStateNormal];
+        [self.recordButton setImage:[UIImage imageNamed:@"Stop.png"] forState:UIControlStateNormal];
         
     } else {
         
         // Pause recording
-        [self.recorder pause];
-        [self.recordButton setTitle:@"Record" forState:UIControlStateNormal];
+        [self.recorder stop];
+        AVAudioSession *const audioSession = [AVAudioSession sharedInstance];
+        [audioSession setActive:NO error:nil];
+        [self.recordButton setImage:[UIImage imageNamed:@"RecordButton.png"] forState:UIControlStateNormal];
     }
-    [self.stopButton setHidden:NO];
+    
     [self.playButton setHidden:NO];
     [self.backwardButtton setHidden:NO];
     [self.forwardButton setHidden:NO];
 }
 
 - (IBAction)_backwardDidTap:(id)sender {
-    
+
     NSTimeInterval time = self.player.currentTime;
     time -= 3;
-    
+
     if (time < 0){
         [self.player stop];
       } else {
@@ -112,10 +128,10 @@
 }
 
 - (IBAction)_forwardDidTap:(id)sender {
-    
+
     NSTimeInterval time = self.player.currentTime;
     time += 3;
-    
+
     if (time > self.player.duration){
         [self.player stop];
       } else {
@@ -128,7 +144,6 @@
 - (void) audioRecorderDidFinishRecording:(AVAudioRecorder *)avrecorder successfully:(BOOL)flag{
     
     [self.recordButton setTitle:@"Record" forState:UIControlStateNormal];
-    [self.stopButton setHidden:NO];
     [self.playButton setHidden:NO];
     
 }
@@ -136,6 +151,7 @@
 #pragma mark - AVAudioPlayerDelegate
 
 - (void) audioPlayerDidFinishPlaying:(AVAudioPlayer *)player successfully:(BOOL)flag{
+    [self.playButton setImage:[UIImage imageNamed:@"play.png"] forState:UIControlStateNormal];
     [DORDoneHUD show:self.view message:@"Completed"];
 }
 

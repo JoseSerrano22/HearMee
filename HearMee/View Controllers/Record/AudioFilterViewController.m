@@ -27,6 +27,10 @@
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
+- (IBAction)_stopDidTap:(id)sender {
+    [self.audioPlayerNode stop];
+}
+
 - (IBAction)_slowDidTap:(id)sender {
     
     self.filterName = @"slow";
@@ -66,6 +70,11 @@
     self.filterName = @"reverb";
     [self _initAudio];
     [AVAudioPlayerNode typeOfAudioFilter:self.filterName withAudioFile:self.audioFile withAudioEngine:self.audioEngine withAudioPlayerNode:self.audioPlayerNode withAudioPlayer:self.player withURL:nil];
+}
+
+- (IBAction)_resetDidTap:(id)sender {
+    self.filterName = @"";
+    self.player = [[AVAudioPlayer alloc] initWithContentsOfURL:self.audioFile.url error:nil];
 }
 
 -(void)_initAudio{

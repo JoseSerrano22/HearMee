@@ -99,30 +99,6 @@
     }];
 }
 
-- (IBAction)_backwardDidTap:(id)sender {
-    
-    NSTimeInterval time = self.player.currentTime;
-    time -= 3;
-    
-    if (time < 0){
-        [self.player stop];
-    } else {
-        self.player.currentTime = time;
-    }
-}
-
-- (IBAction)_forwardDidTap:(id)sender {
-    
-    NSTimeInterval time = self.player.currentTime;
-    time += 3;
-    
-    if (time > self.player.duration){
-        [self.player stop];
-    } else {
-        self.player.currentTime = time;
-    }
-}
-
 -(void)_initAudioWithUrl:(NSURL * _Nullable)url{
     self.audioFile = [[AVAudioFile alloc] initForReading:url error:nil];
     self.player = [[AVAudioPlayer alloc] initWithContentsOfURL:url error:nil];
