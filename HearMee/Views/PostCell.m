@@ -99,11 +99,43 @@
     }];
 }
 
+- (IBAction)_commentDidTap:(id)sender {
+    [self _showInputAlertComment];
+}
+
 -(void)_initAudioWithUrl:(NSURL * _Nullable)url{
     self.audioFile = [[AVAudioFile alloc] initForReading:url error:nil];
     self.player = [[AVAudioPlayer alloc] initWithContentsOfURL:url error:nil];
     self.audioEngine = [[AVAudioEngine alloc] init];
     self.audioPlayerNode = [[AVAudioPlayerNode alloc] init];
+}
+
+-(void)_showInputAlertComment {
+    UIAlertController *const alertVC = [UIAlertController alertControllerWithTitle:@"Comment" message:@"" preferredStyle:UIAlertControllerStyleAlert];
+    
+    [alertVC addTextFieldWithConfigurationHandler:^(UITextField * _Nonnull textField) {
+        {
+            textField.clearButtonMode=UITextFieldViewModeWhileEditing;
+        }
+    }];
+    
+    UIAlertAction *const cancelAction = [UIAlertAction actionWithTitle:@"Cancel"
+                                                                 style:UIAlertActionStyleDefault
+                                                               handler:^(UIAlertAction * _Nonnull action) {
+    }];
+    [alertVC addAction:cancelAction];
+    
+    UIAlertAction *const action = [UIAlertAction actionWithTitle:@"Post" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        NSString *const comment = alertVC.textFields[0].text;
+        
+        [Comment postComment:comment withPostID:self.post withCompletion:nil];
+        self.post.commentCount = [NSNumber numberWithInteger:([self.post.commentCount intValue] + 1)];
+        self.commentLabel.text = [NSString stringWithFormat:@"%@", self.post.commentCount];
+    }];
+    
+    [alertVC addAction:action];
+    [[[self window] rootViewController] presentViewController:alertVC animated:true completion:nil];
+//    [self presentViewController:alertVC animated:true completion:nil];
 }
 
 @end
